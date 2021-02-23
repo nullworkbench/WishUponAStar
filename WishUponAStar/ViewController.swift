@@ -60,7 +60,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         var ref: DocumentReference? = nil
         ref = db.collection("posts").addDocument(data: [
             "direction": currentDirection,
-            "wish": "健康でいられますように",
+            "wish": UserDefaults.standard.string(forKey: "wish") ?? "いいことありますように",
             "createdAt": FieldValue.serverTimestamp()
         ]) { err in
             if let err = err {
