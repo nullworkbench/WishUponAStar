@@ -43,6 +43,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let firestoreSettings = FirestoreSettings()
         Firestore.firestore().settings = firestoreSettings
         db = Firestore.firestore()
+        
+        // 更新を監視
+        db.collection("posts").addSnapshotListener{ (snapshot, err) in
+            guard let doc = snapshot else {
+                print("Error fetching documents: \(err!)")
+                return
+            }
+            doc.documentChanges.forEach{diff in
+                // 更新が追加だった場合
+                if diff.type == .added {
+                    print("new: \(diff.document.data())")
+                }
+            }
+        }
+        
+        let listener = db.collection("cities").addSnapshotListener { querySnapshot, error in}
+        listener.remove()
     }
     
     // 方角が変わると呼び出される
@@ -53,8 +70,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         currentDirection = Float(newHeading.magneticHeading)
     }
     
+    
     @IBAction func star() {
-        print(currentDirection)
+//        print(currentDirection)
         
         // post to firestore
         var ref: DocumentReference? = nil
@@ -71,15 +89,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
         
         // read all
-        db.collection("posts").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
-                }
-            }
-        }
+//        db.collection("posts").getDocuments() { (querySnapshot, err) in
+//            if let err = err {
+//                print("Error getting documents: \(err)")
+//            } else {
+//                for document in querySnapshot!.documents {
+//                    print("\(document.documentID) => \(document.data())")
+//                }
+//            }
+//        }
     }
 
 
