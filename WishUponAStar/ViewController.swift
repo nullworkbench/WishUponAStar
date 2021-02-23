@@ -54,12 +54,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 // 更新が追加だった場合
                 if diff.type == .added {
                     print("new: \(diff.document.data())")
+                    
+                    // PostViewをコンパスに追加
+                    let postView: PostView = PostView(frame: CGRect(x: 50, y: 0, width: 200, height: 100)) // サイズと位置を指定
+                    postView.wishLabel.text = diff.document.data()["wish"] as? String // 願いごとを代入
+                    self.view.addSubview(postView) // 親Viewに追加
                 }
             }
         }
         
-        let listener = db.collection("cities").addSnapshotListener { querySnapshot, error in}
-        listener.remove()
+//        let listener = db.collection("cities").addSnapshotListener { querySnapshot, error in}
+//        listener.remove()
     }
     
     // 方角が変わると呼び出される
