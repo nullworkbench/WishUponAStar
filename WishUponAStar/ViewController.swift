@@ -56,6 +56,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBAction func star() {
         print(currentDirection)
         
+        // post to firestore
+        var ref: DocumentReference? = nil
+        ref = db.collection("posts").addDocument(data: [
+            "direction": currentDirection,
+            "wish": "健康でいられますように",
+            "createdAt": FieldValue.serverTimestamp()
+        ]) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                print("Document added with ID: \(ref!.documentID)")
+            }
+        }
+        
         // read all
         db.collection("posts").getDocuments() { (querySnapshot, err) in
             if let err = err {
