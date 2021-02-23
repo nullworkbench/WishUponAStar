@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		046A8DE224E53B1F557D9BBB /* Pods_WishUponAStar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A58A16CF1BAF8CDBC18C2E1 /* Pods_WishUponAStar.framework */; };
+		385638CE87A2706E2FA0C1D9 /* Pods_WishUponAStarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72C91E65AD886FCBC59FF0F4 /* Pods_WishUponAStarTests.framework */; };
 		8B11F4A725E38E8500A5CB8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B11F4A625E38E8500A5CB8A /* AppDelegate.swift */; };
 		8B11F4A925E38E8500A5CB8A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B11F4A825E38E8500A5CB8A /* SceneDelegate.swift */; };
 		8B11F4AB25E38E8500A5CB8A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B11F4AA25E38E8500A5CB8A /* ViewController.swift */; };
@@ -16,6 +18,10 @@
 		8B11F4BE25E38E8700A5CB8A /* WishUponAStarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B11F4BD25E38E8700A5CB8A /* WishUponAStarTests.swift */; };
 		8B11F4C925E38E8700A5CB8A /* WishUponAStarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B11F4C825E38E8700A5CB8A /* WishUponAStarUITests.swift */; };
 		8B11F4DD25E390B100A5CB8A /* Designable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B11F4DC25E390B100A5CB8A /* Designable.swift */; };
+		8B11F4F525E4C18B00A5CB8A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B11F4F425E4C18B00A5CB8A /* GoogleService-Info.plist */; };
+		8B11F4F625E4C18B00A5CB8A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B11F4F425E4C18B00A5CB8A /* GoogleService-Info.plist */; };
+		8B11F4F725E4C18B00A5CB8A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B11F4F425E4C18B00A5CB8A /* GoogleService-Info.plist */; };
+		F549572D051CAA0266A67D5A /* Pods_WishUponAStar_WishUponAStarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F757143FCFB7A08DECC387A /* Pods_WishUponAStar_WishUponAStarUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +42,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		412F4B8F3B4375F7640673AD /* Pods-WishUponAStar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WishUponAStar.debug.xcconfig"; path = "Target Support Files/Pods-WishUponAStar/Pods-WishUponAStar.debug.xcconfig"; sourceTree = "<group>"; };
+		5F757143FCFB7A08DECC387A /* Pods_WishUponAStar_WishUponAStarUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WishUponAStar_WishUponAStarUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		61C6C43D1B2E296D7EA8F901 /* Pods-WishUponAStar-WishUponAStarUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WishUponAStar-WishUponAStarUITests.release.xcconfig"; path = "Target Support Files/Pods-WishUponAStar-WishUponAStarUITests/Pods-WishUponAStar-WishUponAStarUITests.release.xcconfig"; sourceTree = "<group>"; };
+		72C91E65AD886FCBC59FF0F4 /* Pods_WishUponAStarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WishUponAStarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A58A16CF1BAF8CDBC18C2E1 /* Pods_WishUponAStar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WishUponAStar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B11F4A325E38E8500A5CB8A /* WishUponAStar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WishUponAStar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B11F4A625E38E8500A5CB8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B11F4A825E38E8500A5CB8A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +62,11 @@
 		8B11F4C825E38E8700A5CB8A /* WishUponAStarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishUponAStarUITests.swift; sourceTree = "<group>"; };
 		8B11F4CA25E38E8700A5CB8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B11F4DC25E390B100A5CB8A /* Designable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Designable.swift; sourceTree = "<group>"; };
+		8B11F4F425E4C18B00A5CB8A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8F024FEC3048209432B1DEF2 /* Pods-WishUponAStarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WishUponAStarTests.release.xcconfig"; path = "Target Support Files/Pods-WishUponAStarTests/Pods-WishUponAStarTests.release.xcconfig"; sourceTree = "<group>"; };
+		C3D401196AD75A799D01D569 /* Pods-WishUponAStar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WishUponAStar.release.xcconfig"; path = "Target Support Files/Pods-WishUponAStar/Pods-WishUponAStar.release.xcconfig"; sourceTree = "<group>"; };
+		D9B298CAB6B155E6E968E886 /* Pods-WishUponAStarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WishUponAStarTests.debug.xcconfig"; path = "Target Support Files/Pods-WishUponAStarTests/Pods-WishUponAStarTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E0A398609BC6480E18AB61A2 /* Pods-WishUponAStar-WishUponAStarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WishUponAStar-WishUponAStarUITests.debug.xcconfig"; path = "Target Support Files/Pods-WishUponAStar-WishUponAStarUITests/Pods-WishUponAStar-WishUponAStarUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				046A8DE224E53B1F557D9BBB /* Pods_WishUponAStar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				385638CE87A2706E2FA0C1D9 /* Pods_WishUponAStarTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +90,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F549572D051CAA0266A67D5A /* Pods_WishUponAStar_WishUponAStarUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		229641DD3A578D5292FA28F3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8A58A16CF1BAF8CDBC18C2E1 /* Pods_WishUponAStar.framework */,
+				5F757143FCFB7A08DECC387A /* Pods_WishUponAStar_WishUponAStarUITests.framework */,
+				72C91E65AD886FCBC59FF0F4 /* Pods_WishUponAStarTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8B11F49A25E38E8500A5CB8A = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +114,8 @@
 				8B11F4BC25E38E8700A5CB8A /* WishUponAStarTests */,
 				8B11F4C725E38E8700A5CB8A /* WishUponAStarUITests */,
 				8B11F4A425E38E8500A5CB8A /* Products */,
+				8D79D637DAE29DFD652D5088 /* Pods */,
+				229641DD3A578D5292FA28F3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,6 +140,7 @@
 				8B11F4B125E38E8700A5CB8A /* LaunchScreen.storyboard */,
 				8B11F4B425E38E8700A5CB8A /* Info.plist */,
 				8B11F4DC25E390B100A5CB8A /* Designable.swift */,
+				8B11F4F425E4C18B00A5CB8A /* GoogleService-Info.plist */,
 			);
 			path = WishUponAStar;
 			sourceTree = "<group>";
@@ -131,6 +163,20 @@
 			path = WishUponAStarUITests;
 			sourceTree = "<group>";
 		};
+		8D79D637DAE29DFD652D5088 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				412F4B8F3B4375F7640673AD /* Pods-WishUponAStar.debug.xcconfig */,
+				C3D401196AD75A799D01D569 /* Pods-WishUponAStar.release.xcconfig */,
+				E0A398609BC6480E18AB61A2 /* Pods-WishUponAStar-WishUponAStarUITests.debug.xcconfig */,
+				61C6C43D1B2E296D7EA8F901 /* Pods-WishUponAStar-WishUponAStarUITests.release.xcconfig */,
+				D9B298CAB6B155E6E968E886 /* Pods-WishUponAStarTests.debug.xcconfig */,
+				8F024FEC3048209432B1DEF2 /* Pods-WishUponAStarTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,9 +184,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B11F4CD25E38E8800A5CB8A /* Build configuration list for PBXNativeTarget "WishUponAStar" */;
 			buildPhases = (
+				EB030946CD4B75FDD7C73D21 /* [CP] Check Pods Manifest.lock */,
 				8B11F49F25E38E8500A5CB8A /* Sources */,
 				8B11F4A025E38E8500A5CB8A /* Frameworks */,
 				8B11F4A125E38E8500A5CB8A /* Resources */,
+				FF001E37F7C3970106584945 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -155,6 +203,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B11F4D025E38E8800A5CB8A /* Build configuration list for PBXNativeTarget "WishUponAStarTests" */;
 			buildPhases = (
+				8060031FBDBED8A01AAE2B87 /* [CP] Check Pods Manifest.lock */,
 				8B11F4B525E38E8700A5CB8A /* Sources */,
 				8B11F4B625E38E8700A5CB8A /* Frameworks */,
 				8B11F4B725E38E8700A5CB8A /* Resources */,
@@ -173,9 +222,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B11F4D325E38E8800A5CB8A /* Build configuration list for PBXNativeTarget "WishUponAStarUITests" */;
 			buildPhases = (
+				462FF1012A663E8512CFB53E /* [CP] Check Pods Manifest.lock */,
 				8B11F4C025E38E8700A5CB8A /* Sources */,
 				8B11F4C125E38E8700A5CB8A /* Frameworks */,
 				8B11F4C225E38E8700A5CB8A /* Resources */,
+				CB7B4F178994FD5CEB921458 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -235,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B11F4B325E38E8700A5CB8A /* LaunchScreen.storyboard in Resources */,
+				8B11F4F525E4C18B00A5CB8A /* GoogleService-Info.plist in Resources */,
 				8B11F4B025E38E8700A5CB8A /* Assets.xcassets in Resources */,
 				8B11F4AE25E38E8500A5CB8A /* Main.storyboard in Resources */,
 			);
@@ -244,6 +296,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B11F4F625E4C18B00A5CB8A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,10 +304,114 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B11F4F725E4C18B00A5CB8A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		462FF1012A663E8512CFB53E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WishUponAStar-WishUponAStarUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8060031FBDBED8A01AAE2B87 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WishUponAStarTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CB7B4F178994FD5CEB921458 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WishUponAStar-WishUponAStarUITests/Pods-WishUponAStar-WishUponAStarUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WishUponAStar-WishUponAStarUITests/Pods-WishUponAStar-WishUponAStarUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WishUponAStar-WishUponAStarUITests/Pods-WishUponAStar-WishUponAStarUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB030946CD4B75FDD7C73D21 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WishUponAStar-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF001E37F7C3970106584945 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WishUponAStar/Pods-WishUponAStar-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WishUponAStar/Pods-WishUponAStar-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WishUponAStar/Pods-WishUponAStar-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8B11F49F25E38E8500A5CB8A /* Sources */ = {
@@ -437,6 +594,7 @@
 		};
 		8B11F4CE25E38E8800A5CB8A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 412F4B8F3B4375F7640673AD /* Pods-WishUponAStar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -457,6 +615,7 @@
 		};
 		8B11F4CF25E38E8800A5CB8A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3D401196AD75A799D01D569 /* Pods-WishUponAStar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -477,6 +636,7 @@
 		};
 		8B11F4D125E38E8800A5CB8A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9B298CAB6B155E6E968E886 /* Pods-WishUponAStarTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -499,6 +659,7 @@
 		};
 		8B11F4D225E38E8800A5CB8A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F024FEC3048209432B1DEF2 /* Pods-WishUponAStarTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -521,6 +682,7 @@
 		};
 		8B11F4D425E38E8800A5CB8A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0A398609BC6480E18AB61A2 /* Pods-WishUponAStar-WishUponAStarUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -541,6 +703,7 @@
 		};
 		8B11F4D525E38E8800A5CB8A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61C6C43D1B2E296D7EA8F901 /* Pods-WishUponAStar-WishUponAStarUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
