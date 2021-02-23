@@ -11,6 +11,10 @@ import UIKit
 class DesignableView: UIView {
 }
 
+@IBDesignable
+class DesignableButton: UIButton {
+}
+
 extension UIView {
     
     @IBInspectable

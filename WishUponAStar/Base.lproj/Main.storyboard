@@ -90,19 +90,39 @@
                                     <constraint firstAttribute="height" constant="70" id="WFv-sa-bBC"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xil-jK-Bnb" customClass="DesignableButton" customModule="WishUponAStar" customModuleProvider="target">
+                                <rect key="frame" x="155.5" y="718.5" width="103.5" height="103.5"/>
+                                <color key="backgroundColor" red="0.88235294117647056" green="0.79607843137254897" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Xil-jK-Bnb" secondAttribute="height" multiplier="1:1" id="5tY-gd-fno"/>
+                                </constraints>
+                                <state key="normal" title="Star">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="star" destination="BYZ-38-t0r" eventType="touchUpInside" id="PoE-VM-75r"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.14509803921568626" green="0.16078431372549018" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="Xil-jK-Bnb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="25A-rg-WRY"/>
                             <constraint firstItem="LlL-No-aqc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="70" id="9Rq-dT-B4Z"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Xil-jK-Bnb" secondAttribute="bottom" constant="40" id="SIP-TD-wmB"/>
                             <constraint firstItem="dMr-hb-L6n" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="120" id="X8y-dm-xlZ"/>
                             <constraint firstItem="LlL-No-aqc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="byL-7r-jAn"/>
+                            <constraint firstItem="Xil-jK-Bnb" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.25" id="mEz-Jk-UGA"/>
                             <constraint firstItem="dMr-hb-L6n" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="nMc-I3-iu1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dMr-hb-L6n" secondAttribute="trailing" constant="10" id="xVQ-Pu-3w3"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="compassView" destination="dMr-hb-L6n" id="h4j-it-Sua"/>
+                        <outlet property="starButton" destination="Xil-jK-Bnb" id="RcN-NU-MtH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -110,4 +130,9 @@
             <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="Xil-jK-Bnb">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+    </designables>
 </document>
