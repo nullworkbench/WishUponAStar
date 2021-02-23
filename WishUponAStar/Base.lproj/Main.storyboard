@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -13,14 +13,14 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WishUponAStar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dMr-hb-L6n" customClass="DesignableView" customModule="WishUponAStar" customModuleProvider="target">
-                                <rect key="frame" x="10" y="164" width="394" height="394"/>
+                                <rect key="frame" x="10" y="164" width="370" height="370"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Lj-9K-KmF">
-                                        <rect key="frame" x="182" y="20" width="30" height="30"/>
+                                        <rect key="frame" x="170" y="20" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="nbh-6j-AMr"/>
                                             <constraint firstAttribute="width" constant="30" id="t0C-YN-YXo"/>
@@ -30,7 +30,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kre-f8-jNF">
-                                        <rect key="frame" x="182" y="344" width="30" height="30"/>
+                                        <rect key="frame" x="170" y="320" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="2iO-2j-eog"/>
                                             <constraint firstAttribute="width" constant="30" id="vYN-J5-5in"/>
@@ -40,7 +40,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="W" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ve7-Yh-GWj">
-                                        <rect key="frame" x="20" y="182" width="30" height="30"/>
+                                        <rect key="frame" x="20" y="170" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="s9Q-pl-UJs"/>
                                             <constraint firstAttribute="width" constant="30" id="u97-wK-Vjm"/>
@@ -50,7 +50,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="noc-AF-FRO">
-                                        <rect key="frame" x="344" y="182" width="30" height="30"/>
+                                        <rect key="frame" x="320" y="170" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="HzO-Eb-yeT"/>
                                             <constraint firstAttribute="height" constant="30" id="Xgk-SL-fy5"/>
@@ -83,7 +83,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LlL-No-aqc">
-                                <rect key="frame" x="205.5" y="114" width="3" height="70"/>
+                                <rect key="frame" x="193.66666666666666" y="114" width="3" height="70"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="3" id="IHg-Zo-DF1"/>
@@ -91,7 +91,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xil-jK-Bnb" customClass="DesignableButton" customModule="WishUponAStar" customModuleProvider="target">
-                                <rect key="frame" x="155.5" y="718.5" width="103.5" height="103.5"/>
+                                <rect key="frame" x="146.33333333333334" y="672.66666666666663" width="97.333333333333343" height="97.333333333333371"/>
                                 <color key="backgroundColor" red="0.88235294117647056" green="0.79607843137254897" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Xil-jK-Bnb" secondAttribute="height" multiplier="1:1" id="5tY-gd-fno"/>
@@ -106,14 +106,34 @@
                                     <action selector="star" destination="BYZ-38-t0r" eventType="touchUpInside" id="PoE-VM-75r"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sr0-Vp-aJ5" customClass="DesignableButton" customModule="WishUponAStar" customModuleProvider="target">
+                                <rect key="frame" x="36.333333333333343" y="686.33333333333337" width="70" height="70"/>
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.57647058819999997" blue="0.63921568630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="sr0-Vp-aJ5" secondAttribute="height" multiplier="1:1" id="CLv-r4-kJp"/>
+                                    <constraint firstAttribute="width" constant="70" id="FpT-gZ-fH0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="14"/>
+                                <state key="normal" title="願いごと">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="N4X-K3-f7i" kind="presentation" id="3Mz-Om-HaW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.14509803921568626" green="0.16078431372549018" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Xil-jK-Bnb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="25A-rg-WRY"/>
                             <constraint firstItem="LlL-No-aqc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="70" id="9Rq-dT-B4Z"/>
+                            <constraint firstItem="sr0-Vp-aJ5" firstAttribute="centerY" secondItem="Xil-jK-Bnb" secondAttribute="centerY" id="Bc9-tS-fE7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Xil-jK-Bnb" secondAttribute="bottom" constant="40" id="SIP-TD-wmB"/>
                             <constraint firstItem="dMr-hb-L6n" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="120" id="X8y-dm-xlZ"/>
+                            <constraint firstItem="Xil-jK-Bnb" firstAttribute="leading" secondItem="sr0-Vp-aJ5" secondAttribute="trailing" constant="40" id="XQE-U4-d40"/>
                             <constraint firstItem="LlL-No-aqc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="byL-7r-jAn"/>
                             <constraint firstItem="Xil-jK-Bnb" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.25" id="mEz-Jk-UGA"/>
                             <constraint firstItem="dMr-hb-L6n" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="nMc-I3-iu1"/>
@@ -129,10 +149,90 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
+        <!--Wish View Controller-->
+        <scene sceneID="C0a-bc-iCe">
+            <objects>
+                <viewController id="N4X-K3-f7i" customClass="WishViewController" customModule="WishUponAStar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="L9W-7Y-yGr">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="願いごと" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="40s-4R-6B0">
+                                <rect key="frame" x="145" y="140" width="100" height="25"/>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="いいことありますように" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OKs-gf-noT">
+                                <rect key="frame" x="58.666666666666657" y="237.99999999999997" width="273" height="45.666666666666657"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.65128348214285714" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="OKs-gf-noT" secondAttribute="height" multiplier="6:1" id="aeM-Ji-XEk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K5A-f1-QQN" customClass="DesignableButton" customModule="WishUponAStar" customModuleProvider="target">
+                                <rect key="frame" x="97.666666666666686" y="483.66666666666669" width="195" height="48.666666666666686"/>
+                                <color key="backgroundColor" red="0.88235294119999996" green="0.79607843140000001" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="K5A-f1-QQN" secondAttribute="height" multiplier="4:1" id="Qk8-br-iXJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="15"/>
+                                <state key="normal" title="願いごとを設定">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isRoundedCorner" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="doneButton" destination="N4X-K3-f7i" eventType="touchUpInside" id="mfw-Os-5HO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tVx-kr-dHq">
+                                <rect key="frame" x="156.66666666666666" y="552.33333333333337" width="77" height="30"/>
+                                <state key="normal" title="キャンセル">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButton" destination="N4X-K3-f7i" eventType="touchUpInside" id="tgw-X9-g4r"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="XR4-XQ-UvB"/>
+                        <color key="backgroundColor" red="0.1450980392" green="0.16078431369999999" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="K5A-f1-QQN" firstAttribute="centerX" secondItem="L9W-7Y-yGr" secondAttribute="centerX" id="5eu-je-4Dz"/>
+                            <constraint firstItem="OKs-gf-noT" firstAttribute="top" secondItem="40s-4R-6B0" secondAttribute="bottom" constant="73" id="LXn-sA-zWb"/>
+                            <constraint firstItem="OKs-gf-noT" firstAttribute="centerX" secondItem="L9W-7Y-yGr" secondAttribute="centerX" id="cCl-CT-dVB"/>
+                            <constraint firstItem="K5A-f1-QQN" firstAttribute="width" secondItem="L9W-7Y-yGr" secondAttribute="width" multiplier="0.5" id="fVa-Sj-pyG"/>
+                            <constraint firstItem="tVx-kr-dHq" firstAttribute="centerX" secondItem="L9W-7Y-yGr" secondAttribute="centerX" id="hrA-K4-J82"/>
+                            <constraint firstItem="tVx-kr-dHq" firstAttribute="top" secondItem="K5A-f1-QQN" secondAttribute="bottom" constant="20" id="mWm-eR-fM0"/>
+                            <constraint firstItem="K5A-f1-QQN" firstAttribute="top" secondItem="OKs-gf-noT" secondAttribute="bottom" constant="200" id="n0K-r4-1Uk"/>
+                            <constraint firstItem="40s-4R-6B0" firstAttribute="centerX" secondItem="L9W-7Y-yGr" secondAttribute="centerX" id="oZT-EE-iPS"/>
+                            <constraint firstItem="40s-4R-6B0" firstAttribute="top" secondItem="XR4-XQ-UvB" secondAttribute="top" constant="140" id="rZM-Px-Rw9"/>
+                            <constraint firstItem="OKs-gf-noT" firstAttribute="width" secondItem="L9W-7Y-yGr" secondAttribute="width" multiplier="0.7" id="uqg-hS-xcy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="wishTextField" destination="OKs-gf-noT" id="mGh-Sw-LCM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ne5-X9-Egt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="921.73913043478262" y="137.94642857142856"/>
+        </scene>
     </scenes>
     <designables>
+        <designable name="K5A-f1-QQN">
+            <size key="intrinsicContentSize" width="105" height="27"/>
+        </designable>
         <designable name="Xil-jK-Bnb">
             <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="sr0-Vp-aJ5">
+            <size key="intrinsicContentSize" width="56" height="26"/>
         </designable>
     </designables>
 </document>

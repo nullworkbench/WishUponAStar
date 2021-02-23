@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,6 +21,7 @@
 		8B11F4F525E4C18B00A5CB8A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B11F4F425E4C18B00A5CB8A /* GoogleService-Info.plist */; };
 		8B11F4F625E4C18B00A5CB8A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B11F4F425E4C18B00A5CB8A /* GoogleService-Info.plist */; };
 		8B11F4F725E4C18B00A5CB8A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B11F4F425E4C18B00A5CB8A /* GoogleService-Info.plist */; };
+		8B52DE6A25E4D15A003CA9A9 /* WishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B52DE6925E4D15A003CA9A9 /* WishViewController.swift */; };
 		F549572D051CAA0266A67D5A /* Pods_WishUponAStar_WishUponAStarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F757143FCFB7A08DECC387A /* Pods_WishUponAStar_WishUponAStarUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		8B11F4CA25E38E8700A5CB8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B11F4DC25E390B100A5CB8A /* Designable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Designable.swift; sourceTree = "<group>"; };
 		8B11F4F425E4C18B00A5CB8A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8B52DE6925E4D15A003CA9A9 /* WishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishViewController.swift; sourceTree = "<group>"; };
 		8F024FEC3048209432B1DEF2 /* Pods-WishUponAStarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WishUponAStarTests.release.xcconfig"; path = "Target Support Files/Pods-WishUponAStarTests/Pods-WishUponAStarTests.release.xcconfig"; sourceTree = "<group>"; };
 		C3D401196AD75A799D01D569 /* Pods-WishUponAStar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WishUponAStar.release.xcconfig"; path = "Target Support Files/Pods-WishUponAStar/Pods-WishUponAStar.release.xcconfig"; sourceTree = "<group>"; };
 		D9B298CAB6B155E6E968E886 /* Pods-WishUponAStarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WishUponAStarTests.debug.xcconfig"; path = "Target Support Files/Pods-WishUponAStarTests/Pods-WishUponAStarTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				8B11F4B425E38E8700A5CB8A /* Info.plist */,
 				8B11F4DC25E390B100A5CB8A /* Designable.swift */,
 				8B11F4F425E4C18B00A5CB8A /* GoogleService-Info.plist */,
+				8B52DE6925E4D15A003CA9A9 /* WishViewController.swift */,
 			);
 			path = WishUponAStar;
 			sourceTree = "<group>";
@@ -173,7 +176,6 @@
 				D9B298CAB6B155E6E968E886 /* Pods-WishUponAStarTests.debug.xcconfig */,
 				8F024FEC3048209432B1DEF2 /* Pods-WishUponAStarTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -421,6 +423,7 @@
 				8B11F4AB25E38E8500A5CB8A /* ViewController.swift in Sources */,
 				8B11F4DD25E390B100A5CB8A /* Designable.swift in Sources */,
 				8B11F4A725E38E8500A5CB8A /* AppDelegate.swift in Sources */,
+				8B52DE6A25E4D15A003CA9A9 /* WishViewController.swift in Sources */,
 				8B11F4A925E38E8500A5CB8A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

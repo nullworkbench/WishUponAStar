@@ -30,6 +30,18 @@ extension UIView {
     }
     
     @IBInspectable
+    var isRoundedCorner: Bool {
+        get {
+            return true
+        }
+        set {
+            if newValue {
+                layer.cornerRadius =  self.frame.size.width / 6
+            }
+        }
+    }
+    
+    @IBInspectable
     var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius
