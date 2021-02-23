@@ -77,35 +77,36 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                     self.compassView.addSubview(starImageView)
                     
                     // starLabelViewを作成
-                    let starLabelViewPosX = starPosX + starSize / 2
-                    let starLabelViewPosY = starPosY - starSize / 5
-                    let starLabelViewSize = self.compassView.bounds.size.width * 0.3
-                    let starLabelView = UIView(frame: CGRect(x: starLabelViewPosX, y: starLabelViewPosY, width: starLabelViewSize, height: starLabelViewSize * 0.3))
-//                    let starLabelView = UIView()
+                    let starLabelView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
                     starLabelView.backgroundColor = UIColor(white: 1, alpha: 0.5) // 背景色
+                    starLabelView.translatesAutoresizingMaskIntoConstraints = false // コードによるAutoLayout有効化
                     // starLabel作成
-                    let starLabel = UILabel(frame: CGRect(x: 10, y: 0, width: starLabelViewSize - 20, height: starLabelViewSize * 0.3))
-//                    let starLabel = UILabel()
+                    let starLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
                     starLabel.text = data["wish"] as? String // 願いごとを代入
                     starLabel.font = UIFont(name: "Hiragino Maru Gothic ProN", size: 9) // フォント設定
+                    starLabel.textAlignment = .center // 中央揃え
+                    starLabel.sizeToFit()
+//                    starLabel.frame.size.width += 50 // padding
                     starLabel.textColor = UIColor.black // 文字色
-                    starLabel.backgroundColor = UIColor.clear // 背景色
+                    starLabel.backgroundColor = UIColor.white // 背景色
+                    starLabel.translatesAutoresizingMaskIntoConstraints = false // コードによるAutoLayout有効化
                     starLabelView.addSubview(starLabel) // starLabelViewに追加
-                    // AutoLayout
-//                    starLabelView.frame = self.view.frame
-//                    starLabel.frame = self.view.frame
-//                    NSLayoutConstraint.activate([
-//                        starLabelView.widthAnchor.constraint(greaterThanOrEqualToConstant: 50),
-//                        starLabelView.heightAnchor.constraint(equalToConstant: starLabelView.frame.size.width * 0.3),
-//                        starLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 50),
-//    //                    starLabel.leadingAnchor.constraint(equalTo: starLabelView.leftAnchor, constant: 10),
-//    //                    starLabel.trailingAnchor.constraint(equalTo: starLabelView.rightAnchor, constant: 10),
-//    //                    starLabel.topAnchor.constraint(equalTo: starLabelView.topAnchor, constant: 10),
-//    //                    starLabel.bottomAnchor.constraint(equalTo: starLabelView.bottomAnchor, constant: 10),
-//                    ])
-                    
-                    // starLabelViewをcompassViewに追加
+                    // starLabelViewをcompassViewに追加（必ずAutoLayoutより先に追加する）
                     self.compassView.addSubview(starLabelView)
+                    
+                    // AutoLayout
+                    NSLayoutConstraint.activate([
+                        starLabelView.leftAnchor.constraint(equalTo: starImageView.rightAnchor, constant: 10), // starImageViewの右端から10
+                        starLabelView.centerYAnchor.constraint(equalTo: starImageView.centerYAnchor, constant: 0), // starImageViewと中央揃え（Y）
+//                        starLabelView.widthAnchor.constraint(equalTo: starLabel.widthAnchor, multiplier: 1.1), // starLabelの1.1倍
+//                        starLabelView.heightAnchor.constraint(equalTo: starLabel.heightAnchor, multiplier: 1.2), // starLabelの1.2倍
+//                        starLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 10), // 10以上で文字数に合わせる
+//                        starLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 10), // 10以上で行数に合わせる
+//                        starLabel.leadingAnchor.constraint(equalTo: starLabelView.leftAnchor, constant: 10),
+//                        starLabel.trailingAnchor.constraint(equalTo: starLabelView.rightAnchor, constant: 10),
+//                        starLabel.topAnchor.constraint(equalTo: starLabelView.topAnchor, constant: 10),
+//                        starLabel.bottomAnchor.constraint(equalTo: starLabelView.bottomAnchor, constant: 10),
+                    ])
                 }
             }
         }
