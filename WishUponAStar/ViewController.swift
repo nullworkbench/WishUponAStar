@@ -8,6 +8,10 @@
 import UIKit
 import CoreLocation
 
+import FirebaseCore
+import FirebaseFirestore
+import FirebaseFirestoreSwift
+
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
     // ロケーションマネージャー定義
@@ -15,6 +19,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     // 現在の方角
     var currentDirection: Float = 0.0
+    
+    // Firestore
+    var db: Firestore!
     
     // コンパスのView
     @IBOutlet var compassView: UIView!
@@ -30,6 +37,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.headingFilter = 0.1
         // 方角の取得開始
         locationManager.startUpdatingHeading()
+        
+        
+        //Firestore
+        let firestoreSettings = FirestoreSettings()
+        Firestore.firestore().settings = firestoreSettings
+        db = Firestore.firestore()
     }
     
     // 方角が変わると呼び出される
@@ -42,6 +55,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func star() {
         print(currentDirection)
+        
+        // read all
+        db.collection("posts").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                }
+            }
+        }
     }
 
 
