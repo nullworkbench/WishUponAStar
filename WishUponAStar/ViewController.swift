@@ -53,12 +53,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             doc.documentChanges.forEach{diff in
                 // 更新が追加だった場合
                 if diff.type == .added {
-                    print("new: \(diff.document.data())")
+                    let data = diff.document.data()
+                    print("new: \(data)")
                     
                     // PostViewをコンパスに追加
-                    let postView: PostView = PostView(frame: CGRect(x: 50, y: 0, width: 200, height: 100)) // サイズと位置を指定
-                    postView.wishLabel.text = diff.document.data()["wish"] as? String // 願いごとを代入
-                    self.view.addSubview(postView) // 親Viewに追加
+                    let posX: CGFloat = self.calcXfromDirection((data["direction"] as? CGFloat)!)
+                    let posY: CGFloat = self.calcYfromDirection((data["direction"] as? CGFloat)!)
+                    let width: CGFloat = self.compassView.bounds.size.width * 0.5 // compassView幅の50%
+                    let height: CGFloat = width * 0.2 // width:height = 10:2
+                    let postView: PostView = PostView(frame: CGRect(x: posX - (width * 0.1), y: posY - (height / 2), width: width, height: height)) // サイズと位置を指定
+                    
+                    postView.wishLabel.text = data["wish"] as? String // 願いごとを代入
+                    self.compassView.addSubview(postView) // 親Viewに追加
                 }
             }
         }
@@ -73,6 +79,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         compassView.transform = CGAffineTransform(rotationAngle: CGFloat(-newHeading.magneticHeading) * CGFloat.pi / 180)
         // 現在の方角を更新
         currentDirection = Float(newHeading.magneticHeading)
+    }
+    
+    // 方角から位置を計算する
+    func calcXfromDirection(_ direction: CGFloat) -> CGFloat {
+        // compassViewの中心
+        let radius = self.compassView.bounds.size.width / 2
+        
+        // 原点からの距離を、角度と半径から計算
+        return (cos(degreeToRadian(direction-90)) * radius) + radius
+    }
+    
+    func calcYfromDirection(_ direction: CGFloat) -> CGFloat {
+        let radius = self.compassView.bounds.size.width / 2
+        
+        // 原点からの距離を、角度と半径から計算
+        return sin(degreeToRadian(direction-90)) * radius + radius
     }
     
     

@@ -24,6 +24,7 @@
 		8B52DE6A25E4D15A003CA9A9 /* WishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B52DE6925E4D15A003CA9A9 /* WishViewController.swift */; };
 		8B52DE7525E4E02C003CA9A9 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B52DE7425E4E02C003CA9A9 /* PostView.swift */; };
 		8B52DE7A25E4E045003CA9A9 /* PostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B52DE7925E4E045003CA9A9 /* PostView.xib */; };
+		8B52DE7F25E50A2B003CA9A9 /* ViewController_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B52DE7E25E50A2B003CA9A9 /* ViewController_Extension.swift */; };
 		F549572D051CAA0266A67D5A /* Pods_WishUponAStar_WishUponAStarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F757143FCFB7A08DECC387A /* Pods_WishUponAStar_WishUponAStarUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		8B52DE6925E4D15A003CA9A9 /* WishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishViewController.swift; sourceTree = "<group>"; };
 		8B52DE7425E4E02C003CA9A9 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		8B52DE7925E4E045003CA9A9 /* PostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostView.xib; sourceTree = "<group>"; };
+		8B52DE7E25E50A2B003CA9A9 /* ViewController_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_Extension.swift; sourceTree = "<group>"; };
 		8F024FEC3048209432B1DEF2 /* Pods-WishUponAStarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WishUponAStarTests.release.xcconfig"; path = "Target Support Files/Pods-WishUponAStarTests/Pods-WishUponAStarTests.release.xcconfig"; sourceTree = "<group>"; };
 		C3D401196AD75A799D01D569 /* Pods-WishUponAStar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WishUponAStar.release.xcconfig"; path = "Target Support Files/Pods-WishUponAStar/Pods-WishUponAStar.release.xcconfig"; sourceTree = "<group>"; };
 		D9B298CAB6B155E6E968E886 /* Pods-WishUponAStarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WishUponAStarTests.debug.xcconfig"; path = "Target Support Files/Pods-WishUponAStarTests/Pods-WishUponAStarTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				8B52DE6925E4D15A003CA9A9 /* WishViewController.swift */,
 				8B52DE7425E4E02C003CA9A9 /* PostView.swift */,
 				8B52DE7925E4E045003CA9A9 /* PostView.xib */,
+				8B52DE7E25E50A2B003CA9A9 /* ViewController_Extension.swift */,
 			);
 			path = WishUponAStar;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				8B52DE6A25E4D15A003CA9A9 /* WishViewController.swift in Sources */,
 				8B52DE7525E4E02C003CA9A9 /* PostView.swift in Sources */,
 				8B11F4A925E38E8500A5CB8A /* SceneDelegate.swift in Sources */,
+				8B52DE7F25E50A2B003CA9A9 /* ViewController_Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
