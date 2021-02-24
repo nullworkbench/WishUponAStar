@@ -54,74 +54,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 // 更新が追加だった場合
                 if diff.type == .added {
                     let data = diff.document.data()
-                    print("new: \(data)")
-                    
-                    // PostViewをコンパスに追加
-//                    let posX: CGFloat = self.calcXfromDirection((data["direction"] as? CGFloat)!)
-//                    let posY: CGFloat = self.calcYfromDirection((data["direction"] as? CGFloat)!)
-//                    let width: CGFloat = self.compassView.bounds.size.width * 0.5 // compassView幅の50%
-//                    let height: CGFloat = width * 0.2 // width:height = 10:2
-//                    let postView: PostView = PostView(frame: CGRect(x: posX - (width * 0.1), y: posY - (height / 2), width: width, height: height)) // サイズと位置を指定
-//
-//                    postView.wishLabel.text = data["wish"] as? String // 願いごとを代入
-//                    self.compassView.addSubview(postView) // 親Viewに追加
-                    
-                    // starViewを作成
-                    let starPosX: CGFloat = self.calcXfromDirection((data["direction"] as? CGFloat)!)
-                    let starPosY: CGFloat = self.calcYfromDirection((data["direction"] as? CGFloat)!)
-                    let starSize: CGFloat = self.compassView.bounds.size.width * 0.1 // compassView幅の50%
-                    let starImageView = UIImageView(frame: CGRect(x: starPosX - (starSize / 2), y: starPosY - (starSize / 2), width: starSize, height: starSize))
-                    // starImageViewをcompassViewへ追加
-                    self.compassView.addSubview(starImageView)
-                    // starImageViewに画像を設定
-                    starImageView.image = UIImage(named: "star")
-                    // Animation
-                    starImageView.alpha = 0
-                    UIImageView.animate(withDuration: 0.4,
-                                        delay: 0,
-                                        options: .curveEaseIn, animations: {
-                                            starImageView.alpha = 1
-                                        }, completion: nil)
-                    
-                    // starLabelViewを作成
-                    let starLabelView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-                    starLabelView.backgroundColor = UIColor(white: 1, alpha: 0.5) // 背景色
-                    starLabelView.translatesAutoresizingMaskIntoConstraints = false // コードによるAutoLayout有効化
-                    // starLabel作成
-                    let starLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-                    starLabel.text = data["wish"] as? String // 願いごとを代入
-                    starLabel.font = UIFont(name: "Hiragino Maru Gothic ProN", size: 9) // フォント設定
-                    starLabel.textAlignment = .center // 中央揃え
-                    starLabel.sizeToFit()
-//                    starLabel.frame.size.width += 50 // padding
-                    starLabel.textColor = UIColor.black // 文字色
-                    starLabel.backgroundColor = UIColor.white // 背景色
-                    starLabel.translatesAutoresizingMaskIntoConstraints = false // コードによるAutoLayout有効化
-                    starLabelView.addSubview(starLabel) // starLabelViewに追加
-                    // starLabelViewをcompassViewに追加（必ずAutoLayoutより先に追加する）
-                    self.compassView.addSubview(starLabelView)
-                    // Animation
-                    starLabelView.alpha = 0
-                    UIView.animate(withDuration: 0.4,
-                                   delay: 0,
-                                   options: .curveEaseIn,
-                                   animations: {
-                                    starLabelView.alpha = 1
-                                   }, completion: nil)
-                    
-                    // AutoLayout
-                    NSLayoutConstraint.activate([
-                        starLabelView.leftAnchor.constraint(equalTo: starImageView.rightAnchor, constant: 10), // starImageViewの右端から10
-                        starLabelView.centerYAnchor.constraint(equalTo: starImageView.centerYAnchor, constant: 0), // starImageViewと中央揃え（Y）
-//                        starLabelView.widthAnchor.constraint(equalTo: starLabel.widthAnchor, multiplier: 1.1), // starLabelの1.1倍
-//                        starLabelView.heightAnchor.constraint(equalTo: starLabel.heightAnchor, multiplier: 1.2), // starLabelの1.2倍
-//                        starLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 10), // 10以上で文字数に合わせる
-//                        starLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 10), // 10以上で行数に合わせる
-//                        starLabel.leadingAnchor.constraint(equalTo: starLabelView.leftAnchor, constant: 10),
-//                        starLabel.trailingAnchor.constraint(equalTo: starLabelView.rightAnchor, constant: 10),
-//                        starLabel.topAnchor.constraint(equalTo: starLabelView.topAnchor, constant: 10),
-//                        starLabel.bottomAnchor.constraint(equalTo: starLabelView.bottomAnchor, constant: 10),
-                    ])
+                    self.addStarToCompassView(direction: (data["direction"] as? CGFloat)!, wish: (data["wish"] as? String)!)
                 }
             }
         }
@@ -142,7 +75,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         currentDirection = Float(newHeading.magneticHeading)
     }
     
-    // 方角から位置を計算する
+    // 方角から位置Xを計算する
     func calcXfromDirection(_ direction: CGFloat) -> CGFloat {
         // compassViewの中心
         let radius = self.compassView.bounds.size.width / 2
@@ -150,12 +83,78 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         // 原点からの距離を、角度と半径から計算
         return (cos(degreeToRadian(direction-90)) * radius) + radius
     }
-    
+    // 方角から位置Yを計算する
     func calcYfromDirection(_ direction: CGFloat) -> CGFloat {
         let radius = self.compassView.bounds.size.width / 2
         
         // 原点からの距離を、角度と半径から計算
         return sin(degreeToRadian(direction-90)) * radius + radius
+    }
+    
+    // compassViewにStarを追加
+    func addStarToCompassView(direction: CGFloat, wish: String) {
+        // starImageViewを作成
+        let starPosX: CGFloat = self.calcXfromDirection(direction)
+        let starPosY: CGFloat = self.calcYfromDirection(direction)
+        let starSize: CGFloat = self.compassView.bounds.size.width * 0.1 // compassView幅の10%
+//                    let starImageView = UIImageView(frame: CGRect(x: starPosX - (starSize / 2), y: starPosY - (starSize / 2), width: starSize, height: starSize))
+        let starImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        // starImageViewをcompassViewへ追加
+        self.compassView.addSubview(starImageView)
+        // starImageViewに画像を設定
+        starImageView.image = UIImage(named: "star")
+        // コードによるAutoLayout有効化
+        starImageView.translatesAutoresizingMaskIntoConstraints = false
+        // Animation
+        starImageView.alpha = 0
+        UIImageView.animate(withDuration: 0.4,
+                            delay: 0,
+                            options: .curveEaseIn, animations: {
+                                starImageView.alpha = 1
+                            }, completion: nil)
+        
+        // starLabelViewを作成
+        let starLabelView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        starLabelView.backgroundColor = UIColor(white: 1, alpha: 0.85) // 背景色
+        starLabelView.translatesAutoresizingMaskIntoConstraints = false // コードによるAutoLayout有効化
+        // starLabel作成
+        let starLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        starLabelView.addSubview(starLabel) // starLabelViewに追加
+        starLabel.text = wish // 願いごとを代入
+        starLabel.font = UIFont(name: "Hiragino Maru Gothic ProN", size: 10) // フォント設定
+        starLabel.textAlignment = .center // 中央揃え
+        starLabel.textColor = UIColor.black // 文字色
+        starLabel.backgroundColor = UIColor.white // 背景色
+        starLabel.translatesAutoresizingMaskIntoConstraints = false // コードによるAutoLayout有効化
+        // starLabelViewをcompassViewに追加（必ずAutoLayoutより先に追加する）
+        self.compassView.addSubview(starLabelView)
+        // Animation
+        starLabelView.alpha = 0
+        UIView.animate(withDuration: 0.4,
+                       delay: 0,
+                       options: .curveEaseIn,
+                       animations: {
+                        starLabelView.alpha = 1
+                       }, completion: nil)
+        
+        // AutoLayout
+        NSLayoutConstraint.activate([
+            // starImageView
+            starImageView.leadingAnchor.constraint(equalTo: self.compassView.leadingAnchor, constant: starPosX - (starSize / 2)),
+            starImageView.topAnchor.constraint(equalTo: self.compassView.topAnchor, constant: starPosY - (starSize / 2)),
+            starImageView.widthAnchor.constraint(equalTo: self.compassView.widthAnchor, multiplier: 0.1), // compassViewの0.1倍
+            starImageView.heightAnchor.constraint(equalTo: starImageView.widthAnchor), // widthと同じ
+            
+            // starLabelView
+            starLabelView.leadingAnchor.constraint(equalTo: starImageView.trailingAnchor, constant: 10), // starImageViewの右端から10
+            starLabelView.centerYAnchor.constraint(equalTo: starImageView.centerYAnchor, constant: 0), // starImageViewと中央揃え（Y）
+            
+            // starLabel
+//                        starLabel.leadingAnchor.constraint(equalTo: starLabelView.leadingAnchor, constant: 5),
+//                        starLabel.topAnchor.constraint(equalTo: starLabelView.topAnchor, constant: 5),
+//                        starLabel.trailingAnchor.constraint(equalTo: starLabelView.trailingAnchor, constant: 5),
+//                        starLabel.bottomAnchor.constraint(equalTo: starLabelView.bottomAnchor, constant: 5),
+        ])
     }
     
     
