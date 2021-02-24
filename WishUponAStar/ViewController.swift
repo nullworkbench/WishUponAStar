@@ -77,12 +77,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                     starImageView.image = UIImage(named: "star")
                     // Animation
                     starImageView.alpha = 0
-                    UIImageView.transition(with: starImageView,
-                                           duration: 0.4,
-                                           options: [.curveEaseIn],
-                                           animations: {
+                    UIImageView.animate(withDuration: 0.4,
+                                        delay: 0,
+                                        options: .curveEaseIn, animations: {
                                             starImageView.alpha = 1
-                                           }, completion: nil)
+                                        }, completion: nil)
                     
                     // starLabelViewを作成
                     let starLabelView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
@@ -103,13 +102,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                     self.compassView.addSubview(starLabelView)
                     // Animation
                     starLabelView.alpha = 0
-                    UIView.transition(with: starLabelView,
-                                      duration: 0.4,
-                                      options: [.curveEaseIn],
-                                      animations: {
-                                        starLabelView.alpha = 1
-                                        
-                                      }, completion: nil)
+                    UIView.animate(withDuration: 0.4,
+                                   delay: 0,
+                                   options: .curveEaseIn,
+                                   animations: {
+                                    starLabelView.alpha = 1
+                                   }, completion: nil)
                     
                     // AutoLayout
                     NSLayoutConstraint.activate([
