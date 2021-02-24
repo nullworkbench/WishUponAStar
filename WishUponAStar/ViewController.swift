@@ -71,10 +71,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                     let starPosY: CGFloat = self.calcYfromDirection((data["direction"] as? CGFloat)!)
                     let starSize: CGFloat = self.compassView.bounds.size.width * 0.1 // compassView幅の50%
                     let starImageView = UIImageView(frame: CGRect(x: starPosX - (starSize / 2), y: starPosY - (starSize / 2), width: starSize, height: starSize))
-                    // starImageViewに画像を設定
-                    starImageView.image = UIImage(named: "star")
                     // starImageViewをcompassViewへ追加
                     self.compassView.addSubview(starImageView)
+                    // starImageViewに画像を設定
+                    starImageView.image = UIImage(named: "star")
+                    // Animation
+                    starImageView.alpha = 0
+                    UIImageView.transition(with: starImageView,
+                                           duration: 0.4,
+                                           options: [.curveEaseIn],
+                                           animations: {
+                                            starImageView.alpha = 1
+                                           }, completion: nil)
                     
                     // starLabelViewを作成
                     let starLabelView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
@@ -93,6 +101,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                     starLabelView.addSubview(starLabel) // starLabelViewに追加
                     // starLabelViewをcompassViewに追加（必ずAutoLayoutより先に追加する）
                     self.compassView.addSubview(starLabelView)
+                    // Animation
+                    starLabelView.alpha = 0
+                    UIView.transition(with: starLabelView,
+                                      duration: 0.4,
+                                      options: [.curveEaseIn],
+                                      animations: {
+                                        starLabelView.alpha = 1
+                                        
+                                      }, completion: nil)
                     
                     // AutoLayout
                     NSLayoutConstraint.activate([

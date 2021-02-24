@@ -169,6 +169,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="OKs-gf-noT" secondAttribute="height" multiplier="6:1" id="aeM-Ji-XEk"/>
                                 </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
