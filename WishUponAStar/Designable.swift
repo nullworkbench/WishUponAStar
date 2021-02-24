@@ -24,7 +24,7 @@ extension UIView {
         }
         set {
             if newValue {
-                layer.cornerRadius =  self.frame.size.width / 2.2
+                layer.cornerRadius =  self.frame.size.width / 2
             }
         }
     }
@@ -36,7 +36,7 @@ extension UIView {
         }
         set {
             if newValue {
-                layer.cornerRadius =  self.frame.size.width / 6
+                layer.cornerRadius =  self.frame.size.width / 8
             }
         }
     }
