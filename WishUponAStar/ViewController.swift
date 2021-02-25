@@ -31,6 +31,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Animation
+        self.view.alpha = 0
+        
         // ロケーションマネージャーのdelegate指定
         locationManager.delegate = self
         // 方角の更新間隔
@@ -61,6 +64,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
 //        let listener = db.collection("cities").addSnapshotListener { querySnapshot, error in}
 //        listener.remove()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        // 初回起動の場合はTutorialを開始
+        // 初回起動判定
+//        UserDefaults.standard.set(false, forKey: "isNotFirstLaunch")
+        if UserDefaults.standard.bool(forKey: "isNotFirstLaunch") {
+            // 2回目以降
+            print("Not first Launch!")
+            self.view.alpha = 1
+        } else {
+            // 初回起動
+            print("First Launch!")
+            UserDefaults.standard.set(true, forKey: "isNotFirstLaunch")
+            self.performSegue(withIdentifier: "toTutorialView", sender: nil)
+        }
     }
     
     // 方角が変わると呼び出される

@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WishUponAStar" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="ViewController" customModule="WishUponAStar" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -143,11 +143,87 @@
                     <connections>
                         <outlet property="compassView" destination="dMr-hb-L6n" id="h4j-it-Sua"/>
                         <outlet property="starButton" destination="Xil-jK-Bnb" id="RcN-NU-MtH"/>
+                        <segue destination="MfJ-Eq-U25" kind="show" identifier="toTutorialView" id="Xwf-eW-Mgf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="135.38461538461539" y="137.91469194312796"/>
+        </scene>
+        <!--Tutorial View Controller-->
+        <scene sceneID="Jq6-Qy-uJK">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="MfJ-Eq-U25" customClass="TutorialViewController" customModule="WishUponAStar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="21h-Dx-g8t">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="星に願いを" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9H-QI-zTp">
+                                <rect key="frame" x="132.66666666666666" y="144" width="124.99999999999997" height="25"/>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCW-gF-nO6">
+                                <rect key="frame" x="101.00000000000001" y="269" width="188.33333333333337" height="196"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">「星に願いを」は
+流れ星を通じて
+願いごとを
+共有するアプリです。</string>
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="19" name="HiraMaruProN-W4"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="40" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tNA-Sz-mfc" customClass="DesignableButton" customModule="WishUponAStar" customModuleProvider="target">
+                                <rect key="frame" x="130" y="605" width="130" height="43.333333333333371"/>
+                                <color key="backgroundColor" red="0.88235294119999996" green="0.79607843140000001" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="tNA-Sz-mfc" secondAttribute="height" multiplier="3:1" id="Gdy-Za-tsM"/>
+                                </constraints>
+                                <state key="normal" title="つぎへ">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isRoundedCorner" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="21"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="nextButtonTapped" destination="MfJ-Eq-U25" eventType="touchUpInside" id="Zve-6i-XRl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xvK-K9-pyB"/>
+                        <color key="backgroundColor" red="0.1450980392" green="0.16078431369999999" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="a9H-QI-zTp" firstAttribute="centerX" secondItem="21h-Dx-g8t" secondAttribute="centerX" id="7Ou-7H-4bu"/>
+                            <constraint firstItem="pCW-gF-nO6" firstAttribute="top" secondItem="a9H-QI-zTp" secondAttribute="bottom" constant="100" id="JdY-EC-FZV"/>
+                            <constraint firstItem="tNA-Sz-mfc" firstAttribute="top" secondItem="pCW-gF-nO6" secondAttribute="bottom" constant="140" id="KN3-JN-tah"/>
+                            <constraint firstItem="a9H-QI-zTp" firstAttribute="top" secondItem="xvK-K9-pyB" secondAttribute="top" constant="100" id="WII-ya-RrE"/>
+                            <constraint firstItem="tNA-Sz-mfc" firstAttribute="leading" secondItem="xvK-K9-pyB" secondAttribute="leading" constant="130" id="ZdJ-yQ-Ga6"/>
+                            <constraint firstItem="xvK-K9-pyB" firstAttribute="trailing" secondItem="tNA-Sz-mfc" secondAttribute="trailing" constant="130" id="bk5-bT-9QD"/>
+                            <constraint firstItem="pCW-gF-nO6" firstAttribute="centerX" secondItem="21h-Dx-g8t" secondAttribute="centerX" id="pI4-O7-Ls8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="8tv-K1-6P8"/>
+                    <connections>
+                        <outlet property="appNameLabel" destination="a9H-QI-zTp" id="Xic-jk-kf1"/>
+                        <outlet property="descriptionLabel" destination="pCW-gF-nO6" id="EGV-eM-EoG"/>
+                        <outlet property="nextButton" destination="tNA-Sz-mfc" id="DwE-xR-vxH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1z1-Qp-urW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="133.84615384615384" y="858.76777251184831"/>
         </scene>
         <!--Wish View Controller-->
         <scene sceneID="C0a-bc-iCe">
@@ -234,6 +310,9 @@
         </designable>
         <designable name="sr0-Vp-aJ5">
             <size key="intrinsicContentSize" width="56" height="26"/>
+        </designable>
+        <designable name="tNA-Sz-mfc">
+            <size key="intrinsicContentSize" width="46" height="30"/>
         </designable>
     </designables>
 </document>

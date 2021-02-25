@@ -25,16 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let db = Firestore.firestore()
         print(db)
         
-        // 初回起動判定
-        let isFirstLaunch = UserDefaults.standard.bool(forKey: "isFirstLaunch")
-        
-        if isFirstLaunch {
-            // 2回目以降
-        } else {
-            // 初回起動
-            UserDefaults.standard.set(true, forKey: "isFirstLaunch")
-        }
-        
         return true
     }
 
