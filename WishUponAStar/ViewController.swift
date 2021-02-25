@@ -111,15 +111,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
         
         // くり抜く範囲Layer
         maskLayer.frame = overlayLayer.frame
-        
-        // pathとLabel設定＆表示
-        self.nextTutorial()
-        
         maskLayer.fillRule = CAShapeLayerFillRule.evenOdd // 四角と円が重なっている場所をくり抜く
         overlayLayer.mask = maskLayer // マスクを設定
         
         // 親Viewに追加
         overlayView.layer.addSublayer(overlayLayer)
+        
+        // pathとLabel設定＆表示
+        self.nextTutorial()
         
         // タップ検知
         let overlayViewTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(overlayViewTapped(_:)))
@@ -137,18 +136,33 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
         let center = CGPoint(x: self.screen.width / 2, y: self.screen.height / 2)
         
         // くり抜く円を描画
-        let path1 = UIBezierPath(arcCenter: center, // 中心点
-                                radius: screen.width / 2, // 半径
+        // path1
+        let compassViewCenter = CGPoint(x: center.x, y: (self.view.safeAreaInsets.top + 110) + (screen.width / 2))
+        let compassViewRadius = screen.width / 2
+        let path1 = UIBezierPath(arcCenter: compassViewCenter, // 中心点（AutoLayout調整分＋半径）
+                                radius: compassViewRadius, // 半径
                                 startAngle: 0, // 開始角
                                 endAngle: CGFloat(Double.pi)*2, // 終了角
                                 clockwise: true) // 時計回り
-        let path2 = UIBezierPath(arcCenter: CGPoint(x: center.x, y: screen.height - ((self.view.safeAreaInsets.bottom + 40) + ((screen.width * 0.25) / 2))),
-                                 radius: screen.width / 6,
+        // path2
+        let starButtonCenter = CGPoint(x: center.x, y: screen.height - ((self.view.safeAreaInsets.bottom + 40) + ((screen.width * 0.25) / 2)))
+        let starButtonRadius = screen.width * 0.25 / 2
+        let path2 = UIBezierPath(arcCenter: starButtonCenter,
+                                 radius: starButtonRadius + 10,
+                                 startAngle: 0,
+                                 endAngle: CGFloat(Double.pi)*2,
+                                 clockwise: true)
+        // path3
+        let wishButtonRadius = screen.width * 0.18 / 2
+        let wishButtonCenter = CGPoint(x: starButtonCenter.x - starButtonRadius - 40 - wishButtonRadius, y: starButtonCenter.y)
+        let path3 = UIBezierPath(arcCenter: wishButtonCenter,
+                                 radius: wishButtonRadius + 10,
                                  startAngle: 0,
                                  endAngle: CGFloat(Double.pi)*2,
                                  clockwise: true)
         
-        let rect = UIBezierPath(rect: CGRect(x: 0, y: 0, width: screen.width, height: screen.height)) // くり抜く範囲を反転するために四角を追加
+        // くり抜く範囲を反転するための四角
+        let rect = UIBezierPath(rect: CGRect(x: 0, y: 0, width: screen.width, height: screen.height))
         
         switch tutorialIndex {
         case 1:
@@ -156,7 +170,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
             path1.append(rect)
             maskLayer.path = path1.cgPath
             // Label
-            let descriptionOfCompassLabel = UILabel(frame: CGRect(x: 0, y: center.y + (screen.width / 3.5), width: screen.width, height: screen.width * 0.3))
+            let descriptionOfCompassLabel = UILabel(frame: CGRect(x: 0, y: compassViewCenter.y + compassViewRadius * 0.9, width: screen.width, height: screen.width * 0.3))
             descriptionOfCompassLabel.text = "このコンパス上に、だれかの願いごとと共に\n流れ星の報告が表示されます。"
             descriptionOfCompassLabel.numberOfLines = 2
             descriptionOfCompassLabel.textAlignment = NSTextAlignment.center
@@ -168,10 +182,27 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
             maskLayer.path = path2.cgPath
             // Label
             overlayView.subviews[0].removeFromSuperview() // 前回のLabelを削除
-            let descriptionOfStarButton = UILabel(frame: CGRect(x: center.x, y: screen.height - (80 + self.view.safeAreaInsets.bottom), width: screen.width, height: screen.width * 0.2))
+            let descriptionOfStarButton = UILabel(frame: CGRect(x: 0, y: starButtonCenter.y - starButtonRadius * 3, width: screen.width, height: screen.width * 0.3))
+            descriptionOfStarButton.text = "流れ星を見つけたらその方向を向いてタップ！\nみんなに共有できます。"
+            descriptionOfStarButton.numberOfLines = 2
             descriptionOfStarButton.textAlignment = NSTextAlignment.center
             descriptionOfStarButton.textColor = UIColor.white
             overlayView.addSubview(descriptionOfStarButton)
+        case 3:
+            // path
+            path3.append(rect)
+            maskLayer.path = path3.cgPath
+            // Label
+            overlayView.subviews[0].removeFromSuperview()
+            let descriptionOfWishButton = UILabel(frame: CGRect(x: 20, y: starButtonCenter.y - starButtonRadius * 2.5, width: screen.width, height: screen.width * 0.3))
+            descriptionOfWishButton.text = "ここでお願いごとを設定できるよ！"
+            descriptionOfWishButton.textAlignment = NSTextAlignment.left
+            descriptionOfWishButton.textColor = UIColor.white
+            overlayView.addSubview(descriptionOfWishButton)
+        case 4:
+            // チュートリアルを終了
+            isTutorialGoing = false
+            self.view.subviews[self.view.subviews.endIndex - 1].removeFromSuperview()
         default:
             break
         }

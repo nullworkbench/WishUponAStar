@@ -107,11 +107,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sr0-Vp-aJ5" customClass="DesignableButton" customModule="WishUponAStar" customModuleProvider="target">
-                                <rect key="frame" x="36.333333333333343" y="686.33333333333337" width="70" height="70"/>
+                                <rect key="frame" x="35.999999999999993" y="686" width="70.333333333333314" height="70.333333333333371"/>
                                 <color key="backgroundColor" red="0.59999999999999998" green="0.57647058819999997" blue="0.63921568630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="sr0-Vp-aJ5" secondAttribute="height" multiplier="1:1" id="CLv-r4-kJp"/>
-                                    <constraint firstAttribute="width" constant="70" id="FpT-gZ-fH0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="14"/>
                                 <state key="normal" title="願いごと">
@@ -129,6 +128,7 @@
                         <color key="backgroundColor" red="0.14509803921568626" green="0.16078431372549018" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Xil-jK-Bnb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="25A-rg-WRY"/>
+                            <constraint firstItem="sr0-Vp-aJ5" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.18" id="57g-oo-Tdq"/>
                             <constraint firstItem="LlL-No-aqc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="70" id="9Rq-dT-B4Z"/>
                             <constraint firstItem="sr0-Vp-aJ5" firstAttribute="centerY" secondItem="Xil-jK-Bnb" secondAttribute="centerY" id="Bc9-tS-fE7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Xil-jK-Bnb" secondAttribute="bottom" constant="40" id="SIP-TD-wmB"/>
