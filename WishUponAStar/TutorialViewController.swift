@@ -24,6 +24,11 @@ class TutorialViewController: UIViewController {
         self.welcomeAnimation()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let viewController = segue.destination as? ViewController
+        viewController?.isTutorialGoing = true
+    }
+    
     func hideContents() {
         appNameLabel.alpha = 0
         descriptionLabel.alpha = 0

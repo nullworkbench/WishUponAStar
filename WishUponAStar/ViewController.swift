@@ -12,7 +12,11 @@ import FirebaseCore
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
+    
+    // チュートリアルが必要か
+    var isTutorialGoing: Bool = true
+    var tutorialIndex: Int = 1
     
     // ロケーションマネージャー定義
     let locationManager = CLLocationManager()
@@ -69,17 +73,109 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidAppear(_ animated: Bool) {
         // 初回起動の場合はTutorialを開始
         // 初回起動判定
-//        UserDefaults.standard.set(false, forKey: "isNotFirstLaunch")
         if UserDefaults.standard.bool(forKey: "isNotFirstLaunch") {
             // 2回目以降
             print("Not first Launch!")
             self.view.alpha = 1
+            // チュートリアル中であれば操作方法説明
+            if isTutorialGoing {
+                self.startTutorial()
+            }
         } else {
             // 初回起動
             print("First Launch!")
             UserDefaults.standard.set(true, forKey: "isNotFirstLaunch")
             self.performSegue(withIdentifier: "toTutorialView", sender: nil)
         }
+    }
+    
+    func startTutorial() {
+        
+        let screen = UIScreen.main.bounds.size
+        
+        let overlayView = UIView(frame: CGRect(x: 0, y: 0, width: screen.width, height: screen.height))
+        self.view.addSubview(overlayView)
+        
+//        overlayView.translatesAutoresizingMaskIntoConstraints = false
+//        overlayView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0).isActive = true
+//        overlayView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true
+//        overlayView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0).isActive = true
+//        overlayView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0).isActive = true
+        
+        // くり抜かれるLayer
+        let overlayLayer = CALayer()
+        overlayLayer.frame = CGRect(x: 0, y: self.view.safeAreaInsets.top, width: screen.width, height: screen.height) // 画面全体を覆う
+        overlayLayer.backgroundColor = UIColor(white: 0, alpha: 0.4).cgColor // くり抜かれた場所以外の色
+        
+        // くり抜く範囲Layer
+        let maskLayer = CAShapeLayer()
+        maskLayer.frame = overlayLayer.frame
+        maskLayer.position = CGPoint(x: screen.width / 2, y: (screen.width / 2) + 110) // くり抜くPosition
+        
+        let center = CGPoint(x: screen.width / 2, y: screen.height / 2)
+        // くり抜く円を描画
+        let path1 = UIBezierPath(arcCenter: center, // 中心点
+                                radius: screen.width / 2, // 半径
+                                startAngle: 0, // 開始角
+                                endAngle: CGFloat(Double.pi)*2, // 終了角
+                                clockwise: true) // 時計回り
+        let path2 = UIBezierPath(arcCenter: CGPoint(x: center.x, y: screen.height - (40 + self.view.safeAreaInsets.bottom)),
+                                 radius: screen.width / 6,
+                                 startAngle: 0,
+                                 endAngle: CGFloat(Double.pi)*2,
+                                 clockwise: true)
+        
+        let rect = UIBezierPath(rect: CGRect(x: 0, y: 0, width: screen.width, height: screen.height)) // くり抜く範囲を反転するために四角を追加
+        
+        
+        if tutorialIndex == 1 {
+            path1.append(rect)
+            maskLayer.path = path1.cgPath
+        } else if tutorialIndex == 2 {
+            path2.append(rect)
+            maskLayer.path = path2.cgPath
+        }
+        maskLayer.fillRule = CAShapeLayerFillRule.evenOdd // 四角と円が重なっている場所をくり抜く
+        overlayLayer.mask = maskLayer
+        
+        print("overlayView: \(overlayView.bounds)")
+        print("overlayLayer: \(overlayLayer.bounds)")
+        print("maskLayer: \(maskLayer.bounds)")
+        print("maskLayer: \(maskLayer.path)")
+        // 親Viewに追加
+        overlayView.layer.addSublayer(overlayLayer)
+        
+        
+        // Label
+        switch tutorialIndex {
+        case 1:
+            let descriptionOfCompassLabel = UILabel(frame: CGRect(x: 0, y: center.y + (screen.width / 3.5), width: screen.width, height: screen.width * 0.3))
+            descriptionOfCompassLabel.text = "このコンパス上に、だれかの願いごとと共に\n流れ星の報告が表示されます。"
+            descriptionOfCompassLabel.numberOfLines = 2
+            descriptionOfCompassLabel.textAlignment = NSTextAlignment.center
+            descriptionOfCompassLabel.textColor = UIColor.white
+            overlayView.addSubview(descriptionOfCompassLabel)
+        case 2:
+            let descriptionOfStarButton = UILabel(frame: CGRect(x: center.x, y: screen.height - (80 + self.view.safeAreaInsets.bottom), width: screen.width, height: screen.width * 0.2))
+            descriptionOfStarButton.textAlignment = NSTextAlignment.center
+            descriptionOfStarButton.textColor = UIColor.white
+            overlayView.addSubview(descriptionOfStarButton)
+        default:
+            break
+        }
+        
+        
+        // タップ検知
+        let overlayViewTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: overlayView, action: #selector(overlayViewTapped(_:)))
+        overlayViewTapGesture.numberOfTouchesRequired = 1
+        overlayViewTapGesture.delegate = self
+        overlayView.addGestureRecognizer(overlayViewTapGesture)
+        overlayView.isUserInteractionEnabled = true
+    }
+    
+    // チュートリアルのoverlayViewがタップされると呼び出される
+    @objc func overlayViewTapped(_ sender: UITapGestureRecognizer) {
+        tutorialIndex += 1
     }
     
     // 方角が変わると呼び出される
