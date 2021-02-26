@@ -15,7 +15,7 @@ import FirebaseFirestoreSwift
 class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
     
     // チュートリアル
-    var isTutorialGoing: Bool = true // チュートリアルが必要か
+    var isTutorialGoing: Bool = false // チュートリアルが必要か
     var tutorialIndex: Int = 1 // チュートリアルの進捗
     let screen = UIScreen.main.bounds.size
     let overlayView = UIView() // チュートリアルを表示するView
@@ -239,22 +239,52 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
     
     // compassViewにStarを追加
     func addStarToCompassView(direction: CGFloat, wish: String) {
+        // 流れ星の尾のアニメーション
+        let shootingAnimationView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        shootingAnimationView.translatesAutoresizingMaskIntoConstraints = false // コードによるAutoLayoutを有効化
+        shootingAnimationView.backgroundColor = UIColor.clear // 背景色
+        self.compassView.addSubview(shootingAnimationView) //　compassViewに追加
+        // 流れ星の尾のLayer
+        let shootingAnimationLayer = CAShapeLayer()
+        shootingAnimationView.layer.addSublayer(shootingAnimationLayer) // viewに追加
+        // 流れ星の尾のパス
+        let shootingPath = UIBezierPath()
+        shootingPath.move(to: CGPoint(x: self.compassView.frame.width * 0.4, y: 0)) // 起点（右上）
+        shootingPath.addLine(to: CGPoint(x: 0, y: self.compassView.frame.width * 0.2 * 0.5)) // 終点（左下）
+        shootingPath.close() // 描画を終了
+        shootingAnimationLayer.lineWidth = 2.0 // 線の太さ
+        shootingAnimationLayer.lineJoin = .round // 線を丸角に
+        shootingAnimationLayer.strokeColor = UIColor.white.cgColor // 線の色
+        shootingAnimationLayer.path = shootingPath.cgPath // Layerに適用
+        // Animation
+        // 描画アニメーション
+        let shootingAnimation = CABasicAnimation(keyPath: "strokeEnd")
+        shootingAnimation.fromValue = 0.0 // 開始値
+        shootingAnimation.toValue = 1.0 // 終了値
+        shootingAnimation.duration = 1 // 時間
+        shootingAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut) // イーズアウト
+        shootingAnimationLayer.add(shootingAnimation, forKey: nil) // アニメーション追加
+        // 消滅アニメーション
+        UIView.animate(withDuration: 0.3,
+                       delay: 0.2,
+                       options: .curveLinear,
+                       animations: {
+                        shootingAnimationView.alpha = 0
+                       }, completion: nil)
+        
         // starImageViewを作成
         let starPosX: CGFloat = self.calcXfromDirection(direction)
         let starPosY: CGFloat = self.calcYfromDirection(direction)
         let starSize: CGFloat = self.compassView.bounds.size.width * 0.1 // compassView幅の10%
 //                    let starImageView = UIImageView(frame: CGRect(x: starPosX - (starSize / 2), y: starPosY - (starSize / 2), width: starSize, height: starSize))
         let starImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        // starImageViewをcompassViewへ追加
-        self.compassView.addSubview(starImageView)
-        // starImageViewに画像を設定
-        starImageView.image = UIImage(named: "star")
-        // コードによるAutoLayout有効化
-        starImageView.translatesAutoresizingMaskIntoConstraints = false
+        self.compassView.addSubview(starImageView) // starImageViewをcompassViewへ追加
+        starImageView.image = UIImage(named: "star") // starImageViewをcompassViewへ追加
+        starImageView.translatesAutoresizingMaskIntoConstraints = false // コードによるAutoLayout有効化
         // Animation
         starImageView.alpha = 0
-        UIImageView.animate(withDuration: 0.4,
-                            delay: 0,
+        UIImageView.animate(withDuration: 1,
+                            delay: 1.5, // shootingAnimationを待つ
                             options: .curveEaseIn, animations: {
                                 starImageView.alpha = 1
                             }, completion: nil)
@@ -276,8 +306,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
         self.compassView.addSubview(starLabelView)
         // Animation
         starLabelView.alpha = 0
-        UIView.animate(withDuration: 0.4,
-                       delay: 0,
+        UIView.animate(withDuration: 1,
+                       delay: 1.5, // shootingAnimationを待つ
                        options: .curveEaseIn,
                        animations: {
                         starLabelView.alpha = 1
@@ -285,6 +315,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
         
         // AutoLayout
         NSLayoutConstraint.activate([
+            // shootingAnimationView
+            shootingAnimationView.leadingAnchor.constraint(equalTo: starImageView.trailingAnchor, constant: 5),
+            shootingAnimationView.bottomAnchor.constraint(equalTo: starImageView.topAnchor, constant: starSize / 3),
+            shootingAnimationView.widthAnchor.constraint(equalTo: self.compassView.widthAnchor, multiplier: 0.2),
+            shootingAnimationView.heightAnchor.constraint(equalTo: self.compassView.widthAnchor, multiplier: 0.1),
+            
             // starImageView
             starImageView.leadingAnchor.constraint(equalTo: self.compassView.leadingAnchor, constant: starPosX - (starSize / 2)),
             starImageView.topAnchor.constraint(equalTo: self.compassView.topAnchor, constant: starPosY - (starSize / 2)),
