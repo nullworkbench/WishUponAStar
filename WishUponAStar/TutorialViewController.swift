@@ -24,11 +24,6 @@ class TutorialViewController: UIViewController {
         self.welcomeAnimation()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let viewController = segue.destination as? ViewController
-        viewController?.isTutorialGoing = true
-    }
-    
     func hideContents() {
         appNameLabel.alpha = 0
         descriptionLabel.alpha = 0
@@ -70,6 +65,8 @@ class TutorialViewController: UIViewController {
     }
     
     @IBAction func nextButtonTapped() {
+        let previewVC = self.presentingViewController as! ViewController // ひとつ前のViewController
+        previewVC.isTutorialGoing = true // 値渡し（チュートリアルを続行）
         self.dismiss(animated: true, completion: nil)
     }
     

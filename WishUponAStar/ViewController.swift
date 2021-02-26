@@ -81,6 +81,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
             print("Not first Launch!")
             self.view.alpha = 1
             // チュートリアル中であれば操作方法説明
+            print(isTutorialGoing)
             if isTutorialGoing {
                 self.startTutorial()
             }
