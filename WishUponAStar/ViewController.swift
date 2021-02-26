@@ -164,6 +164,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
         // くり抜く範囲を反転するための四角
         let rect = UIBezierPath(rect: CGRect(x: 0, y: 0, width: screen.width, height: screen.height))
         
+        // チュートリアルを切り替え
         switch tutorialIndex {
         case 1:
             // path
