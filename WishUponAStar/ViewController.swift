@@ -162,7 +162,7 @@ extension ViewController {
     // 60秒で削除する
     func startTimerWithTag(tag: Int) {
         // 60秒のタイマーを開始
-        Timer.scheduledTimer(timeInterval: 5,
+        Timer.scheduledTimer(timeInterval: 60,
                                          target: self,
                                          selector: #selector(self.stopTimer(_:)),
                                          userInfo: tag,
