@@ -30,6 +30,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     // Firestore
     var db: Firestore!
     
+    // compassView上のstarの数
+    var numOfStars: Int = 0
+    
     // コンパスのView
     @IBOutlet var compassView: UIView!
     // Starボタン
@@ -54,20 +57,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         Firestore.firestore().settings = firestoreSettings
         db = Firestore.firestore()
         
-        // 更新を監視
-        db.collection("posts").addSnapshotListener{ (snapshot, err) in
-            guard let doc = snapshot else {
-                print("Error fetching documents: \(err!)")
-                return
-            }
-            doc.documentChanges.forEach{diff in
-                // 更新が追加だった場合
-                if diff.type == .added {
-                    let data = diff.document.data()
-                    self.addStarToCompassView(direction: (data["direction"] as? CGFloat)!, wish: (data["wish"] as? String)!)
-                }
-            }
-        }
         
 //        let listener = db.collection("cities").addSnapshotListener { querySnapshot, error in}
 //        listener.remove()
@@ -85,6 +74,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             if isTutorialGoing {
                 self.startTutorial()
                 isTutorialGoing = false // チュートリアル終了
+            }
+            // 更新を監視
+            db.collection("posts").addSnapshotListener { (snapshot, err) in
+                guard let doc = snapshot else {
+                    print("Error fetching documents: \(err!)")
+                    return
+                }
+                doc.documentChanges.forEach { diff in
+                    // 更新が追加だった場合
+                    if diff.type == .added {
+                        let data = diff.document.data()
+                        self.numOfStars += 1
+                        self.addStarToCompassView(direction: (data["direction"] as? CGFloat)!, wish: (data["wish"] as? String)!)
+                    }
+                }
             }
         } else {
             // 初回起動
@@ -152,8 +156,34 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
 
 
-//MARK: - Add star to compassView
+// MARK: - Add star to compassView
 extension ViewController {
+    
+    // 60秒で削除する
+    func startTimerWithTag(tag: Int) {
+        // 60秒のタイマーを開始
+        Timer.scheduledTimer(timeInterval: 5,
+                                         target: self,
+                                         selector: #selector(self.stopTimer(_:)),
+                                         userInfo: tag,
+                                         repeats: false)
+    }
+    // 時間経過でタイマーストップ
+    @objc func stopTimer(_ timer: Timer) {
+        let tag = timer.userInfo as! Int
+        // tagで該当する３つのViewを削除
+        for _ in 1...3 {
+            let target = self.compassView.viewWithTag(tag)!
+            print(target.alpha)
+//            UIView.animate(withDuration: 1, animations: { target.alpha = 0 }, completion: { _ in
+//                target.removeFromSuperview()
+//            })
+            target.removeFromSuperview()
+        }
+        timer.invalidate()
+        print("timer stopped")
+    }
+    
     // 方角から位置Xを計算する
     func calcXfromDirection(_ direction: CGFloat) -> CGFloat {
         // compassViewの中心
@@ -176,6 +206,7 @@ extension ViewController {
         let shootingAnimationView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         shootingAnimationView.translatesAutoresizingMaskIntoConstraints = false // コードによるAutoLayoutを有効化
         shootingAnimationView.backgroundColor = UIColor.clear // 背景色
+        shootingAnimationView.tag = numOfStars // tagを設定
         self.compassView.addSubview(shootingAnimationView) //　compassViewに追加
         // 流れ星の尾のLayer
         let shootingAnimationLayer = CAShapeLayer()
@@ -214,19 +245,23 @@ extension ViewController {
         let starSize: CGFloat = self.compassView.bounds.size.width * 0.1 // compassView幅の10%
 //                    let starImageView = UIImageView(frame: CGRect(x: starPosX - (starSize / 2), y: starPosY - (starSize / 2), width: starSize, height: starSize))
         let starImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        starImageView.tag = numOfStars // tagを設定
         self.compassView.addSubview(starImageView) // starImageViewをcompassViewへ追加
         starImageView.image = UIImage(named: "star") // starImageViewをcompassViewへ追加
         starImageView.translatesAutoresizingMaskIntoConstraints = false // コードによるAutoLayout有効化
         // Animation
         starImageView.alpha = 0
         UIImageView.animate(withDuration: 1,
-                            delay: 1.5, // shootingAnimationを待つ
+                            delay: 1, // shootingAnimationを待つ
                             options: .curveEaseIn, animations: {
                                 starImageView.alpha = 1
                             }, completion: nil)
+        // 60秒後に削除
+        startTimerWithTag(tag: numOfStars)
         
         // starLabelViewを作成
         let starLabelView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        starLabelView.tag = numOfStars // tagを設定
         starLabelView.backgroundColor = UIColor.white // 背景色
         starLabelView.translatesAutoresizingMaskIntoConstraints = false // コードによるAutoLayout有効化
         // starLabel作成
@@ -250,7 +285,7 @@ extension ViewController {
         // Animation
         starLabelView.alpha = 0
         UIView.animate(withDuration: 1,
-                       delay: 1.5, // shootingAnimationを待つ
+                       delay: 1, // shootingAnimationを待つ
                        options: .curveEaseIn,
                        animations: {
                         starLabelView.alpha = 1
