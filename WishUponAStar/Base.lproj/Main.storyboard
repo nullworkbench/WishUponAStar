@@ -123,14 +123,32 @@
                                     <segue destination="N4X-K3-f7i" kind="presentation" id="3Mz-Om-HaW"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iBc-nW-9zQ" customClass="DesignableButton" customModule="WishUponAStar" customModuleProvider="target">
+                                <rect key="frame" x="283.66666666666669" y="686" width="70.333333333333314" height="70.333333333333371"/>
+                                <color key="backgroundColor" red="0.59999999999999998" green="0.57647058819999997" blue="0.63921568630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="iBc-nW-9zQ" secondAttribute="height" multiplier="1:1" id="oGs-Nh-B1q"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="14"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="履歴">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.14509803921568626" green="0.16078431372549018" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="iBc-nW-9zQ" firstAttribute="centerY" secondItem="Xil-jK-Bnb" secondAttribute="centerY" id="16Q-UO-tPk"/>
                             <constraint firstItem="Xil-jK-Bnb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="25A-rg-WRY"/>
+                            <constraint firstItem="iBc-nW-9zQ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.18" id="4Ng-sd-Mzm"/>
                             <constraint firstItem="sr0-Vp-aJ5" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.18" id="57g-oo-Tdq"/>
                             <constraint firstItem="LlL-No-aqc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="70" id="9Rq-dT-B4Z"/>
                             <constraint firstItem="sr0-Vp-aJ5" firstAttribute="centerY" secondItem="Xil-jK-Bnb" secondAttribute="centerY" id="Bc9-tS-fE7"/>
+                            <constraint firstItem="iBc-nW-9zQ" firstAttribute="leading" secondItem="Xil-jK-Bnb" secondAttribute="trailing" constant="40" id="Rie-EL-Loi"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Xil-jK-Bnb" secondAttribute="bottom" constant="40" id="SIP-TD-wmB"/>
                             <constraint firstItem="dMr-hb-L6n" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="120" id="X8y-dm-xlZ"/>
                             <constraint firstItem="Xil-jK-Bnb" firstAttribute="leading" secondItem="sr0-Vp-aJ5" secondAttribute="trailing" constant="40" id="XQE-U4-d40"/>
@@ -298,7 +316,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ne5-X9-Egt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="921.73913043478262" y="137.94642857142856"/>
+            <point key="canvasLocation" x="960" y="138"/>
         </scene>
     </scenes>
     <designables>
@@ -307,6 +325,9 @@
         </designable>
         <designable name="Xil-jK-Bnb">
             <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="iBc-nW-9zQ">
+            <size key="intrinsicContentSize" width="30" height="26"/>
         </designable>
         <designable name="sr0-Vp-aJ5">
             <size key="intrinsicContentSize" width="56" height="26"/>
