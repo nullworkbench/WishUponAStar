@@ -7,16 +7,24 @@
 
 import UIKit
 
-class WishViewController: UIViewController {
+class WishViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var wishTextField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        wishTextField.delegate = self
 
         if let wish = UserDefaults.standard.string(forKey: "wish") {
             wishTextField.text = wish
         }
+    }
+    
+    // Returnでキーボードを閉じる
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     @IBAction func doneButton() {
