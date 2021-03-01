@@ -295,11 +295,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
         starLabelView.backgroundColor = UIColor(white: 1, alpha: 0.85) // 背景色
         starLabelView.translatesAutoresizingMaskIntoConstraints = false // コードによるAutoLayout有効化
         // starLabel作成
-        let starLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        let starLabel = PaddingLabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         starLabelView.addSubview(starLabel) // starLabelViewに追加
         starLabel.text = wish // 願いごとを代入
         starLabel.font = UIFont(name: "Hiragino Maru Gothic ProN", size: 10) // フォント設定
         starLabel.textAlignment = .center // 中央揃え
+        starLabel.paddingLeft = 7
+        starLabel.paddingTop = 5
+        starLabel.paddingRight = 7
+        starLabel.paddingBottom = 5
         starLabel.textColor = UIColor.black // 文字色
         starLabel.backgroundColor = UIColor.white // 背景色
         starLabel.translatesAutoresizingMaskIntoConstraints = false // コードによるAutoLayout有効化

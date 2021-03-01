@@ -22,6 +22,7 @@
 		8B11F4F625E4C18B00A5CB8A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B11F4F425E4C18B00A5CB8A /* GoogleService-Info.plist */; };
 		8B11F4F725E4C18B00A5CB8A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B11F4F425E4C18B00A5CB8A /* GoogleService-Info.plist */; };
 		8B1D5E1C25E7781100875F60 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1D5E1B25E7781100875F60 /* TutorialViewController.swift */; };
+		8B1D5E3025EC8A5C00875F60 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1D5E2F25EC8A5C00875F60 /* PaddingLabel.swift */; };
 		8B52DE6A25E4D15A003CA9A9 /* WishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B52DE6925E4D15A003CA9A9 /* WishViewController.swift */; };
 		8B52DE7525E4E02C003CA9A9 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B52DE7425E4E02C003CA9A9 /* PostView.swift */; };
 		8B52DE7A25E4E045003CA9A9 /* PostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B52DE7925E4E045003CA9A9 /* PostView.xib */; };
@@ -69,6 +70,7 @@
 		8B11F4DC25E390B100A5CB8A /* Designable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Designable.swift; sourceTree = "<group>"; };
 		8B11F4F425E4C18B00A5CB8A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8B1D5E1B25E7781100875F60 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		8B1D5E2F25EC8A5C00875F60 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		8B52DE6925E4D15A003CA9A9 /* WishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishViewController.swift; sourceTree = "<group>"; };
 		8B52DE7425E4E02C003CA9A9 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		8B52DE7925E4E045003CA9A9 /* PostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostView.xib; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				8B52DE7925E4E045003CA9A9 /* PostView.xib */,
 				8B52DE7E25E50A2B003CA9A9 /* ViewController_Extension.swift */,
 				8B1D5E1B25E7781100875F60 /* TutorialViewController.swift */,
+				8B1D5E2F25EC8A5C00875F60 /* PaddingLabel.swift */,
 			);
 			path = WishUponAStar;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				8B11F4A725E38E8500A5CB8A /* AppDelegate.swift in Sources */,
 				8B52DE6A25E4D15A003CA9A9 /* WishViewController.swift in Sources */,
 				8B52DE7525E4E02C003CA9A9 /* PostView.swift in Sources */,
+				8B1D5E3025EC8A5C00875F60 /* PaddingLabel.swift in Sources */,
 				8B11F4A925E38E8500A5CB8A /* SceneDelegate.swift in Sources */,
 				8B52DE7F25E50A2B003CA9A9 /* ViewController_Extension.swift in Sources */,
 			);
