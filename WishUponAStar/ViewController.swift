@@ -94,6 +94,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
+    // AutoLayout完了
+//    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//        print("viewDidLayoutSubviews")
+//
+//        for starLabel in self.getStarLabelsFromCompassView() {
+//            starLabel.layer.setAnchorPoint(newAnchorPoint: CGPoint(x: 0, y: 0), forView: starLabel)
+//            print(starLabel.bounds)
+//        }
+//    }
+    
     // 方角が変わると呼び出される
     func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
         // compassViewを回転
@@ -192,7 +203,10 @@ extension ViewController {
                        options: .curveLinear,
                        animations: {
                         shootingAnimationView.alpha = 0
-                       }, completion: nil)
+                       },
+                       completion: { _ in 
+//                        self.compassView.subviews[self.compassView.subviews.endIndex - 1].removeFromSuperview()
+                       })
         
         // starImageViewを作成
         let starPosX: CGFloat = self.calcXfromDirection(direction)
@@ -217,8 +231,7 @@ extension ViewController {
         starLabelView.translatesAutoresizingMaskIntoConstraints = false // コードによるAutoLayout有効化
         // starLabel作成
         let starLabel = PaddingLabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-//        starLabelView.addSubview(starLabel) // starLabelViewに追加
-        starLabel.layer.anchorPoint = CGPoint(x: 0, y: 0)
+        starLabelView.addSubview(starLabel) // starLabelViewに追加
         starLabel.text = wish // 願いごとを代入
         starLabel.font = UIFont(name: "Hiragino Maru Gothic ProN", size: 10) // フォント設定
         starLabel.textAlignment = .center // 中央揃え
@@ -228,10 +241,12 @@ extension ViewController {
         starLabel.paddingBottom = 5
         starLabel.textColor = UIColor.black // 文字色
         starLabel.backgroundColor = UIColor.white // 背景色
+//        starLabel.sizeToFit() // frameが確定する
+//        starLabel.layer.setAnchorPoint(newAnchorPoint: CGPoint(x: 0, y: 0), forView: starLabel)
         starLabel.translatesAutoresizingMaskIntoConstraints = false // コードによるAutoLayout有効化
         // starLabelViewをcompassViewに追加（必ずAutoLayoutより先に追加する）
-//        self.compassView.addSubview(starLabelView)
-        self.compassView.addSubview(starLabel)
+        self.compassView.addSubview(starLabelView)
+//        self.compassView.addSubview(starLabel)
         // Animation
         starLabelView.alpha = 0
         UIView.animate(withDuration: 1,
@@ -256,14 +271,25 @@ extension ViewController {
             starImageView.heightAnchor.constraint(equalTo: starImageView.widthAnchor), // widthと同じ
             
             // starLabelView
-//            starLabelView.leadingAnchor.constraint(equalTo: starImageView.trailingAnchor, constant: 10), // starImageViewの右端から10
-//            starLabelView.centerYAnchor.constraint(equalTo: starImageView.centerYAnchor, constant: 0), // starImageViewと中央揃え（Y）
+            starLabelView.leadingAnchor.constraint(equalTo: starImageView.trailingAnchor, constant: 10), // starImageViewの右端から10
+            starLabelView.centerYAnchor.constraint(equalTo: starImageView.centerYAnchor, constant: 0), // starImageViewと中央揃え（Y）
             
             // starLabel
-            starLabel.leadingAnchor.constraint(equalTo: starImageView.trailingAnchor, constant: 10), // starImageViewの右端から10
-            starLabel.centerYAnchor.constraint(equalTo: starImageView.centerYAnchor, constant: 0), // starImageViewと中央揃え（Y）
+//            starLabel.leadingAnchor.constraint(equalTo: starImageView.trailingAnchor, constant: 10), // starImageViewの右端から10
+//            starLabel.centerYAnchor.constraint(equalTo: starImageView.centerYAnchor, constant: 0), // starImageViewと中央揃え（Y）
         ])
     }
+    
+    // compassViewのSubViewsから型がPaddingLabelのものだけをstarLabelsとして抽出
+//    func getStarLabelsFromCompassView() -> [PaddingLabel] {
+//        var starLabels = [PaddingLabel]()
+//        for subView in compassView.subviews {
+//            if type(of: subView) == PaddingLabel.self {
+//                starLabels.append(subView as! PaddingLabel)
+//            }
+//        }
+//        return starLabels
+//    }
 }
 
 
