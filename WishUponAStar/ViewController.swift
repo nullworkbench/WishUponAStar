@@ -17,7 +17,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     // チュートリアル
     var isTutorialGoing: Bool = false // 操作チュートリアルが必要か
     var tutorialIndex: Int = 1 // チュートリアルの進捗
-    let screen = UIScreen.main.bounds.size
+    let screen = UIScreen.main.bounds.size // スクリーンサイズ
     let overlayView = UIView() // チュートリアルを表示するView
     let maskLayer = CAShapeLayer() // くり抜く範囲Layer
     
@@ -89,8 +89,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         } else {
             // 初回起動
             print("First Launch!")
-            UserDefaults.standard.set(true, forKey: "isNotFirstLaunch")
-            self.performSegue(withIdentifier: "toTutorialView", sender: nil)
+            UserDefaults.standard.set(true, forKey: "isNotFirstLaunch") // 次回以降は初回起動でないことを保存
+            self.performSegue(withIdentifier: "toTutorialView", sender: nil) // チュートリアル開始
         }
     }
     
@@ -107,6 +107,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     
+    // starボタン
     @IBAction func star() {
 //        print(currentDirection)
         
