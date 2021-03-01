@@ -12,10 +12,14 @@ import FirebaseCore
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate {
     
     // チュートリアル
     var isTutorialGoing: Bool = false // 操作チュートリアルが必要か
+    var tutorialIndex: Int = 1 // チュートリアルの進捗
+    let screen = UIScreen.main.bounds.size
+    let overlayView = UIView() // チュートリアルを表示するView
+    let maskLayer = CAShapeLayer() // くり抜く範囲Layer
     
     // ロケーションマネージャー定義
     let locationManager = CLLocationManager()
@@ -34,7 +38,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Animation
+        // Animation準備
         self.view.alpha = 0
         
         // ロケーションマネージャーのdelegate指定
@@ -102,6 +106,42 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
         currentDirection = Float(newHeading.magneticHeading)
     }
     
+    
+    @IBAction func star() {
+//        print(currentDirection)
+        
+        // post to firestore
+        var ref: DocumentReference? = nil
+        ref = db.collection("posts").addDocument(data: [
+            "direction": currentDirection,
+            "wish": UserDefaults.standard.string(forKey: "wish") ?? "いいことありますように",
+            "createdAt": FieldValue.serverTimestamp()
+        ]) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                print("Document added with ID: \(ref!.documentID)")
+            }
+        }
+        
+        // read all
+//        db.collection("posts").getDocuments() { (querySnapshot, err) in
+//            if let err = err {
+//                print("Error getting documents: \(err)")
+//            } else {
+//                for document in querySnapshot!.documents {
+//                    print("\(document.documentID) => \(document.data())")
+//                }
+//            }
+//        }
+    }
+
+}
+
+
+
+//MARK: - Add star to compassView
+extension ViewController {
     // 方角から位置Xを計算する
     func calcXfromDirection(_ direction: CGFloat) -> CGFloat {
         // compassViewの中心
@@ -221,65 +261,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIGestureReco
             // starLabel
             starLabel.leadingAnchor.constraint(equalTo: starImageView.trailingAnchor, constant: 10), // starImageViewの右端から10
             starLabel.centerYAnchor.constraint(equalTo: starImageView.centerYAnchor, constant: 0), // starImageViewと中央揃え（Y）
-//                        starLabel.leadingAnchor.constraint(equalTo: starLabelView.leadingAnchor, constant: 5),
-//                        starLabel.topAnchor.constraint(equalTo: starLabelView.topAnchor, constant: 5),
-//                        starLabel.trailingAnchor.constraint(equalTo: starLabelView.trailingAnchor, constant: 5),
-//                        starLabel.bottomAnchor.constraint(equalTo: starLabelView.bottomAnchor, constant: 5),
         ])
     }
-    
-    
-    @IBAction func star() {
-//        print(currentDirection)
-        
-        // post to firestore
-        var ref: DocumentReference? = nil
-        ref = db.collection("posts").addDocument(data: [
-            "direction": currentDirection,
-            "wish": UserDefaults.standard.string(forKey: "wish") ?? "いいことありますように",
-            "createdAt": FieldValue.serverTimestamp()
-        ]) { err in
-            if let err = err {
-                print("Error adding document: \(err)")
-            } else {
-                print("Document added with ID: \(ref!.documentID)")
-            }
-        }
-        
-        // read all
-//        db.collection("posts").getDocuments() { (querySnapshot, err) in
-//            if let err = err {
-//                print("Error getting documents: \(err)")
-//            } else {
-//                for document in querySnapshot!.documents {
-//                    print("\(document.documentID) => \(document.data())")
-//                }
-//            }
-//        }
-    }
-
 }
 
 
-// MARK: - チュートリアル
-var tutorialIndex: Int = 1 // チュートリアルの進捗
-let screen = UIScreen.main.bounds.size
-let overlayView = UIView() // チュートリアルを表示するView
-let maskLayer = CAShapeLayer() // くり抜く範囲Layer
 
-extension UIViewController {
+
+// MARK: - Tutorial
+extension ViewController: UIGestureRecognizerDelegate {
     
     func startTutorial() {
         // overlayViewのframeを設定
         overlayView.frame = CGRect(x: 0, y: 0, width: screen.width, height: screen.height)
         // overlayViewを親Viewに追加
         self.view.addSubview(overlayView)
-        
-//        overlayView.translatesAutoresizingMaskIntoConstraints = false
-//        overlayView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0).isActive = true
-//        overlayView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true
-//        overlayView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0).isActive = true
-//        overlayView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0).isActive = true
         
         // くり抜かれるLayer
         let overlayLayer = CALayer()
