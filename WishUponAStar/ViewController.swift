@@ -55,7 +55,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.startUpdatingHeading()
         
         
-        //Firestore
+        // Firestore
         let firestoreSettings = FirestoreSettings()
         Firestore.firestore().settings = firestoreSettings
         db = Firestore.firestore()
@@ -85,7 +85,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                     if diff.type == .added {
                         let data = diff.document.data()
                         self.numOfStars += 1
-                        self.addStarToCompassView(direction: (data["direction"] as? CGFloat)!, wish: (data["wish"] as? String)!)
+                        self.addStarToCompassView(direction: data["direction"] as! CGFloat, wish: data["wish"] as! String)
                     }
                 }
             }
