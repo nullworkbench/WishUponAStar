@@ -71,17 +71,43 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 self.startTutorial()
                 isTutorialGoing = false // チュートリアル終了
             }
-            // 更新を監視
-            appDelegate.listener = db.collection("posts").addSnapshotListener { (snapshot, err) in
-                guard let doc = snapshot else {
-                    print("Error fetching documents: \(err!)")
-                    return
-                }
-                doc.documentChanges.forEach { diff in
-                    // 更新が追加だった場合
-                    if diff.type == .added {
-                        let data = diff.document.data()
-                        self.addStarToCompassView(direction: data["direction"] as! CGFloat, wish: data["wish"] as! String)
+            
+            // postの更新を監視
+            // 最新１件取得
+            db.collection("posts").order(by: "createdAt", descending: true).limit(to: 1).getDocuments() { (snapshot, err) in
+                // 最新１件が存在するか
+                if let recent = snapshot?.documents[0], recent.exists {
+                    // 最新一件をcompassViewに追加
+                    self.addStarToCompassView(direction: recent.data()["direction"] as! CGFloat, wish: recent.data()["wish"] as! String)
+                    // 最新１件よりあと（アプリ起動より後）のpostを監視
+                    self.appDelegate.listener = self.db.collection("posts").order(by: "createdAt").start(afterDocument: recent).addSnapshotListener { (snapshot, err) in
+                        guard let doc = snapshot else {
+                            print("Error fetching documents: \(err!)")
+                            return
+                        }
+                        doc.documentChanges.forEach { diff in
+                            // 更新が追加だった場合
+                            if diff.type == .added {
+                                let data = diff.document.data()
+                                self.addStarToCompassView(direction: data["direction"] as! CGFloat, wish: data["wish"] as! String)
+                            }
+                        }
+                    }
+                } else {
+                    // postがひとつもない場合
+                    print("Document does not exist")
+                    self.appDelegate.listener = self.db.collection("posts").addSnapshotListener { (snapshot, err) in
+                        guard let doc = snapshot else {
+                            print("Error fetching documents: \(err!)")
+                            return
+                        }
+                        doc.documentChanges.forEach { diff in
+                            // 更新が追加だった場合
+                            if diff.type == .added {
+                                let data = diff.document.data()
+                                self.addStarToCompassView(direction: data["direction"] as! CGFloat, wish: data["wish"] as! String)
+                            }
+                        }
                     }
                 }
             }
