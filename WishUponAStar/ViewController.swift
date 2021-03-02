@@ -139,17 +139,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 print("Document added with ID: \(ref!.documentID)")
             }
         }
-        
-        // read all
-//        db.collection("posts").getDocuments() { (querySnapshot, err) in
-//            if let err = err {
-//                print("Error getting documents: \(err)")
-//            } else {
-//                for document in querySnapshot!.documents {
-//                    print("\(document.documentID) => \(document.data())")
-//                }
-//            }
-//        }
     }
 
 }
