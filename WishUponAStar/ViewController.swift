@@ -14,6 +14,9 @@ import FirebaseFirestoreSwift
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
+    // AppDelegate
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     // チュートリアル
     var isTutorialGoing: Bool = false // 操作チュートリアルが必要か
     var tutorialIndex: Int = 1 // チュートリアルの進捗
@@ -56,10 +59,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let firestoreSettings = FirestoreSettings()
         Firestore.firestore().settings = firestoreSettings
         db = Firestore.firestore()
-        
-        
-//        let listener = db.collection("cities").addSnapshotListener { querySnapshot, error in}
-//        listener.remove()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -76,7 +75,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 isTutorialGoing = false // チュートリアル終了
             }
             // 更新を監視
-            db.collection("posts").addSnapshotListener { (snapshot, err) in
+            appDelegate.listener = db.collection("posts").addSnapshotListener { (snapshot, err) in
                 guard let doc = snapshot else {
                     print("Error fetching documents: \(err!)")
                     return
@@ -124,8 +123,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     // starボタン
     @IBAction func star() {
-//        print(currentDirection)
-        
         // post to firestore
         var ref: DocumentReference? = nil
         ref = db.collection("posts").addDocument(data: [
