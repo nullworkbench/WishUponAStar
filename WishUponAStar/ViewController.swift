@@ -43,14 +43,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         // Animation準備
         self.view.alpha = 0
-        
-        // ロケーションマネージャーのdelegate指定
-        locationManager.delegate = self
-        // 方角の更新間隔
-        locationManager.headingFilter = 0.1
-        // 方角の取得開始
-        locationManager.startUpdatingHeading()
-        
+
+        // LocationManager
+        self.setupLocationManager()
         
         // Firestore
         let firestoreSettings = FirestoreSettings()
@@ -72,74 +67,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 isTutorialGoing = false // チュートリアル終了
             }
             
-            // postの更新を監視
-            // 最新１件取得
-            db.collection("posts").order(by: "createdAt", descending: true).limit(to: 1).getDocuments() { (snapshot, err) in
-                // 最新１件が存在するか
-                if let recent = snapshot?.documents[0], recent.exists {
-                    // 最新一件をcompassViewに追加
-                    self.addStarToCompassView(direction: recent.data()["direction"] as! CGFloat, wish: recent.data()["wish"] as! String)
-                    // 最新１件よりあと（アプリ起動より後）のpostを監視
-                    self.appDelegate.listener = self.db.collection("posts").order(by: "createdAt").start(afterDocument: recent).addSnapshotListener { (snapshot, err) in
-                        guard let doc = snapshot else {
-                            print("Error fetching documents: \(err!)")
-                            return
-                        }
-                        doc.documentChanges.forEach { diff in
-                            // 更新が追加だった場合
-                            if diff.type == .added {
-                                let data = diff.document.data()
-                                self.addStarToCompassView(direction: data["direction"] as! CGFloat, wish: data["wish"] as! String)
-                            }
-                        }
-                    }
-                } else {
-                    // postがひとつもない場合
-                    print("Document does not exist")
-                    self.appDelegate.listener = self.db.collection("posts").addSnapshotListener { (snapshot, err) in
-                        guard let doc = snapshot else {
-                            print("Error fetching documents: \(err!)")
-                            return
-                        }
-                        doc.documentChanges.forEach { diff in
-                            // 更新が追加だった場合
-                            if diff.type == .added {
-                                let data = diff.document.data()
-                                self.addStarToCompassView(direction: data["direction"] as! CGFloat, wish: data["wish"] as! String)
-                            }
-                        }
-                    }
-                }
-            }
+            // postのリアルタイムリスナーを設置
+            self.setRealtimeListener()
+            
         } else {
             // 初回起動
             print("First Launch!")
             UserDefaults.standard.set(true, forKey: "isNotFirstLaunch") // 次回以降は初回起動でないことを保存
             self.performSegue(withIdentifier: "toTutorialView", sender: nil) // チュートリアル開始
         }
-    }
-    
-    // AutoLayout完了
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//        print("viewDidLayoutSubviews")
-//
-//        for starLabel in self.getStarLabelsFromCompassView() {
-//            starLabel.layer.setAnchorPoint(newAnchorPoint: CGPoint(x: 0, y: 0), forView: starLabel)
-//            print(starLabel.bounds)
-//        }
-//    }
-    
-    // 方角が変わると呼び出される
-    func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
-        // compassViewを回転
-        compassView.transform = CGAffineTransform(rotationAngle: CGFloat(-newHeading.magneticHeading) * CGFloat.pi / 180)
-        // compassViewの子Viewの水平を維持
-        for view in compassView.subviews {
-            view.transform = CGAffineTransform(rotationAngle: -CGFloat(-newHeading.magneticHeading) * CGFloat.pi / 180)
-        }
-        // 現在の方角を更新
-        currentDirection = Float(newHeading.magneticHeading)
     }
     
     
@@ -163,6 +99,73 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 }
 
 
+// MARK: - locationManager
+extension ViewController {
+    func setupLocationManager() {
+        // ロケーションマネージャーのdelegate指定
+        locationManager.delegate = self
+        // 方角の更新間隔
+        locationManager.headingFilter = 0.1
+        // 方角の取得開始
+        locationManager.startUpdatingHeading()
+    }
+    
+    // 方角が変わると呼び出される
+    func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
+        // compassViewを回転
+        compassView.transform = CGAffineTransform(rotationAngle: CGFloat(-newHeading.magneticHeading) * CGFloat.pi / 180)
+        // compassViewの子Viewの水平を維持
+        for view in compassView.subviews {
+            view.transform = CGAffineTransform(rotationAngle: -CGFloat(-newHeading.magneticHeading) * CGFloat.pi / 180)
+        }
+        // 現在の方角を更新
+        currentDirection = Float(newHeading.magneticHeading)
+    }
+}
+
+// MARK: - setRealtimeListener
+extension ViewController {
+    func setRealtimeListener() {
+        // 最新１件取得
+        db.collection("posts").order(by: "createdAt", descending: true).limit(to: 1).getDocuments() { (snapshot, err) in
+            // 最新１件が存在するか
+            if let recent = snapshot?.documents[0], recent.exists {
+                // 最新一件をcompassViewに追加
+                self.addStarToCompassView(direction: recent.data()["direction"] as! CGFloat, wish: recent.data()["wish"] as! String)
+                // 最新１件よりあと（アプリ起動より後）のpostを監視
+                self.appDelegate.listener = self.db.collection("posts").order(by: "createdAt").start(afterDocument: recent).addSnapshotListener { (snapshot, err) in
+                    guard let doc = snapshot else {
+                        print("Error fetching documents: \(err!)")
+                        return
+                    }
+                    doc.documentChanges.forEach { diff in
+                        // 更新が追加だった場合
+                        if diff.type == .added {
+                            let data = diff.document.data()
+                            self.addStarToCompassView(direction: data["direction"] as! CGFloat, wish: data["wish"] as! String)
+                        }
+                    }
+                }
+            } else {
+                // postがひとつもない場合
+                print("Document does not exist")
+                self.appDelegate.listener = self.db.collection("posts").addSnapshotListener { (snapshot, err) in
+                    guard let doc = snapshot else {
+                        print("Error fetching documents: \(err!)")
+                        return
+                    }
+                    doc.documentChanges.forEach { diff in
+                        // 更新が追加だった場合
+                        if diff.type == .added {
+                            let data = diff.document.data()
+                            self.addStarToCompassView(direction: data["direction"] as! CGFloat, wish: data["wish"] as! String)
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 
 // MARK: - Add star to compassView
 extension ViewController {
@@ -193,7 +196,6 @@ extension ViewController {
                                     })
         }
         timer.invalidate()
-        print("timer stopped")
     }
     
     // 方角から位置Xを計算する
@@ -324,17 +326,6 @@ extension ViewController {
 //            starLabel.centerYAnchor.constraint(equalTo: starImageView.centerYAnchor, constant: 0), // starImageViewと中央揃え（Y）
         ])
     }
-    
-    // compassViewのSubViewsから型がPaddingLabelのものだけをstarLabelsとして抽出
-//    func getStarLabelsFromCompassView() -> [PaddingLabel] {
-//        var starLabels = [PaddingLabel]()
-//        for subView in compassView.subviews {
-//            if type(of: subView) == PaddingLabel.self {
-//                starLabels.append(subView as! PaddingLabel)
-//            }
-//        }
-//        return starLabels
-//    }
 }
 
 
