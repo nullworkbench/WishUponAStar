@@ -18,13 +18,13 @@
 		8B11F4BE25E38E8700A5CB8A /* WishUponAStarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B11F4BD25E38E8700A5CB8A /* WishUponAStarTests.swift */; };
 		8B11F4C925E38E8700A5CB8A /* WishUponAStarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B11F4C825E38E8700A5CB8A /* WishUponAStarUITests.swift */; };
 		8B11F4DD25E390B100A5CB8A /* Designable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B11F4DC25E390B100A5CB8A /* Designable.swift */; };
-		8B11F4F525E4C18B00A5CB8A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B11F4F425E4C18B00A5CB8A /* GoogleService-Info.plist */; };
-		8B11F4F625E4C18B00A5CB8A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B11F4F425E4C18B00A5CB8A /* GoogleService-Info.plist */; };
-		8B11F4F725E4C18B00A5CB8A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B11F4F425E4C18B00A5CB8A /* GoogleService-Info.plist */; };
 		8B1D5E1C25E7781100875F60 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1D5E1B25E7781100875F60 /* TutorialViewController.swift */; };
 		8B1D5E3025EC8A5C00875F60 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1D5E2F25EC8A5C00875F60 /* PaddingLabel.swift */; };
 		8B1D5E3B25ECC1DF00875F60 /* CALayer_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1D5E3A25ECC1DF00875F60 /* CALayer_Extension.swift */; };
 		8B1D5E6A25ED0F8400875F60 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1D5E6925ED0F8400875F60 /* ListViewController.swift */; };
+		8B1D5E8D25EE1DE100875F60 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B1D5E8C25EE1DE100875F60 /* GoogleService-Info.plist */; };
+		8B1D5E8E25EE1DE100875F60 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B1D5E8C25EE1DE100875F60 /* GoogleService-Info.plist */; };
+		8B1D5E8F25EE1DE100875F60 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B1D5E8C25EE1DE100875F60 /* GoogleService-Info.plist */; };
 		8B52DE6A25E4D15A003CA9A9 /* WishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B52DE6925E4D15A003CA9A9 /* WishViewController.swift */; };
 		8B52DE7525E4E02C003CA9A9 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B52DE7425E4E02C003CA9A9 /* PostView.swift */; };
 		8B52DE7A25E4E045003CA9A9 /* PostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B52DE7925E4E045003CA9A9 /* PostView.xib */; };
@@ -70,11 +70,11 @@
 		8B11F4C825E38E8700A5CB8A /* WishUponAStarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishUponAStarUITests.swift; sourceTree = "<group>"; };
 		8B11F4CA25E38E8700A5CB8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B11F4DC25E390B100A5CB8A /* Designable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Designable.swift; sourceTree = "<group>"; };
-		8B11F4F425E4C18B00A5CB8A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8B1D5E1B25E7781100875F60 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		8B1D5E2F25EC8A5C00875F60 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		8B1D5E3A25ECC1DF00875F60 /* CALayer_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer_Extension.swift; sourceTree = "<group>"; };
 		8B1D5E6925ED0F8400875F60 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		8B1D5E8C25EE1DE100875F60 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8B52DE6925E4D15A003CA9A9 /* WishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishViewController.swift; sourceTree = "<group>"; };
 		8B52DE7425E4E02C003CA9A9 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		8B52DE7925E4E045003CA9A9 /* PostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostView.xib; sourceTree = "<group>"; };
@@ -156,7 +156,6 @@
 				8B11F4B125E38E8700A5CB8A /* LaunchScreen.storyboard */,
 				8B11F4B425E38E8700A5CB8A /* Info.plist */,
 				8B11F4DC25E390B100A5CB8A /* Designable.swift */,
-				8B11F4F425E4C18B00A5CB8A /* GoogleService-Info.plist */,
 				8B52DE6925E4D15A003CA9A9 /* WishViewController.swift */,
 				8B52DE7425E4E02C003CA9A9 /* PostView.swift */,
 				8B52DE7925E4E045003CA9A9 /* PostView.xib */,
@@ -165,6 +164,7 @@
 				8B1D5E2F25EC8A5C00875F60 /* PaddingLabel.swift */,
 				8B1D5E3A25ECC1DF00875F60 /* CALayer_Extension.swift */,
 				8B1D5E6925ED0F8400875F60 /* ListViewController.swift */,
+				8B1D5E8C25EE1DE100875F60 /* GoogleService-Info.plist */,
 			);
 			path = WishUponAStar;
 			sourceTree = "<group>";
@@ -309,8 +309,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B11F4B325E38E8700A5CB8A /* LaunchScreen.storyboard in Resources */,
-				8B11F4F525E4C18B00A5CB8A /* GoogleService-Info.plist in Resources */,
 				8B52DE7A25E4E045003CA9A9 /* PostView.xib in Resources */,
+				8B1D5E8D25EE1DE100875F60 /* GoogleService-Info.plist in Resources */,
 				8B11F4B025E38E8700A5CB8A /* Assets.xcassets in Resources */,
 				8B11F4AE25E38E8500A5CB8A /* Main.storyboard in Resources */,
 			);
@@ -320,7 +320,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B11F4F625E4C18B00A5CB8A /* GoogleService-Info.plist in Resources */,
+				8B1D5E8E25EE1DE100875F60 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,7 +328,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B11F4F725E4C18B00A5CB8A /* GoogleService-Info.plist in Resources */,
+				8B1D5E8F25EE1DE100875F60 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -629,18 +629,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.0.0.0;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 2K446D59RQ;
 				INFOPLIST_FILE = WishUponAStar/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = jp.co.lifeistech.WishUponAStar;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.lifeistech.WishUponAStar2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "LA1-Ueyama-Distribution";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -652,18 +654,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1.0.0.0;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 2K446D59RQ;
 				INFOPLIST_FILE = WishUponAStar/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = jp.co.lifeistech.WishUponAStar;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.co.lifeistech.WishUponAStar2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "LA1-Ueyama-Distribution";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
