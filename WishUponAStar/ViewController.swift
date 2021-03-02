@@ -33,9 +33,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     // Firestore
     var db: Firestore!
     
-    // compassView上のstarの数
-    var numOfStars: Int = 0
-    
     // コンパスのView
     @IBOutlet var compassView: UIView!
     // Starボタン
@@ -84,7 +81,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                     // 更新が追加だった場合
                     if diff.type == .added {
                         let data = diff.document.data()
-                        self.numOfStars += 1
                         self.addStarToCompassView(direction: data["direction"] as! CGFloat, wish: data["wish"] as! String)
                     }
                 }
@@ -146,25 +142,29 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 extension ViewController {
     
     // 60秒で削除する
-    func startTimerWithTag(tag: Int) {
+    func startTimerWithTag(idx: Int) {
         // 60秒のタイマーを開始
         Timer.scheduledTimer(timeInterval: 60,
                                          target: self,
                                          selector: #selector(self.stopTimer(_:)),
-                                         userInfo: tag,
+                                         userInfo: idx,
                                          repeats: false)
     }
     // 時間経過でタイマーストップ
     @objc func stopTimer(_ timer: Timer) {
-        let tag = timer.userInfo as! Int
-        // tagで該当する３つのViewを削除
-        for _ in 1...3 {
-            let target = self.compassView.viewWithTag(tag)!
-            print(target.alpha)
-//            UIView.animate(withDuration: 1, animations: { target.alpha = 0 }, completion: { _ in
-//                target.removeFromSuperview()
-//            })
-            target.removeFromSuperview()
+        let idx = timer.userInfo as! Int
+        // subviewsのidx番目から３つのViewを削除
+        for i in 0..<3 {
+            let target = self.compassView.subviews[idx + i]
+            UIView.animateKeyframes(withDuration: 1,
+                                    delay: 0,
+                                    options: .calculationModeLinear,
+                                    animations: {
+                                        target.alpha = 0
+                                    },
+                                    completion: {_ in
+//                                        target.removeFromSuperview() // 実体も削除するとindexが狂って今後のidx指定に影響してしまう
+                                    })
         }
         timer.invalidate()
         print("timer stopped")
@@ -192,8 +192,8 @@ extension ViewController {
         let shootingAnimationView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         shootingAnimationView.translatesAutoresizingMaskIntoConstraints = false // コードによるAutoLayoutを有効化
         shootingAnimationView.backgroundColor = UIColor.clear // 背景色
-        shootingAnimationView.tag = numOfStars // tagを設定
         self.compassView.addSubview(shootingAnimationView) //　compassViewに追加
+        let shootingAnimationViewIdx = self.compassView.subviews.endIndex - 1 // shootingAnimationViewのsubviewsの何番目かを保存
         // 流れ星の尾のLayer
         let shootingAnimationLayer = CAShapeLayer()
         shootingAnimationView.layer.addSublayer(shootingAnimationLayer) // viewに追加
@@ -231,7 +231,6 @@ extension ViewController {
         let starSize: CGFloat = self.compassView.bounds.size.width * 0.1 // compassView幅の10%
 //                    let starImageView = UIImageView(frame: CGRect(x: starPosX - (starSize / 2), y: starPosY - (starSize / 2), width: starSize, height: starSize))
         let starImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        starImageView.tag = numOfStars // tagを設定
         self.compassView.addSubview(starImageView) // starImageViewをcompassViewへ追加
         starImageView.image = UIImage(named: "star") // starImageViewをcompassViewへ追加
         starImageView.translatesAutoresizingMaskIntoConstraints = false // コードによるAutoLayout有効化
@@ -243,11 +242,10 @@ extension ViewController {
                                 starImageView.alpha = 1
                             }, completion: nil)
         // 60秒後に削除
-        startTimerWithTag(tag: numOfStars)
+        startTimerWithTag(idx: shootingAnimationViewIdx)
         
         // starLabelViewを作成
         let starLabelView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        starLabelView.tag = numOfStars // tagを設定
         starLabelView.backgroundColor = UIColor.white // 背景色
         starLabelView.translatesAutoresizingMaskIntoConstraints = false // コードによるAutoLayout有効化
         // starLabel作成
