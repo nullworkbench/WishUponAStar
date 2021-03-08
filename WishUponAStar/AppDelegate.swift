@@ -36,13 +36,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Firebase Auth
         if Auth.auth().currentUser != nil {
             // ログイン済
-            print("ログイン済")
+            user = Auth.auth().currentUser
+            print("ログイン済。uid: \(user!.uid)")
         } else {
             // 未ログイン
             Auth.auth().signInAnonymously(completion: {(authResult, err) in
                 self.user = authResult?.user
                 let uid = self.user!.uid
-                print("ログイン成功。uid: + \(uid)")
+                print("ログイン成功。uid: \(uid)")
             })
         }
         

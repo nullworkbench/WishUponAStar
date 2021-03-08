@@ -81,16 +81,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        // 認証状態の監視
-        authHandle = Auth.auth().addStateDidChangeListener() { (auth, user) in
-            
-        }
     }
     
     
     override func viewWillDisappear(_ animated: Bool) {
-        // 認証状態のリスナーを解除
-        Auth.auth().removeStateDidChangeListener(authHandle!)
     }
     
     
@@ -101,6 +95,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         ref = db.collection("posts").addDocument(data: [
             "direction": currentDirection,
             "wish": UserDefaults.standard.string(forKey: "wish") ?? "いいことありますように",
+            "uid": appDelegate.user?.uid as Any,
             "createdAt": FieldValue.serverTimestamp()
         ]) { err in
             if let err = err {
