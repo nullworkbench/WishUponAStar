@@ -31,6 +31,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     // 現在の方角
     var currentDirection: Float = 0.0
     
+    // タップされたStarの情報
+    var selectedStarDirection: CGFloat?
+    var selectedStarWish: String?
+    var selectedStarUid: String?
+    
     // Firestore
     var db: Firestore!
     
@@ -88,6 +93,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // DetailViewへの遷移
+        if segue.identifier == "toDetailView" {
+            let detailViewController = segue.destination as! DetailViewController
+            detailViewController.direction = selectedStarDirection
+            detailViewController.wish = selectedStarWish
+            detailViewController.uid = selectedStarUid
+        }
+    }
+    
+    
     // starボタン
     @IBAction func star() {
         // post to firestore
@@ -105,6 +121,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             }
         }
     }
+    
+    
+
 
 }
 
@@ -141,7 +160,7 @@ extension ViewController {
             // 最新１件が存在するか
             if let recent = snapshot?.documents[0], recent.exists {
                 // 最新一件をcompassViewに追加
-                self.addStarToCompassView(direction: recent.data()["direction"] as! CGFloat, wish: recent.data()["wish"] as! String)
+                self.addStarToCompassView(direction: recent.data()["direction"] as! CGFloat, wish: recent.data()["wish"] as! String, uid: recent.data()["uid"] as! String)
                 // 最新１件よりあと（アプリ起動より後）のpostを監視
                 self.appDelegate.listener = self.db.collection("posts").order(by: "createdAt").start(afterDocument: recent).addSnapshotListener { (snapshot, err) in
                     guard let doc = snapshot else {
@@ -152,7 +171,7 @@ extension ViewController {
                         // 更新が追加だった場合
                         if diff.type == .added {
                             let data = diff.document.data()
-                            self.addStarToCompassView(direction: data["direction"] as! CGFloat, wish: data["wish"] as! String)
+                            self.addStarToCompassView(direction: data["direction"] as! CGFloat, wish: data["wish"] as! String, uid: data["uid"] as! String)
                         }
                     }
                 }
@@ -168,7 +187,7 @@ extension ViewController {
                         // 更新が追加だった場合
                         if diff.type == .added {
                             let data = diff.document.data()
-                            self.addStarToCompassView(direction: data["direction"] as! CGFloat, wish: data["wish"] as! String)
+                            self.addStarToCompassView(direction: data["direction"] as! CGFloat, wish: data["wish"] as! String, uid: data["uid"] as! String)
                         }
                     }
                 }
@@ -179,6 +198,12 @@ extension ViewController {
 
 // MARK: - Add star to compassView
 extension ViewController {
+    
+    class StarTapGestureRecognizer: UITapGestureRecognizer {
+        var direction: CGFloat!
+        var wish: String!
+        var uid: String!
+    }
     
     // 60秒で削除する
     func startTimerWithTag(idx: Int) {
@@ -208,6 +233,16 @@ extension ViewController {
         timer.invalidate()
     }
     
+    // タップイベント
+    @objc func starTapped(_ sender: StarTapGestureRecognizer) {
+        // DetailViewへ遷移
+        print("starTapped()")
+        selectedStarDirection = sender.direction
+        selectedStarWish = sender.wish
+        selectedStarUid = sender.uid
+        performSegue(withIdentifier: "toDetailView", sender: nil)
+    }
+    
     // 方角から位置Xを計算する
     func calcXfromDirection(_ direction: CGFloat) -> CGFloat {
         // compassViewの中心
@@ -225,7 +260,7 @@ extension ViewController {
     }
     
     // compassViewにStarを追加
-    func addStarToCompassView(direction: CGFloat, wish: String) {
+    func addStarToCompassView(direction: CGFloat, wish: String, uid: String) {
         // 流れ星の尾のアニメーション
         let shootingAnimationView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         shootingAnimationView.translatesAutoresizingMaskIntoConstraints = false // コードによるAutoLayoutを有効化
@@ -269,6 +304,13 @@ extension ViewController {
         let starSize: CGFloat = self.compassView.bounds.size.width * 0.1 // compassView幅の10%
 //                    let starImageView = UIImageView(frame: CGRect(x: starPosX - (starSize / 2), y: starPosY - (starSize / 2), width: starSize, height: starSize))
         let starImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        starImageView.isUserInteractionEnabled = true // タップできるように
+//        starImageView.restorationIdentifier = uid // uidを格納
+        let gesture = StarTapGestureRecognizer(target: self, action: #selector(self.starTapped(_:))) // タップを認識
+        gesture.direction = direction // directionを格納
+        gesture.wish = wish // wishを格納
+        gesture.uid = uid // uidを格納
+        starImageView.addGestureRecognizer(gesture) // starImageViewにgestureを追加
         self.compassView.addSubview(starImageView) // starImageViewをcompassViewへ追加
         starImageView.image = UIImage(named: "star") // starImageViewをcompassViewへ追加
         starImageView.translatesAutoresizingMaskIntoConstraints = false // コードによるAutoLayout有効化

@@ -26,6 +26,7 @@
 		8B1D5E8E25EE1DE100875F60 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B1D5E8C25EE1DE100875F60 /* GoogleService-Info.plist */; };
 		8B1D5E8F25EE1DE100875F60 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B1D5E8C25EE1DE100875F60 /* GoogleService-Info.plist */; };
 		8B3F470325F6855D00420A86 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3F470225F6855D00420A86 /* SettingsViewController.swift */; };
+		8B3F471425F6917D00420A86 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3F471325F6917D00420A86 /* DetailViewController.swift */; };
 		8B52DE6A25E4D15A003CA9A9 /* WishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B52DE6925E4D15A003CA9A9 /* WishViewController.swift */; };
 		8B52DE7525E4E02C003CA9A9 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B52DE7425E4E02C003CA9A9 /* PostView.swift */; };
 		8B52DE7A25E4E045003CA9A9 /* PostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B52DE7925E4E045003CA9A9 /* PostView.xib */; };
@@ -77,6 +78,7 @@
 		8B1D5E6925ED0F8400875F60 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		8B1D5E8C25EE1DE100875F60 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8B3F470225F6855D00420A86 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		8B3F471325F6917D00420A86 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		8B52DE6925E4D15A003CA9A9 /* WishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishViewController.swift; sourceTree = "<group>"; };
 		8B52DE7425E4E02C003CA9A9 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		8B52DE7925E4E045003CA9A9 /* PostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostView.xib; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				8B1D5E6925ED0F8400875F60 /* ListViewController.swift */,
 				8B1D5E8C25EE1DE100875F60 /* GoogleService-Info.plist */,
 				8B3F470225F6855D00420A86 /* SettingsViewController.swift */,
+				8B3F471325F6917D00420A86 /* DetailViewController.swift */,
 			);
 			path = WishUponAStar;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B3F471425F6917D00420A86 /* DetailViewController.swift in Sources */,
 				8B11F4AB25E38E8500A5CB8A /* ViewController.swift in Sources */,
 				8B11F4DD25E390B100A5CB8A /* Designable.swift in Sources */,
 				8B1D5E1C25E7781100875F60 /* TutorialViewController.swift in Sources */,

@@ -60,7 +60,7 @@ class ListViewController: UIViewController, UITableViewDataSource {
         let dateLabel = cell?.viewWithTag(3) as! UILabel
         
         wishLabel.text = postsArray[indexPath.row].wish
-        directionLabel.text = self.judgeDirection(postsArray[indexPath.row].direction)
+        directionLabel.text = judgeDirection(postsArray[indexPath.row].direction)
         dateLabel.text = stringFromDate(date: postsArray[indexPath.row].date, format: "yyyy/MM/dd HH:mm:ss")
         
         return cell!
@@ -82,27 +82,5 @@ class Post {
         self.wish = wish
         self.direction = direction
         self.date = date
-    }
-}
-
-extension ListViewController {
-    func judgeDirection(_ direction: Float) -> String {
-        if direction > 22 && direction <= 67 {
-            return "北東"
-        } else if direction > 67 && direction <= 112 {
-            return "東"
-        } else if direction > 112 && direction <= 157 {
-            return "南東"
-        } else if direction > 157 && direction <= 202 {
-            return "南"
-        } else if direction > 202 && direction <= 247 {
-            return "南西"
-        } else if direction > 247 && direction <= 292 {
-            return "西"
-        } else if direction > 292 && direction <= 337 {
-            return "北西"
-        } else {
-            return "北"
-        }
     }
 }
