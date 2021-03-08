@@ -395,6 +395,9 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="NO"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isRoundedCorner" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="report" destination="MIg-QD-oaV" eventType="touchUpInside" id="k3v-P8-YKt"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hnl-TX-eIj" customClass="DesignableButton" customModule="WishUponAStar" customModuleProvider="target">
                                 <rect key="frame" x="107.33333333333333" y="544" width="175.33333333333337" height="43.666666666666629"/>
@@ -410,6 +413,9 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="NO"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isRoundedCorner" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="blockUser" destination="MIg-QD-oaV" eventType="touchUpInside" id="b5z-1Q-zCb"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="direction" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D7f-Y1-VBc">
                                 <rect key="frame" x="152" y="170" width="86" height="20"/>
