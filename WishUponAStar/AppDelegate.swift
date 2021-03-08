@@ -9,12 +9,19 @@ import UIKit
 
 import FirebaseCore
 import FirebaseFirestore
+import FirebaseAuth
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // FirestoreのsnapshotListenerインスタンス保持用
     var listener: ListenerRegistration? = nil
+    
+    // Firebase Authの認証状態リスナー
+    var authHandle: AuthStateDidChangeListenerHandle?
+    
+    // Firebase Auth user
+    var user: User?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -25,6 +32,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Firestore
         let db = Firestore.firestore()
         print(db)
+        
+        // Firebase Auth
+        if Auth.auth().currentUser != nil {
+            // ログイン済
+            print("ログイン済")
+        } else {
+            // 未ログイン
+            Auth.auth().signInAnonymously(completion: {(authResult, err) in
+                self.user = authResult?.user
+                let uid = self.user!.uid
+                print("ログイン成功。uid: + \(uid)")
+            })
+        }
         
         return true
     }

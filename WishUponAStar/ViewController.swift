@@ -11,6 +11,7 @@ import CoreLocation
 import FirebaseCore
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import FirebaseAuth
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
@@ -76,6 +77,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             UserDefaults.standard.set(true, forKey: "isNotFirstLaunch") // 次回以降は初回起動でないことを保存
             self.performSegue(withIdentifier: "toTutorialView", sender: nil) // チュートリアル開始
         }
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // 認証状態の監視
+        authHandle = Auth.auth().addStateDidChangeListener() { (auth, user) in
+            
+        }
+    }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        // 認証状態のリスナーを解除
+        Auth.auth().removeStateDidChangeListener(authHandle!)
     }
     
     

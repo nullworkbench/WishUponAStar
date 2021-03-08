@@ -145,6 +145,17 @@
                                     <segue destination="pWp-ip-cBS" kind="presentation" id="dPU-GN-aGi"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8XZ-cN-zJk" userLabel="Settings">
+                                <rect key="frame" x="326" y="44" width="39" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="8XZ-cN-zJk" secondAttribute="height" multiplier="1:1" id="vW1-9A-xsC"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="gearshape" catalog="system"/>
+                                <connections>
+                                    <segue destination="96Q-gu-e4Z" kind="presentation" id="x8a-GY-WUF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.1450980392" green="0.16078431369999999" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -155,13 +166,16 @@
                             <constraint firstItem="sr0-Vp-aJ5" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.18" id="57g-oo-Tdq"/>
                             <constraint firstItem="LlL-No-aqc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="9Rq-dT-B4Z"/>
                             <constraint firstItem="sr0-Vp-aJ5" firstAttribute="centerY" secondItem="Xil-jK-Bnb" secondAttribute="centerY" id="Bc9-tS-fE7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8XZ-cN-zJk" secondAttribute="trailing" constant="25" id="MD4-xi-3wo"/>
                             <constraint firstItem="iBc-nW-9zQ" firstAttribute="leading" secondItem="Xil-jK-Bnb" secondAttribute="trailing" constant="40" id="Rie-EL-Loi"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Xil-jK-Bnb" secondAttribute="bottom" constant="40" id="SIP-TD-wmB"/>
                             <constraint firstItem="dMr-hb-L6n" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="110" id="X8y-dm-xlZ"/>
                             <constraint firstItem="Xil-jK-Bnb" firstAttribute="leading" secondItem="sr0-Vp-aJ5" secondAttribute="trailing" constant="40" id="XQE-U4-d40"/>
                             <constraint firstItem="LlL-No-aqc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="byL-7r-jAn"/>
+                            <constraint firstItem="8XZ-cN-zJk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ltT-8M-0lt"/>
                             <constraint firstItem="Xil-jK-Bnb" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.25" id="mEz-Jk-UGA"/>
                             <constraint firstItem="dMr-hb-L6n" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="nMc-I3-iu1"/>
+                            <constraint firstItem="8XZ-cN-zJk" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.1" id="tH1-L1-F8L"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dMr-hb-L6n" secondAttribute="trailing" constant="10" id="xVQ-Pu-3w3"/>
                         </constraints>
                     </view>
@@ -426,6 +440,21 @@
             </objects>
             <point key="canvasLocation" x="960" y="138"/>
         </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="1Vf-Ia-yNO">
+            <objects>
+                <viewController id="96Q-gu-e4Z" customClass="SettingsViewController" customModule="WishUponAStar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BLk-sd-W99">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="KOW-It-HXC"/>
+                        <color key="backgroundColor" red="0.1450980392" green="0.16078431369999999" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zOj-3z-Ihf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1774" y="138"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="K5A-f1-QQN">
@@ -445,6 +474,7 @@
         </designable>
     </designables>
     <resources>
+        <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="multiply.circle" catalog="system" width="128" height="121"/>
     </resources>
 </document>

@@ -9,6 +9,7 @@ target 'WishUponAStar' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Firestore'
   pod 'FirebaseFirestoreSwift'
+  pod 'Firebase/Auth'
 
   target 'WishUponAStarTests' do
     inherit! :search_paths
