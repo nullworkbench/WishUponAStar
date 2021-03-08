@@ -27,6 +27,7 @@ extension UIViewController {
         return d3!
     }
     
+    // directionから方角を求める
     func judgeDirection(_ direction: Float) -> String {
         if direction > 22 && direction <= 67 {
             return "北東"
@@ -45,6 +46,19 @@ extension UIViewController {
         } else {
             return "北"
         }
+    }
+    
+    // 投稿がブロック済のユーザーでないか判定
+    func isBlockedUser(uid: String) -> Bool {
+        if let blockedUidsArray = UserDefaults.standard.array(forKey: "blockedUidsArray") {
+            for blocked in blockedUidsArray {
+                if blocked as! String == uid {
+                    print("This post was posted by blocking user: \(uid)")
+                    return true
+                }
+            }
+        }
+        return false
     }
 }
 
@@ -69,4 +83,11 @@ extension DateFormatter {
 }
 extension Date {
     static var current: Date = Date(timeIntervalSinceNow: TimeInterval(TimeZone.jst.secondsFromGMT()))
+}
+
+extension UIColor {
+    class func WishUponAStar() -> UIColor {
+        let color = UIColor.init(red: 37, green: 41, blue: 73, alpha: 1)
+        return color
+    }
 }

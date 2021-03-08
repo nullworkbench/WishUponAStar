@@ -261,16 +261,11 @@ extension ViewController {
     
     // compassViewにStarを追加
     func addStarToCompassView(direction: CGFloat, wish: String, uid: String) {
-        // 投稿がブロック済のユーザーでないか判定
-        if let blockedUidsArray = UserDefaults.standard.array(forKey: "blockedUidsArray") {
-            for blocked in blockedUidsArray {
-                print(blocked)
-                if blocked as! String == uid {
-                    print("This post was posted by blocking user: \(uid)")
-                    return
-                }
-            }
+        // 投稿がブロック済のユーザーであれば早期return
+        if isBlockedUser(uid: uid) {
+            return
         }
+        
         // 流れ星の尾のアニメーション
         let shootingAnimationView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         shootingAnimationView.translatesAutoresizingMaskIntoConstraints = false // コードによるAutoLayoutを有効化
