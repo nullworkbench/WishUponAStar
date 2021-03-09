@@ -59,6 +59,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         db = Firestore.firestore()
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print(#function)
+        // 投稿のsubviewsを全て削除
+        for (idx, subview) in self.compassView.subviews.enumerated() {
+            if idx < 4 {
+            } else {
+                subview.removeFromSuperview()
+            }
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         // 初回起動の場合はTutorialを開始
         // 初回起動判定
@@ -82,14 +94,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             UserDefaults.standard.set(true, forKey: "isNotFirstLaunch") // 次回以降は初回起動でないことを保存
             self.performSegue(withIdentifier: "toTutorialView", sender: nil) // チュートリアル開始
         }
-    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-    }
-    
-    
-    override func viewWillDisappear(_ animated: Bool) {
     }
     
     

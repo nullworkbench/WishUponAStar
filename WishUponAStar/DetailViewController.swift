@@ -25,6 +25,13 @@ class DetailViewController: UIViewController {
         uidLabel.text = uid
     }
     
+    // 全画面のViewWillAppear, ViewDidAppearが実行されるように
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        presentingViewController?.beginAppearanceTransition(true, animated: animated)
+        presentingViewController?.endAppearanceTransition()
+    }
+    
     
     func blockUser() {
         // blockedUidsArrayがあるか

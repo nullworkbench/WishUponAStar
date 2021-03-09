@@ -18,6 +18,7 @@ class BlockedUidsViewController: UIViewController, UITableViewDataSource, UITabl
         
         table.dataSource = self
         table.delegate = self
+        navigationItem.rightBarButtonItem = editButtonItem // 編集ボタンの指定
 
         if let array = UserDefaults.standard.array(forKey: "blockedUidsArray") {
             blockedUidsArray = array as! [String]
@@ -36,6 +37,11 @@ class BlockedUidsViewController: UIViewController, UITableViewDataSource, UITabl
         return cell!
     }
     
+    // 編集モードの設定
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        table.isEditing = editing
+    }
     
     // スワイプで削除
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
