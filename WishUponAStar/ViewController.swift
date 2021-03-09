@@ -35,9 +35,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var selectedStarDirection: CGFloat?
     var selectedStarWish: String?
     var selectedStarUid: String?
+    var selectedStarDocId: String?
     
     // Firestore
     var db: Firestore!
+    
+    // 60秒で消えるタイマーを格納する配列
+    var timers = [Timer]()
     
     // コンパスのView
     @IBOutlet var compassView: UIView!
@@ -61,6 +65,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     
     override func viewWillAppear(_ animated: Bool) {
+        // タイマーを全て解除
+        for timer in timers {
+            timer.invalidate()
+        }
         // 投稿のsubviewsを全て削除
         for (idx, subview) in self.compassView.subviews.enumerated() {
             if idx < 4 {
@@ -102,6 +110,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             detailViewController.direction = selectedStarDirection
             detailViewController.wish = selectedStarWish
             detailViewController.uid = selectedStarUid
+            detailViewController.docId = selectedStarDocId
         }
     }
     
@@ -162,7 +171,7 @@ extension ViewController {
             // 最新１件が存在するか
             if let recent = snapshot?.documents[0], recent.exists {
                 // 最新一件をcompassViewに追加
-                self.addStarToCompassView(direction: recent.data()["direction"] as! CGFloat, wish: recent.data()["wish"] as! String, uid: recent.data()["uid"] as! String)
+                self.addStarToCompassView(direction: recent.data()["direction"] as! CGFloat, wish: recent.data()["wish"] as! String, uid: recent.data()["uid"] as! String, docId: recent.documentID )
                 // 最新１件よりあと（アプリ起動より後）のpostを監視
                 self.appDelegate.listener = self.db.collection("posts").order(by: "createdAt").start(afterDocument: recent).addSnapshotListener { (snapshot, err) in
                     guard let doc = snapshot else {
@@ -173,7 +182,7 @@ extension ViewController {
                         // 更新が追加だった場合
                         if diff.type == .added {
                             let data = diff.document.data()
-                            self.addStarToCompassView(direction: data["direction"] as! CGFloat, wish: data["wish"] as! String, uid: data["uid"] as! String)
+                            self.addStarToCompassView(direction: data["direction"] as! CGFloat, wish: data["wish"] as! String, uid: data["uid"] as! String, docId: recent.documentID)
                         }
                     }
                 }
@@ -189,7 +198,7 @@ extension ViewController {
                         // 更新が追加だった場合
                         if diff.type == .added {
                             let data = diff.document.data()
-                            self.addStarToCompassView(direction: data["direction"] as! CGFloat, wish: data["wish"] as! String, uid: data["uid"] as! String)
+                            self.addStarToCompassView(direction: data["direction"] as! CGFloat, wish: data["wish"] as! String, uid: data["uid"] as! String, docId: diff.document.documentID)
                         }
                     }
                 }
@@ -205,16 +214,18 @@ extension ViewController {
         var direction: CGFloat!
         var wish: String!
         var uid: String!
+        var docId: String!
     }
     
     // 60秒で削除する
     func startTimerWithTag(idx: Int) {
         // 60秒のタイマーを開始
-        Timer.scheduledTimer(timeInterval: 60,
+        let timer = Timer.scheduledTimer(timeInterval: 60,
                                          target: self,
                                          selector: #selector(self.stopTimer(_:)),
                                          userInfo: idx,
                                          repeats: false)
+        timers.append(timer)
     }
     // 時間経過でタイマーストップ
     @objc func stopTimer(_ timer: Timer) {
@@ -242,6 +253,7 @@ extension ViewController {
         selectedStarDirection = sender.direction
         selectedStarWish = sender.wish
         selectedStarUid = sender.uid
+        selectedStarDocId = sender.docId
         performSegue(withIdentifier: "toDetailView", sender: nil)
     }
     
@@ -262,7 +274,7 @@ extension ViewController {
     }
     
     // compassViewにStarを追加
-    func addStarToCompassView(direction: CGFloat, wish: String, uid: String) {
+    func addStarToCompassView(direction: CGFloat, wish: String, uid: String, docId: String) {
         // 投稿がブロック済のユーザーであれば早期return
         if isBlockedUser(uid: uid) {
             return
@@ -317,6 +329,7 @@ extension ViewController {
         gesture.direction = direction // directionを格納
         gesture.wish = wish // wishを格納
         gesture.uid = uid // uidを格納
+        gesture.docId = docId // docIdを格納
         starImageView.addGestureRecognizer(gesture) // starImageViewにgestureを追加
         self.compassView.addSubview(starImageView) // starImageViewをcompassViewへ追加
         starImageView.image = UIImage(named: "star") // starImageViewをcompassViewへ追加

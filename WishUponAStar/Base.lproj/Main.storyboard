@@ -447,6 +447,24 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="roK-Nr-v9T" customClass="DesignableButton" customModule="WishUponAStar" customModuleProvider="target">
+                                <rect key="frame" x="107.33333333333333" y="587.66666666666663" width="175.33333333333337" height="44"/>
+                                <color key="backgroundColor" red="1" green="0.059659090909999997" blue="0.080025902410000002" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="roK-Nr-v9T" secondAttribute="height" multiplier="4:1" id="dJK-pn-tcT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="15"/>
+                                <state key="normal" title="投稿を削除">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isRoundedCorner" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="deletePost" destination="MIg-QD-oaV" eventType="touchUpInside" id="17p-6e-emV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BIw-Mr-q8B"/>
                         <color key="backgroundColor" red="0.1450980392" green="0.16078431369999999" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -456,12 +474,15 @@
                             <constraint firstItem="oHi-gg-xel" firstAttribute="top" secondItem="BIw-Mr-q8B" secondAttribute="top" constant="20" id="6Aa-4a-btd"/>
                             <constraint firstItem="D7f-Y1-VBc" firstAttribute="top" secondItem="Ngn-7r-0XX" secondAttribute="bottom" constant="50" id="9f0-m9-O70"/>
                             <constraint firstItem="D7f-Y1-VBc" firstAttribute="centerX" secondItem="Th5-qW-ktY" secondAttribute="centerX" id="EwQ-d8-nb5"/>
+                            <constraint firstItem="roK-Nr-v9T" firstAttribute="top" secondItem="Hnl-TX-eIj" secondAttribute="bottom" id="LGp-ni-anK"/>
+                            <constraint firstItem="roK-Nr-v9T" firstAttribute="width" secondItem="Th5-qW-ktY" secondAttribute="width" multiplier="0.45" id="P5k-Df-f2t"/>
                             <constraint firstItem="mb7-cq-N4I" firstAttribute="centerX" secondItem="Th5-qW-ktY" secondAttribute="centerX" id="S8d-Fv-vat"/>
                             <constraint firstItem="GnK-wJ-6uO" firstAttribute="top" secondItem="D7f-Y1-VBc" secondAttribute="bottom" constant="50" id="Sge-O7-Gax"/>
                             <constraint firstItem="mNV-jx-WaK" firstAttribute="top" secondItem="GnK-wJ-6uO" secondAttribute="bottom" constant="15" id="T8x-vt-Y4J"/>
                             <constraint firstItem="Hnl-TX-eIj" firstAttribute="top" secondItem="mb7-cq-N4I" secondAttribute="bottom" constant="40" id="cog-QJ-y6z"/>
                             <constraint firstItem="GnK-wJ-6uO" firstAttribute="centerX" secondItem="Th5-qW-ktY" secondAttribute="centerX" id="eQS-aW-8BG"/>
                             <constraint firstItem="Ngn-7r-0XX" firstAttribute="top" secondItem="BIw-Mr-q8B" secondAttribute="top" constant="100" id="gsS-lf-8Dr"/>
+                            <constraint firstItem="roK-Nr-v9T" firstAttribute="centerX" secondItem="Th5-qW-ktY" secondAttribute="centerX" id="lhU-Hk-jKW"/>
                             <constraint firstItem="mb7-cq-N4I" firstAttribute="width" secondItem="Th5-qW-ktY" secondAttribute="width" multiplier="0.45" id="mmT-ke-rYN"/>
                             <constraint firstItem="mNV-jx-WaK" firstAttribute="centerX" secondItem="Th5-qW-ktY" secondAttribute="centerX" id="n2g-nR-X5m"/>
                             <constraint firstItem="BIw-Mr-q8B" firstAttribute="trailing" secondItem="oHi-gg-xel" secondAttribute="trailing" constant="20" id="nPr-3l-LGn"/>
@@ -470,7 +491,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="blockButton" destination="Hnl-TX-eIj" id="gC8-tZ-kx2"/>
+                        <outlet property="deleteButton" destination="roK-Nr-v9T" id="3jh-Cw-9Mt"/>
                         <outlet property="directionLabel" destination="D7f-Y1-VBc" id="cId-Db-zjc"/>
+                        <outlet property="reportButton" destination="mb7-cq-N4I" id="WRY-s9-PKL"/>
                         <outlet property="uidLabel" destination="mNV-jx-WaK" id="DEX-Xc-y0I"/>
                         <outlet property="wishLabel" destination="Ngn-7r-0XX" id="Qn8-Bw-NyL"/>
                     </connections>
@@ -683,6 +707,9 @@
         </designable>
         <designable name="mb7-cq-N4I">
             <size key="intrinsicContentSize" width="135" height="27"/>
+        </designable>
+        <designable name="roK-Nr-v9T">
+            <size key="intrinsicContentSize" width="75" height="27"/>
         </designable>
         <designable name="sr0-Vp-aJ5">
             <size key="intrinsicContentSize" width="56" height="26"/>

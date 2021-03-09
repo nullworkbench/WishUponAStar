@@ -6,16 +6,29 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 class DetailViewController: UIViewController {
+    
+    // AppDelegate
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    // Firestore
+    var db: Firestore!
     
     var direction: CGFloat!
     var wish: String!
     var uid: String!
+    var docId: String!
     
     @IBOutlet var wishLabel: UILabel!
     @IBOutlet var directionLabel: UILabel!
     @IBOutlet var uidLabel: UILabel!
+    @IBOutlet var reportButton: UIButton!
+    @IBOutlet var blockButton: UIButton!
+    @IBOutlet var deleteButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +36,19 @@ class DetailViewController: UIViewController {
         wishLabel.text = wish
         directionLabel.text = String(format: "%.01f", Float(direction)) + " " + judgeDirection(Float(direction))
         uidLabel.text = uid
+        
+        // 投稿が自分のものかによってボタンを切り替え
+        if uid == appDelegate.user?.uid {
+            reportButton.isHidden = true
+            blockButton.isHidden = true
+        } else {
+            deleteButton.isHidden = true
+        }
+        
+        // Firestore
+        let firestoreSettings = FirestoreSettings()
+        Firestore.firestore().settings = firestoreSettings
+        db = Firestore.firestore()
     }
     
     // 前画面のViewWillAppear, ViewDidAppearが実行されるように
@@ -63,6 +89,22 @@ class DetailViewController: UIViewController {
         
         
         
+    }
+    
+    @IBAction func deletePost() {
+        let alert = UIAlertController(title: "本当に削除しますか？", message: "削除した投稿は復元できません。", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "削除", style: .destructive, handler: {action in
+            self.db.collection("posts").document(self.docId).delete() { err in
+                if let err = err {
+                    print("Error removing document: \(err)")
+                } else {
+                    print("Document successfully removed!")
+                }
+                self.dismiss()
+            }
+        }))
+        present(alert, animated: true, completion: nil)
     }
     
     @IBAction func dismiss() {
