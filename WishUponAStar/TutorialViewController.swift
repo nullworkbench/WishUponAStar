@@ -65,9 +65,9 @@ class TutorialViewController: UIViewController {
     }
     
     @IBAction func nextButtonTapped() {
-        let previewVC = self.presentingViewController as! ViewController // ひとつ前のViewController
-        previewVC.isTutorialGoing = true // 値渡し（チュートリアルを続行）
-        self.dismiss(animated: true, completion: nil)
+        let viewController = self.presentingViewController?.presentingViewController as! ViewController // ２つ前のViewController
+        viewController.isTutorialGoing = true // 値渡し（チュートリアルを続行）
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil) // 2つ前の画面にもどる
     }
     
 

@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -182,8 +183,8 @@
                     <connections>
                         <outlet property="compassView" destination="dMr-hb-L6n" id="h4j-it-Sua"/>
                         <outlet property="starButton" destination="Xil-jK-Bnb" id="RcN-NU-MtH"/>
-                        <segue destination="MfJ-Eq-U25" kind="show" identifier="toTutorialView" id="Xwf-eW-Mgf"/>
                         <segue destination="MIg-QD-oaV" kind="presentation" identifier="toDetailView" id="nel-Of-3qZ"/>
+                        <segue destination="xfj-zH-b0E" kind="show" identifier="toEULAView" id="lS6-Ou-Sq6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -263,6 +264,175 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1z1-Qp-urW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="134" y="1556"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ntb-yC-cxe">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="xfj-zH-b0E" customClass="EULAViewController" customModule="WishUponAStar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ptb-9a-8i0">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="p3U-0k-cnh">
+                                <rect key="frame" x="20" y="104.33333333333331" width="350" height="611"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <mutableString key="text">
+「星に願いを。」利用規約
+
+この規約は、お客様が、nullworkbench（以下「弊所」）「星に願いを」アプリ（以下「本アプリ」）をご利用頂く際の取扱いにつき定めるものです。本規約に同意した上で本アプリをご利用ください。
+
+
+第１条（定義）
+本規約上で使用する用語の定義は、次に掲げるとおりとします。
+
+（１）本アプリ：iPhoneアプリ「星に願いを。」
+（２）本コンテンツ：本アプリ条で提供される文字、静止画、ソフトウェアプログラム、コード等の総称（投稿情報を含む）
+（３）利用者：本アプリを利用する全ての方
+（４）個人情報：住所、氏名、職業、電話番号等個人を特定することのできる情報の総称
+（５）知的財産：発明、考案、植物の新品種、意匠、著作物その他の人間の創造的活動により生み出されるもの（発見または解明がされた自然の法則または現象であって、産業上の利用可能性があるものを含む）、商標、商号その他事業活動に用いられる商品または役務を表示するもの及び営業秘密その他の事業活動に有用な技術上または営業上の情報
+（６）知的財産権：特許権、実用新案権、育成者権、意匠権、著作権、商標権その他の知的財産に関して法令により定められた権利または法律上保護される利益に係る権利
+
+
+第２条（本規約への同意）
+（１）利用者は、本利用規約に同意頂いた上で、本アプリを利用できるものとします。
+（２）利用者が、本アプリをスマートフォンその他の情報端末にダウンロードし、本規約への同意手続を行った時点で、利用者と弊所との間で、本規約の諸規定に従った利用契約が成立するものとします。
+（３）利用者が未成年者である場合には、親権者その他の法定代理人の同意を得たうえで、本アプリをご利用ください。
+（４）未成年者の利用者が、法定代理人の同意がないにもかかわらず同意があると偽りまたは年齢について成年と偽って本アプリを利用した場合、その他行為能力者であることを信じさせるために詐術を用いた場合、本アプリに関する一切の法律行為を取り消すことは出来ません。
+（５）本規約の同意時に未成年であった利用者が成年に達した後に本アプリを利用した場合、当該利用者は本アプリに関する一切の法律行為を追認したものとみなされます。
+
+
+第３条（規約の変更）
+（１）弊所は、利用者の承諾を得ることなく、いつでも、本規約の内容を改定することができるものとし、利用者はこれを異議なく承諾するものとします。
+（２）弊所は、本規約を改定するときは、その内容について弊所所定の方法により利用者に通知します。
+（３）前本規約の改定の効力は、弊所が前項により通知を行った時点から生じるものとします。
+（４）利用者は、本規約変更後、本アプリを利用した時点で、変更後の本利用規約に異議なく同意したものとみなされます。
+
+
+第４条（禁止行為）　
+本アプリの利用に際し、弊所は、利用者に対し、次に掲げる行為を禁止します。弊所において、利用者が禁止事項に違反したと認めた場合、利用者用の一時停止、退会処分その他弊所が必要と判断した措置を取ることができます。 
+
+（１）弊所または第三者の知的財産権を侵害する行為
+（２）弊所または第三者の名誉・信用を毀損または不当に差別もしくは誹謗中傷する行為
+（３）弊所または第三者の財産を侵害する行為、または侵害する恐れのある行為 
+（４）弊所または第三者に経済的損害を与える行為
+（５）弊所または第三者に対する脅迫的な行為
+（６）コンピューターウィルス、有害なプログラムを仕様またはそれを誘発する行為 
+（７）本アプリ用インフラ設備に対して過度な負担となるストレスをかける行為 
+（８）当アプリのシステム、セキュリティへの攻撃 
+（９）弊所提供のインターフェース以外の方法で弊所サービスにアクセスを試みる行為
+（１０）上記の他、弊所が不適切と判断する行為
+
+
+第５条（免責）
+（１）弊所は、本アプリの内容変更、中断、終了によって生じたいかなる損害についても、一切責任を負いません。
+（２）弊所は、利用者の本アプリの利用環境について一切関与せず、また一切の責任を負いません。
+（３）弊所は、本アプリが利用者の特定の目的に適合すること、期待する機能・商品的価値・正確性・有用性を有すること、利用者による本アプリの利用が利用者に適用のある法令または業界団体の内部規則等に適合すること、および不具合が生じないことについて、何ら保証するものではありません。
+（４）弊所は、本アプリが全ての情報端末に対応していることを保証するものではなく、本アプリの利用に供する情報端末のＯＳのバージョンアップ等に伴い、本アプリの動作に不具合が生じる可能性があることにつき、利用者はあらかじめ了承するものとします。弊所は、かかる不具合が生じた場合に弊所が行うプログラムの修正等により、当該不具合が解消されることを保証するものではありません。
+（５）利用者は、App Store、Google Play等のサービスストアの利用規約および運用方針の変更等に伴い、本アプリの一部又は全部の利用が制限される可能性があることをあらかじめ了承するものとします。
+（６）弊所は、本アプリを利用したことにより直接的または間接的に利用者に発生した損害について、一切賠償責任を負いません。
+（７）弊所は、利用者その他の第三者に発生した機会逸失、業務の中断その他いかなる損害（間接損害や逸失利益を含みます）に対して、弊所が係る損害の可能性を事前に通知されていたとしても、一切の責任を負いません。
+（８）第１項乃至前項の規定は、弊所に故意または重過失が存する場合又は契約書が消費者契約法上の消費者に該当する場合には適用しません。
+（９）前項が適用される場合であっても、弊所は、過失（重過失を除きます。）による行為によって利用者に生じた損害のうち、特別な事情から生じた損害については、一切賠償する責任を負わないものとします。　
+（１０）本アプリの利用に関し弊所が損害賠償責任を負う場合、当該損害が発生した月に利用者から受領した利用額を限度として賠償責任を負うものとします。
+（１１）利用者と他の利用者との間の紛争及びトラブルについて、弊所は一切責任を負わないものとします。利用者と他の利用者でトラブルになった場合でも、両者同士の責任で解決するものとし、弊所には一切の請求をしないものとします。
+（１２）利用者は、本アプリの利用に関連し、他の利用者に損害を与えた場合または第三者との間に紛争を生じた場合、自己の費用と責任において、かかる損害を賠償またはかかる紛争を解決するものとし、弊所には一切の迷惑や損害を与えないものとします。
+（１３）利用者の行為により、第三者から弊所が損害賠償等の請求をされた場合には、利用者の費用（弁護士費用）と責任で、これを解決するものとします。弊所が、当該第三者に対して、損害賠償金を支払った場合には、利用者は、弊所に対して当該損害賠償金を含む一切の費用（弁護士費用及び逸失利益を含む）を支払うものとします。
+（１４）利用者が本アプリの利用に関連して弊所に損害を与えた場合、利用者の費用と責任において弊所に対して損害を賠償（訴訟費用及び弁護士費用を含む）するものとします。
+
+
+第６条（権利譲渡の禁止）
+（１）利用者は、予め弊所の書面による承諾がない限り、本規約上の地位および本規約に基づく権利または義務の全部または一部を第三者に譲渡してはならないものとします。
+（２）弊所は、本アプリの全部または一部を弊所の裁量により第三者に譲渡することができ、その場合、譲渡された権利の範囲内で利用者のアカウントを含む、本アプリに係る利用者の一切の権利が譲渡先に移転するものとします。
+
+
+第７条（分離可能性）
+本規約のいずれかの条項又はその一部が、消費者契約法その他の法令等により無効又は執行不能と判断された場合であっても、本規約の残りの規定及び一部が無効又は執行不能と判断された規定の残りの部分は、継続して完全に効力を有するものとします。
+
+第８条（弊所への連絡方法）
+本アプリに関する利用者の弊所へのご連絡・お問い合わせは、本アプリまたは弊所が運営するwebサイト内の適宜の場所に設置するお問い合わせフォームからの送信または弊所が別途指定する方法により行うものとします。
+
+第９条（準拠法、管轄裁判所）
+（１）本規約の有効性，解釈及び履行については，日本法に準拠し，日本法に従って解釈されるものとします。
+（２）弊所と利用者等との間での論議・訴訟その他一切の紛争については、訴額に応じて、東京簡易裁判所又は東京地方裁判所を専属的合意管轄裁判所とします｡
+
+
+２０２１年３月９日　施行
+</mutableString>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="oia-GK-Nvz">
+                                <rect key="frame" x="39" y="735.33333333333337" width="312" height="44.666666666666629"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i2R-cx-Qwg" customClass="DesignableButton" customModule="WishUponAStar" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="141" height="44.666666666666664"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="同意しない">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRoundedCorner" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="disagree" destination="xfj-zH-b0E" eventType="touchUpInside" id="JhC-vr-tEy"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zz7-re-DSO" customClass="DesignableButton" customModule="WishUponAStar" customModuleProvider="target">
+                                        <rect key="frame" x="171" y="0.0" width="141" height="44.666666666666664"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <state key="normal" title="同意する">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRoundedCorner" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="agree" destination="xfj-zH-b0E" eventType="touchUpInside" id="VxL-cd-CV1"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="oia-GK-Nvz" secondAttribute="height" multiplier="7:1" id="nyx-zg-EBn"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="利用規約への同意" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIo-UK-oJV">
+                                <rect key="frame" x="125.66666666666667" y="64" width="138.66666666666663" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lgt-Oo-mfU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="JIo-UK-oJV" firstAttribute="centerX" secondItem="Ptb-9a-8i0" secondAttribute="centerX" id="7he-SG-kYk"/>
+                            <constraint firstItem="oia-GK-Nvz" firstAttribute="top" secondItem="p3U-0k-cnh" secondAttribute="bottom" constant="20" id="AfS-H9-pVw"/>
+                            <constraint firstItem="p3U-0k-cnh" firstAttribute="leading" secondItem="lgt-Oo-mfU" secondAttribute="leading" constant="20" id="CDp-0g-zec"/>
+                            <constraint firstItem="oia-GK-Nvz" firstAttribute="width" secondItem="Ptb-9a-8i0" secondAttribute="width" multiplier="0.8" id="HtJ-vy-FyE"/>
+                            <constraint firstItem="lgt-Oo-mfU" firstAttribute="bottom" secondItem="oia-GK-Nvz" secondAttribute="bottom" constant="30" id="JU2-ai-ULV"/>
+                            <constraint firstItem="oia-GK-Nvz" firstAttribute="centerX" secondItem="Ptb-9a-8i0" secondAttribute="centerX" id="Zf5-vc-23j"/>
+                            <constraint firstItem="JIo-UK-oJV" firstAttribute="top" secondItem="lgt-Oo-mfU" secondAttribute="top" constant="20" id="dn8-fm-6il"/>
+                            <constraint firstItem="p3U-0k-cnh" firstAttribute="top" secondItem="JIo-UK-oJV" secondAttribute="bottom" constant="20" id="huX-Ex-50h"/>
+                            <constraint firstItem="lgt-Oo-mfU" firstAttribute="trailing" secondItem="p3U-0k-cnh" secondAttribute="trailing" constant="20" id="w2P-gO-SFo"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="K0x-Vz-lbh"/>
+                    <connections>
+                        <segue destination="MfJ-Eq-U25" kind="show" identifier="toTutorialView" id="VMy-Ry-80e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a8E-X5-Dje" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="133.84615384615384" y="858.76777251184831"/>
         </scene>
@@ -587,7 +757,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zWg-ys-Gfu">
-                                <rect key="frame" x="0.0" y="56" width="390" height="734"/>
+                                <rect key="frame" x="0.0" y="76" width="390" height="714"/>
                                 <color key="backgroundColor" red="0.1450980392" green="0.16078431369999999" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="CWO-oq-tzG">
@@ -606,8 +776,8 @@
                         <viewLayoutGuide key="safeArea" id="KOW-It-HXC"/>
                         <color key="backgroundColor" red="0.1450980392" green="0.16078431369999999" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="zWg-ys-Gfu" firstAttribute="top" secondItem="KOW-It-HXC" secondAttribute="top" id="IOV-Fw-O4d"/>
                             <constraint firstAttribute="bottom" secondItem="zWg-ys-Gfu" secondAttribute="bottom" id="L6L-ku-z0Y"/>
+                            <constraint firstItem="zWg-ys-Gfu" firstAttribute="top" secondItem="KOW-It-HXC" secondAttribute="top" constant="20" id="bDo-W8-ls0"/>
                             <constraint firstItem="zWg-ys-Gfu" firstAttribute="leading" secondItem="KOW-It-HXC" secondAttribute="leading" id="bPU-WG-Znk"/>
                             <constraint firstItem="KOW-It-HXC" firstAttribute="trailing" secondItem="zWg-ys-Gfu" secondAttribute="trailing" id="u1H-n8-8tj"/>
                         </constraints>
@@ -622,11 +792,125 @@
                     <connections>
                         <outlet property="table" destination="zWg-ys-Gfu" id="kFW-Wb-bAj"/>
                         <segue destination="TSr-vr-vbO" kind="show" identifier="toBlockedUidsView" id="Z9r-bz-w3y"/>
+                        <segue destination="ON5-zi-csB" kind="show" identifier="toEULAView" id="bqh-i6-rHJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zOj-3z-Ihf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2703.0769230769229" y="137.91469194312796"/>
+        </scene>
+        <!--利用規約-->
+        <scene sceneID="QAq-Mj-WLS">
+            <objects>
+                <viewController id="ON5-zi-csB" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Z1E-C5-2ee">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Wf2-oB-z7g">
+                                <rect key="frame" x="20" y="56" width="350" height="700"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <mutableString key="text">
+「星に願いを。」利用規約
+
+この規約は、お客様が、nullworkbench（以下「弊所」）「星に願いを」アプリ（以下「本アプリ」）をご利用頂く際の取扱いにつき定めるものです。本規約に同意した上で本アプリをご利用ください。
+
+
+第１条（定義）
+本規約上で使用する用語の定義は、次に掲げるとおりとします。
+
+（１）本アプリ：iPhoneアプリ「星に願いを。」
+（２）本コンテンツ：本アプリ条で提供される文字、静止画、ソフトウェアプログラム、コード等の総称（投稿情報を含む）
+（３）利用者：本アプリを利用する全ての方
+（４）個人情報：住所、氏名、職業、電話番号等個人を特定することのできる情報の総称
+（５）知的財産：発明、考案、植物の新品種、意匠、著作物その他の人間の創造的活動により生み出されるもの（発見または解明がされた自然の法則または現象であって、産業上の利用可能性があるものを含む）、商標、商号その他事業活動に用いられる商品または役務を表示するもの及び営業秘密その他の事業活動に有用な技術上または営業上の情報
+（６）知的財産権：特許権、実用新案権、育成者権、意匠権、著作権、商標権その他の知的財産に関して法令により定められた権利または法律上保護される利益に係る権利
+
+
+第２条（本規約への同意）
+（１）利用者は、本利用規約に同意頂いた上で、本アプリを利用できるものとします。
+（２）利用者が、本アプリをスマートフォンその他の情報端末にダウンロードし、本規約への同意手続を行った時点で、利用者と弊所との間で、本規約の諸規定に従った利用契約が成立するものとします。
+（３）利用者が未成年者である場合には、親権者その他の法定代理人の同意を得たうえで、本アプリをご利用ください。
+（４）未成年者の利用者が、法定代理人の同意がないにもかかわらず同意があると偽りまたは年齢について成年と偽って本アプリを利用した場合、その他行為能力者であることを信じさせるために詐術を用いた場合、本アプリに関する一切の法律行為を取り消すことは出来ません。
+（５）本規約の同意時に未成年であった利用者が成年に達した後に本アプリを利用した場合、当該利用者は本アプリに関する一切の法律行為を追認したものとみなされます。
+
+
+第３条（規約の変更）
+（１）弊所は、利用者の承諾を得ることなく、いつでも、本規約の内容を改定することができるものとし、利用者はこれを異議なく承諾するものとします。
+（２）弊所は、本規約を改定するときは、その内容について弊所所定の方法により利用者に通知します。
+（３）前本規約の改定の効力は、弊所が前項により通知を行った時点から生じるものとします。
+（４）利用者は、本規約変更後、本アプリを利用した時点で、変更後の本利用規約に異議なく同意したものとみなされます。
+
+
+第４条（禁止行為）　
+本アプリの利用に際し、弊所は、利用者に対し、次に掲げる行為を禁止します。弊所において、利用者が禁止事項に違反したと認めた場合、利用者用の一時停止、退会処分その他弊所が必要と判断した措置を取ることができます。 
+
+（１）弊所または第三者の知的財産権を侵害する行為
+（２）弊所または第三者の名誉・信用を毀損または不当に差別もしくは誹謗中傷する行為
+（３）弊所または第三者の財産を侵害する行為、または侵害する恐れのある行為 
+（４）弊所または第三者に経済的損害を与える行為
+（５）弊所または第三者に対する脅迫的な行為
+（６）コンピューターウィルス、有害なプログラムを仕様またはそれを誘発する行為 
+（７）本アプリ用インフラ設備に対して過度な負担となるストレスをかける行為 
+（８）当アプリのシステム、セキュリティへの攻撃 
+（９）弊所提供のインターフェース以外の方法で弊所サービスにアクセスを試みる行為
+（１０）上記の他、弊所が不適切と判断する行為
+
+
+第５条（免責）
+（１）弊所は、本アプリの内容変更、中断、終了によって生じたいかなる損害についても、一切責任を負いません。
+（２）弊所は、利用者の本アプリの利用環境について一切関与せず、また一切の責任を負いません。
+（３）弊所は、本アプリが利用者の特定の目的に適合すること、期待する機能・商品的価値・正確性・有用性を有すること、利用者による本アプリの利用が利用者に適用のある法令または業界団体の内部規則等に適合すること、および不具合が生じないことについて、何ら保証するものではありません。
+（４）弊所は、本アプリが全ての情報端末に対応していることを保証するものではなく、本アプリの利用に供する情報端末のＯＳのバージョンアップ等に伴い、本アプリの動作に不具合が生じる可能性があることにつき、利用者はあらかじめ了承するものとします。弊所は、かかる不具合が生じた場合に弊所が行うプログラムの修正等により、当該不具合が解消されることを保証するものではありません。
+（５）利用者は、App Store、Google Play等のサービスストアの利用規約および運用方針の変更等に伴い、本アプリの一部又は全部の利用が制限される可能性があることをあらかじめ了承するものとします。
+（６）弊所は、本アプリを利用したことにより直接的または間接的に利用者に発生した損害について、一切賠償責任を負いません。
+（７）弊所は、利用者その他の第三者に発生した機会逸失、業務の中断その他いかなる損害（間接損害や逸失利益を含みます）に対して、弊所が係る損害の可能性を事前に通知されていたとしても、一切の責任を負いません。
+（８）第１項乃至前項の規定は、弊所に故意または重過失が存する場合又は契約書が消費者契約法上の消費者に該当する場合には適用しません。
+（９）前項が適用される場合であっても、弊所は、過失（重過失を除きます。）による行為によって利用者に生じた損害のうち、特別な事情から生じた損害については、一切賠償する責任を負わないものとします。　
+（１０）本アプリの利用に関し弊所が損害賠償責任を負う場合、当該損害が発生した月に利用者から受領した利用額を限度として賠償責任を負うものとします。
+（１１）利用者と他の利用者との間の紛争及びトラブルについて、弊所は一切責任を負わないものとします。利用者と他の利用者でトラブルになった場合でも、両者同士の責任で解決するものとし、弊所には一切の請求をしないものとします。
+（１２）利用者は、本アプリの利用に関連し、他の利用者に損害を与えた場合または第三者との間に紛争を生じた場合、自己の費用と責任において、かかる損害を賠償またはかかる紛争を解決するものとし、弊所には一切の迷惑や損害を与えないものとします。
+（１３）利用者の行為により、第三者から弊所が損害賠償等の請求をされた場合には、利用者の費用（弁護士費用）と責任で、これを解決するものとします。弊所が、当該第三者に対して、損害賠償金を支払った場合には、利用者は、弊所に対して当該損害賠償金を含む一切の費用（弁護士費用及び逸失利益を含む）を支払うものとします。
+（１４）利用者が本アプリの利用に関連して弊所に損害を与えた場合、利用者の費用と責任において弊所に対して損害を賠償（訴訟費用及び弁護士費用を含む）するものとします。
+
+
+第６条（権利譲渡の禁止）
+（１）利用者は、予め弊所の書面による承諾がない限り、本規約上の地位および本規約に基づく権利または義務の全部または一部を第三者に譲渡してはならないものとします。
+（２）弊所は、本アプリの全部または一部を弊所の裁量により第三者に譲渡することができ、その場合、譲渡された権利の範囲内で利用者のアカウントを含む、本アプリに係る利用者の一切の権利が譲渡先に移転するものとします。
+
+
+第７条（分離可能性）
+本規約のいずれかの条項又はその一部が、消費者契約法その他の法令等により無効又は執行不能と判断された場合であっても、本規約の残りの規定及び一部が無効又は執行不能と判断された規定の残りの部分は、継続して完全に効力を有するものとします。
+
+第８条（弊所への連絡方法）
+本アプリに関する利用者の弊所へのご連絡・お問い合わせは、本アプリまたは弊所が運営するwebサイト内の適宜の場所に設置するお問い合わせフォームからの送信または弊所が別途指定する方法により行うものとします。
+
+第９条（準拠法、管轄裁判所）
+（１）本規約の有効性，解釈及び履行については，日本法に準拠し，日本法に従って解釈されるものとします。
+（２）弊所と利用者等との間での論議・訴訟その他一切の紛争については、訴額に応じて、東京簡易裁判所又は東京地方裁判所を専属的合意管轄裁判所とします｡
+
+
+２０２１年３月９日　施行
+</mutableString>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="67F-uF-ImQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="67F-uF-ImQ" firstAttribute="trailing" secondItem="Wf2-oB-z7g" secondAttribute="trailing" constant="20" id="AXE-B5-tYI"/>
+                            <constraint firstItem="67F-uF-ImQ" firstAttribute="bottom" secondItem="Wf2-oB-z7g" secondAttribute="bottom" id="UzF-ni-3nw"/>
+                            <constraint firstItem="Wf2-oB-z7g" firstAttribute="top" secondItem="67F-uF-ImQ" secondAttribute="top" id="YO6-Cz-ooa"/>
+                            <constraint firstItem="Wf2-oB-z7g" firstAttribute="leading" secondItem="67F-uF-ImQ" secondAttribute="leading" constant="20" id="nmY-PP-zXE"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="利用規約" id="5Jr-ux-NXd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="07b-10-WD3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3471" y="822"/>
         </scene>
         <!--ブロックしたユーザー-->
         <scene sceneID="uci-oP-bik">
@@ -702,6 +986,12 @@
         <designable name="Xil-jK-Bnb">
             <size key="intrinsicContentSize" width="30" height="30"/>
         </designable>
+        <designable name="Zz7-re-DSO">
+            <size key="intrinsicContentSize" width="62" height="30"/>
+        </designable>
+        <designable name="i2R-cx-Qwg">
+            <size key="intrinsicContentSize" width="77" height="30"/>
+        </designable>
         <designable name="iBc-nW-9zQ">
             <size key="intrinsicContentSize" width="30" height="26"/>
         </designable>
@@ -722,5 +1012,14 @@
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="multiply" catalog="system" width="128" height="111"/>
         <image name="multiply.circle" catalog="system" width="128" height="121"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

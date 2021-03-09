@@ -97,8 +97,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         } else {
             // 初回起動
             print("First Launch!")
-            UserDefaults.standard.set(true, forKey: "isNotFirstLaunch") // 次回以降は初回起動でないことを保存
-            self.performSegue(withIdentifier: "toTutorialView", sender: nil) // チュートリアル開始
+            self.performSegue(withIdentifier: "toEULAView", sender: nil) // 利用規約＆チュートリアル開始
         }
     }
     
@@ -445,7 +444,7 @@ extension ViewController: UIGestureRecognizerDelegate {
         
         // くり抜く円を描画
         // path1
-        let compassViewCenter = CGPoint(x: center.x, y: (self.view.safeAreaInsets.top + 110) + (screen.width / 2))
+        let compassViewCenter = CGPoint(x: center.x, y: (self.view.safeAreaInsets.top + 100) + (screen.width / 2))
         let compassViewRadius = screen.width / 2
         let path1 = UIBezierPath(arcCenter: compassViewCenter, // 中心点（AutoLayout調整分＋半径）
                                 radius: compassViewRadius, // 半径

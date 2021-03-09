@@ -32,6 +32,7 @@
 		8B52DE7A25E4E045003CA9A9 /* PostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B52DE7925E4E045003CA9A9 /* PostView.xib */; };
 		8B52DE7F25E50A2B003CA9A9 /* ViewController_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B52DE7E25E50A2B003CA9A9 /* ViewController_Extension.swift */; };
 		8B67311F25F74077006792F7 /* BlockedUidsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B67311E25F74077006792F7 /* BlockedUidsViewController.swift */; };
+		8B67312A25F76732006792F7 /* EULAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B67312925F76732006792F7 /* EULAViewController.swift */; };
 		F549572D051CAA0266A67D5A /* Pods_WishUponAStar_WishUponAStarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F757143FCFB7A08DECC387A /* Pods_WishUponAStar_WishUponAStarUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +86,7 @@
 		8B52DE7925E4E045003CA9A9 /* PostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostView.xib; sourceTree = "<group>"; };
 		8B52DE7E25E50A2B003CA9A9 /* ViewController_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_Extension.swift; sourceTree = "<group>"; };
 		8B67311E25F74077006792F7 /* BlockedUidsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedUidsViewController.swift; sourceTree = "<group>"; };
+		8B67312925F76732006792F7 /* EULAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EULAViewController.swift; sourceTree = "<group>"; };
 		8F024FEC3048209432B1DEF2 /* Pods-WishUponAStarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WishUponAStarTests.release.xcconfig"; path = "Target Support Files/Pods-WishUponAStarTests/Pods-WishUponAStarTests.release.xcconfig"; sourceTree = "<group>"; };
 		C3D401196AD75A799D01D569 /* Pods-WishUponAStar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WishUponAStar.release.xcconfig"; path = "Target Support Files/Pods-WishUponAStar/Pods-WishUponAStar.release.xcconfig"; sourceTree = "<group>"; };
 		D9B298CAB6B155E6E968E886 /* Pods-WishUponAStarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WishUponAStarTests.debug.xcconfig"; path = "Target Support Files/Pods-WishUponAStarTests/Pods-WishUponAStarTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				8B3F470225F6855D00420A86 /* SettingsViewController.swift */,
 				8B3F471325F6917D00420A86 /* DetailViewController.swift */,
 				8B67311E25F74077006792F7 /* BlockedUidsViewController.swift */,
+				8B67312925F76732006792F7 /* EULAViewController.swift */,
 			);
 			path = WishUponAStar;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B67312A25F76732006792F7 /* EULAViewController.swift in Sources */,
 				8B3F471425F6917D00420A86 /* DetailViewController.swift in Sources */,
 				8B11F4AB25E38E8500A5CB8A /* ViewController.swift in Sources */,
 				8B11F4DD25E390B100A5CB8A /* Designable.swift in Sources */,
