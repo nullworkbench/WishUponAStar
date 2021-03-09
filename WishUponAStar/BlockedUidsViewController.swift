@@ -19,6 +19,9 @@ class BlockedUidsViewController: UIViewController, UITableViewDataSource, UITabl
         table.dataSource = self
         table.delegate = self
         navigationItem.rightBarButtonItem = editButtonItem // 編集ボタンの指定
+        
+        // 下に引っ張って閉じる動作を禁止
+        self.isModalInPresentation = true
 
         if let array = UserDefaults.standard.array(forKey: "blockedUidsArray") {
             blockedUidsArray = array as! [String]

@@ -61,7 +61,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        print(#function)
         // 投稿のsubviewsを全て削除
         for (idx, subview) in self.compassView.subviews.enumerated() {
             if idx < 4 {
@@ -79,7 +78,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             print("Not first Launch!")
             self.view.alpha = 1
             // チュートリアル中であれば操作方法説明
-            print(isTutorialGoing)
             if isTutorialGoing {
                 self.startTutorial()
                 isTutorialGoing = false // チュートリアル終了

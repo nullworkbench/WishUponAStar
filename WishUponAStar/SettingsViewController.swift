@@ -28,6 +28,12 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         table.dataSource = self
     }
     
+    // 前画面のViewWillAppear, ViewDidAppearが実行されるように
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        presentingViewController?.beginAppearanceTransition(true, animated: animated)
+        presentingViewController?.endAppearanceTransition()
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return settingListArray.count
