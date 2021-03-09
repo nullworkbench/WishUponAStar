@@ -75,7 +75,16 @@ class DetailViewController: UIViewController {
     
     
     @IBAction func report() {
-        
+        let alert = UIAlertController(title: "この投稿を通報しますか？", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "通報する", style: .destructive, handler: { action in
+    //        let reason = "不快になる発言"
+            let urlString = "https://docs.google.com/forms/d/e/1FAIpQLScDPxGdvUKeWGv71GCppEZW83gIKSi7SHOgETRSFrfBvaUn3g/viewform?usp=pp_url&entry.758198942=\(self.docId!)"
+            let encodedUrlString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) // 日本語をURLに含めるためエンコード
+            let formUrl = URL(string: encodedUrlString!)
+            UIApplication.shared.open(formUrl!) // Safariで開く
+        }))
+        present(alert, animated: true, completion: nil)
     }
     
     @IBAction func block() {
