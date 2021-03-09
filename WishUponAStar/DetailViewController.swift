@@ -26,11 +26,7 @@ class DetailViewController: UIViewController {
     }
     
     
-    @IBAction func report() {
-        
-    }
-    
-    @IBAction func blockUser() {
+    func blockUser() {
         // blockedUidsArrayがあるか
         if var blockedUidsArray = UserDefaults.standard.array(forKey: "blockedUidsArray") {
             // 対象のUidを追加
@@ -42,6 +38,23 @@ class DetailViewController: UIViewController {
             let blockedUidsArray = [String]()
             UserDefaults.standard.set(blockedUidsArray, forKey: "blockedUidsArray")
         }
+    }
+    
+    
+    @IBAction func report() {
+        
+    }
+    
+    @IBAction func block() {
+        let alert = UIAlertController(title: "本当にブロックしますか？", message: "ブロックしたユーザーの投稿は今後表示されません。", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "ブロック", style: .destructive, handler: {action in
+            // ブロック処理
+            self.blockUser()
+        }))
+        present(alert, animated: true, completion: nil)
+        
+        
         
     }
     

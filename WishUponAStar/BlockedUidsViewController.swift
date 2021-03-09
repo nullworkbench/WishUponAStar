@@ -36,6 +36,14 @@ class BlockedUidsViewController: UIViewController, UITableViewDataSource, UITabl
         return cell!
     }
     
+    
+    // スワイプで削除
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        blockedUidsArray.remove(at: indexPath.row)
+        UserDefaults.standard.set(blockedUidsArray, forKey: "blockedUidsArray")
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
+    
 
 
 }
