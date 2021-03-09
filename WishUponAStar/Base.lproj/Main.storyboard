@@ -588,14 +588,64 @@
                             <constraint firstItem="KOW-It-HXC" firstAttribute="trailing" secondItem="zWg-ys-Gfu" secondAttribute="trailing" id="u1H-n8-8tj"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="設定" id="Jra-ky-5PF"/>
+                    <navigationItem key="navigationItem" title="設定" id="Jra-ky-5PF">
+                        <barButtonItem key="rightBarButtonItem" image="multiply" catalog="system" id="Ft4-9j-0n3">
+                            <connections>
+                                <action selector="dismiss" destination="96Q-gu-e4Z" id="Iqf-nm-10F"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="table" destination="zWg-ys-Gfu" id="kFW-Wb-bAj"/>
+                        <segue destination="TSr-vr-vbO" kind="show" identifier="toBlockedUidsView" id="Z9r-bz-w3y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zOj-3z-Ihf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2703.0769230769229" y="137.91469194312796"/>
+        </scene>
+        <!--ブロックしたユーザー-->
+        <scene sceneID="uci-oP-bik">
+            <objects>
+                <viewController id="TSr-vr-vbO" customClass="BlockedUidsViewController" customModule="WishUponAStar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ui7-gR-orH">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="n2J-YE-HqJ">
+                                <rect key="frame" x="0.0" y="56" width="390" height="734"/>
+                                <color key="backgroundColor" red="0.1450980392" green="0.16078431369999999" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="lyi-eT-6e7">
+                                        <rect key="frame" x="0.0" y="28" width="390" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lyi-eT-6e7" id="GAf-aD-hd5">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Qrq-tV-qF4"/>
+                        <color key="backgroundColor" red="0.1450980392" green="0.16078431369999999" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="n2J-YE-HqJ" secondAttribute="bottom" id="ejX-0o-nFF"/>
+                            <constraint firstItem="n2J-YE-HqJ" firstAttribute="top" secondItem="Qrq-tV-qF4" secondAttribute="top" id="r2I-Yy-adz"/>
+                            <constraint firstItem="Qrq-tV-qF4" firstAttribute="trailing" secondItem="n2J-YE-HqJ" secondAttribute="trailing" id="tur-1F-rgU"/>
+                            <constraint firstItem="n2J-YE-HqJ" firstAttribute="leading" secondItem="ui7-gR-orH" secondAttribute="leading" id="ycK-D4-ECX"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="ブロックしたユーザー" id="4DD-9Q-SSQ"/>
+                    <connections>
+                        <outlet property="table" destination="n2J-YE-HqJ" id="1Lp-Di-GyF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vML-23-74M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3470.7692307692305" y="137.91469194312796"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VpG-Mx-hJv">
@@ -641,6 +691,7 @@
     </designables>
     <resources>
         <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="multiply" catalog="system" width="128" height="111"/>
         <image name="multiply.circle" catalog="system" width="128" height="121"/>
     </resources>
 </document>

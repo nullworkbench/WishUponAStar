@@ -55,6 +55,8 @@ extension UIViewController {
                 if blocked as! String == uid {
                     print("This post was posted by blocking user: \(uid)")
                     return true
+                } else {
+                    return false
                 }
             }
         }
