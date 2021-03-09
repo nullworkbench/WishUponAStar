@@ -18,7 +18,7 @@ class DetailViewController: UIViewController {
     // Firestore
     var db: Firestore!
     
-    var direction: CGFloat!
+    var direction: Float!
     var wish: String!
     var uid: String!
     var docId: String!
@@ -93,6 +93,7 @@ class DetailViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "ブロック", style: .destructive, handler: {action in
             // ブロック処理
             self.blockUser()
+            self.dismiss()
         }))
         present(alert, animated: true, completion: nil)
         

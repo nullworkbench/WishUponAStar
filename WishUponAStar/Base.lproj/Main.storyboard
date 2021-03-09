@@ -278,7 +278,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="p3U-0k-cnh">
                                 <rect key="frame" x="20" y="104.33333333333331" width="350" height="611"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <mutableString key="text">
+                                <string key="text">
 「星に願いを。」利用規約
 
 この規約は、お客様が、nullworkbench（以下「弊所」）「星に願いを」アプリ（以下「本アプリ」）をご利用頂く際の取扱いにつき定めるものです。本規約に同意した上で本アプリをご利用ください。
@@ -359,7 +359,7 @@
 
 
 ２０２１年３月９日　施行
-</mutableString>
+</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -530,6 +530,7 @@
                     </view>
                     <connections>
                         <outlet property="table" destination="j99-Lp-LNm" id="zem-av-ihL"/>
+                        <segue destination="MIg-QD-oaV" kind="presentation" identifier="toDetailView" id="sXd-tx-G0a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JlU-FN-epW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -810,7 +811,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Wf2-oB-z7g">
                                 <rect key="frame" x="20" y="56" width="350" height="700"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <mutableString key="text">
+                                <string key="text">
 「星に願いを。」利用規約
 
 この規約は、お客様が、nullworkbench（以下「弊所」）「星に願いを」アプリ（以下「本アプリ」）をご利用頂く際の取扱いにつき定めるものです。本規約に同意した上で本アプリをご利用ください。
@@ -891,7 +892,7 @@
 
 
 ２０２１年３月９日　施行
-</mutableString>
+</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1008,6 +1009,9 @@
             <size key="intrinsicContentSize" width="46" height="30"/>
         </designable>
     </designables>
+    <inferredMetricsTieBreakers>
+        <segue reference="nel-Of-3qZ"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="multiply" catalog="system" width="128" height="111"/>

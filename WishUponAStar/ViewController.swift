@@ -32,7 +32,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var currentDirection: Float = 0.0
     
     // タップされたStarの情報
-    var selectedStarDirection: CGFloat?
+    var selectedStarDirection: Float?
     var selectedStarWish: String?
     var selectedStarUid: String?
     var selectedStarDocId: String?
@@ -248,12 +248,15 @@ extension ViewController {
     // タップイベント
     @objc func starTapped(_ sender: StarTapGestureRecognizer) {
         // DetailViewへ遷移
-        print("starTapped()")
-        selectedStarDirection = sender.direction
+        selectedStarDirection = Float(sender.direction)
         selectedStarWish = sender.wish
         selectedStarUid = sender.uid
         selectedStarDocId = sender.docId
         performSegue(withIdentifier: "toDetailView", sender: nil)
+    }
+    
+    @objc func tapped(_ sender: StarTapGestureRecognizer) {
+        print("tapped")
     }
     
     // 方角から位置Xを計算する
@@ -323,13 +326,13 @@ extension ViewController {
 //                    let starImageView = UIImageView(frame: CGRect(x: starPosX - (starSize / 2), y: starPosY - (starSize / 2), width: starSize, height: starSize))
         let starImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         starImageView.isUserInteractionEnabled = true // タップできるように
-//        starImageView.restorationIdentifier = uid // uidを格納
-        let gesture = StarTapGestureRecognizer(target: self, action: #selector(self.starTapped(_:))) // タップを認識
-        gesture.direction = direction // directionを格納
-        gesture.wish = wish // wishを格納
-        gesture.uid = uid // uidを格納
-        gesture.docId = docId // docIdを格納
-        starImageView.addGestureRecognizer(gesture) // starImageViewにgestureを追加
+        // タップを認識
+        let starImageViewGesture = StarTapGestureRecognizer(target: self, action: #selector(self.starTapped(_:)))
+        starImageViewGesture.direction = direction // directionを格納
+        starImageViewGesture.wish = wish // wishを格納
+        starImageViewGesture.uid = uid // uidを格納
+        starImageViewGesture.docId = docId // docIdを格納
+        starImageView.addGestureRecognizer(starImageViewGesture) // starImageViewにgestureを追加
         self.compassView.addSubview(starImageView) // starImageViewをcompassViewへ追加
         starImageView.image = UIImage(named: "star") // starImageViewをcompassViewへ追加
         starImageView.translatesAutoresizingMaskIntoConstraints = false // コードによるAutoLayout有効化
@@ -345,10 +348,23 @@ extension ViewController {
         
         // starLabelViewを作成
         let starLabelView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+//        starLabelView.isUserInteractionEnabled = true
+//        let starLabelViewGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapped(_:)))
+//        starLabelView.addGestureRecognizer(starLabelViewGesture)
         starLabelView.backgroundColor = UIColor.white // 背景色
         starLabelView.translatesAutoresizingMaskIntoConstraints = false // コードによるAutoLayout有効化
+        // starLabelViewをcompassViewに追加（必ずAutoLayoutより先に追加する）
+        self.compassView.addSubview(starLabelView)
+        
         // starLabel作成
         let starLabel = PaddingLabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+//        starLabel.isUserInteractionEnabled = true // タップできるように
+//        let starLabelGesture = StarTapGestureRecognizer(target: self, action: #selector(self.tapped(_:))) // タップを認識
+//        starLabelGesture.direction = direction // directionを格納
+//        starLabelGesture.wish = wish // wishを格納
+//        starLabelGesture.uid = uid // uidを格納
+//        starLabelGesture.docId = docId // docIdを格納
+//        starLabel.addGestureRecognizer(starLabelGesture) // starImageViewにgestureを追加
         starLabelView.addSubview(starLabel) // starLabelViewに追加
         starLabel.text = wish // 願いごとを代入
         starLabel.font = UIFont(name: "Hiragino Maru Gothic ProN", size: 10) // フォント設定
@@ -362,8 +378,6 @@ extension ViewController {
 //        starLabel.sizeToFit() // frameが確定する
 //        starLabel.layer.setAnchorPoint(newAnchorPoint: CGPoint(x: 0, y: 0), forView: starLabel)
         starLabel.translatesAutoresizingMaskIntoConstraints = false // コードによるAutoLayout有効化
-        // starLabelViewをcompassViewに追加（必ずAutoLayoutより先に追加する）
-        self.compassView.addSubview(starLabelView)
 //        self.compassView.addSubview(starLabel)
         // Animation
         starLabelView.alpha = 0
