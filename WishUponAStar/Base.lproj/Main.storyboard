@@ -388,7 +388,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="15"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="不適切な投稿を報告">
+                                <state key="normal" title="投稿を報告">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -706,7 +706,7 @@
             <size key="intrinsicContentSize" width="30" height="26"/>
         </designable>
         <designable name="mb7-cq-N4I">
-            <size key="intrinsicContentSize" width="135" height="27"/>
+            <size key="intrinsicContentSize" width="75" height="27"/>
         </designable>
         <designable name="roK-Nr-v9T">
             <size key="intrinsicContentSize" width="75" height="27"/>

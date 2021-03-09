@@ -14,7 +14,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     // AppDelegate
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    let settingListArray = ["ブロックしたユーザー"]
+    let settingListArray = ["ブロックしたユーザー", "お問い合わせ"]
     
     @IBOutlet var table: UITableView!
 
@@ -52,6 +52,10 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         case 0:
             // BlockedUidsViewへ遷移
             performSegue(withIdentifier: "toBlockedUidsView", sender: nil)
+        case 1:
+            let urlString = "https://docs.google.com/forms/d/e/1FAIpQLScmeFF9M47COHx8mVU2MCtDUSpU-tTDhQt93-R3FL-JxIxflQ/viewform?usp=sf_link"
+            let formUrl = URL(string: urlString)
+            UIApplication.shared.open(formUrl!) // Safariで開く
         default:
             return
         }
