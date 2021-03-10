@@ -63,12 +63,13 @@ class DetailViewController: UIViewController {
         // blockedUidsArrayがあるか
         if var blockedUidsArray = UserDefaults.standard.array(forKey: "blockedUidsArray") {
             // 対象のUidを追加
-            let new = uid!
-            blockedUidsArray.append(new)
+            blockedUidsArray.append(uid!)
             UserDefaults.standard.set(blockedUidsArray, forKey: "blockedUidsArray")
         } else {
             // 新規に作成
-            let blockedUidsArray = [String]()
+            var blockedUidsArray = [String]()
+            // 対象のUidを追加
+            blockedUidsArray.append(uid!)
             UserDefaults.standard.set(blockedUidsArray, forKey: "blockedUidsArray")
         }
     }
