@@ -65,6 +65,52 @@ extension UIViewController {
 }
 
 
+extension UITableView {
+    // 要素がない時のView
+    func setEmptyView(title: String, message: String) {
+        let emptyView = UIView(frame: CGRect(x: self.center.x, y: self.center.y, width: self.bounds.size.width, height: self.bounds.size.height))
+        emptyView.backgroundColor = UIColor.WishUponAStar()
+        
+        let titleLabel = UILabel()
+        let messageLabel = UILabel()
+        
+        // コードによるAutoLayout有効化
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        messageLabel.translatesAutoresizingMaskIntoConstraints = false
+       
+        titleLabel.text = title
+        titleLabel.textColor = UIColor.white
+        titleLabel.font = UIFont(name: "Hiragino Maru Gothic ProN", size: 20)
+        titleLabel.textAlignment = .center
+        
+        messageLabel.text = message
+        messageLabel.textColor = UIColor.lightGray
+        messageLabel.font = UIFont(name: "Hiragino Maru Gothic ProN", size: 15)
+        messageLabel.textAlignment = .center
+        
+        emptyView.addSubview(titleLabel)
+        emptyView.addSubview(messageLabel)
+        
+        NSLayoutConstraint.activate([
+            titleLabel.centerXAnchor.constraint(equalTo: emptyView.centerXAnchor),
+            titleLabel.centerYAnchor.constraint(equalTo: emptyView.centerYAnchor, constant: -20),
+            
+            messageLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
+            messageLabel.leadingAnchor.constraint(equalTo: emptyView.leadingAnchor, constant: 20),
+            messageLabel.trailingAnchor.constraint(equalTo: emptyView.trailingAnchor, constant: -20)
+        ])
+        
+        self.backgroundView = emptyView
+        self.separatorStyle = .none
+    }
+    
+    // emptyView無効化
+    func restore() {
+        self.backgroundView = nil
+        self.separatorStyle = .singleLine
+    }
+}
+
 
 
 extension TimeZone {
@@ -89,7 +135,7 @@ extension Date {
 
 extension UIColor {
     class func WishUponAStar() -> UIColor {
-        let color = UIColor.init(red: 37, green: 41, blue: 73, alpha: 1)
+        let color = UIColor(red: 37/255, green: 41/255, blue: 73/255, alpha: 1)
         return color
     }
 }
