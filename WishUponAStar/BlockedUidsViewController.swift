@@ -29,12 +29,21 @@ class BlockedUidsViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return blockedUidsArray.count
+        if blockedUidsArray.count != 0 {
+            return blockedUidsArray.count
+        } else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-        cell?.textLabel?.text = blockedUidsArray[indexPath.row]
+        
+        if blockedUidsArray.count != 0 {
+            cell?.textLabel?.text = blockedUidsArray[indexPath.row]
+        } else {
+            cell?.textLabel?.text = "ブロック中のユーザーはいません。"
+        }
         cell?.textLabel?.textColor = UIColor.white
         
         return cell!
