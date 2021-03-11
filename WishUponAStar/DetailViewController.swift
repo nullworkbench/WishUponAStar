@@ -20,11 +20,13 @@ class DetailViewController: UIViewController {
     
     var direction: Float!
     var wish: String!
+    var createdAt: Date!
     var uid: String!
     var docId: String!
     
     @IBOutlet var wishLabel: UILabel!
     @IBOutlet var directionLabel: UILabel!
+    @IBOutlet var createdAtLabel: UILabel!
     @IBOutlet var uidLabel: UILabel!
     @IBOutlet var reportButton: UIButton!
     @IBOutlet var blockButton: UIButton!
@@ -35,6 +37,7 @@ class DetailViewController: UIViewController {
 
         wishLabel.text = wish
         directionLabel.text = String(format: "%.01f", Float(direction)) + " " + judgeDirection(Float(direction))
+        createdAtLabel.text = stringFromDate(date: createdAt, format: "yyyy/MM/dd HH:mm:ss")
         uidLabel.text = uid
         
         // 投稿が自分のものかによってボタンを切り替え

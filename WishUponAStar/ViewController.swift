@@ -34,6 +34,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     // タップされたStarの情報
     var selectedStarDirection: Float?
     var selectedStarWish: String?
+    var selectedStarCreatedAt: Date?
     var selectedStarUid: String?
     var selectedStarDocId: String?
     
@@ -108,6 +109,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             let detailViewController = segue.destination as! DetailViewController
             detailViewController.direction = selectedStarDirection
             detailViewController.wish = selectedStarWish
+            detailViewController.createdAt = selectedStarCreatedAt
             detailViewController.uid = selectedStarUid
             detailViewController.docId = selectedStarDocId
         }
@@ -172,7 +174,11 @@ extension ViewController {
                 // 最新一件をcompassViewに追加
                 recents.forEach { recent in
                     let data = recent.data()
-                    self.addStarToCompassView(direction: data["direction"] as! CGFloat, wish: data["wish"] as! String, uid: data["uid"] as! String, docId: recent.documentID )
+                    self.addStarToCompassView(direction: data["direction"] as! CGFloat,
+                                              wish: data["wish"] as! String,
+                                              createdAt: (data["createdAt"] as! Timestamp).dateValue(),
+                                              uid: data["uid"] as! String,
+                                              docId: recent.documentID )
                 }
                 
                 // 最新１〜５件よりあと（アプリ起動より後）のpostを監視
@@ -185,7 +191,11 @@ extension ViewController {
                         // 更新が追加だった場合
                         if diff.type == .added {
                             let data = diff.document.data()
-                            self.addStarToCompassView(direction: data["direction"] as! CGFloat, wish: data["wish"] as! String, uid: data["uid"] as! String, docId: diff.document.documentID)
+                            self.addStarToCompassView(direction: data["direction"] as! CGFloat,
+                                                      wish: data["wish"] as! String,
+                                                      createdAt: (data["createdAt"] as! Timestamp).dateValue(),
+                                                      uid: data["uid"] as! String,
+                                                      docId: diff.document.documentID)
                         }
                     }
                 }
@@ -201,7 +211,11 @@ extension ViewController {
                         // 更新が追加だった場合
                         if diff.type == .added {
                             let data = diff.document.data()
-                            self.addStarToCompassView(direction: data["direction"] as! CGFloat, wish: data["wish"] as! String, uid: data["uid"] as! String, docId: diff.document.documentID)
+                            self.addStarToCompassView(direction: data["direction"] as! CGFloat,
+                                                      wish: data["wish"] as! String,
+                                                      createdAt: (data["createdAt"] as! Timestamp).dateValue(),
+                                                      uid: data["uid"] as! String,
+                                                      docId: diff.document.documentID)
                         }
                     }
                 }
@@ -216,6 +230,7 @@ extension ViewController {
     class StarTapGestureRecognizer: UITapGestureRecognizer {
         var direction: CGFloat!
         var wish: String!
+        var createdAt: Date!
         var uid: String!
         var docId: String!
     }
@@ -254,6 +269,7 @@ extension ViewController {
         // DetailViewへ遷移
         selectedStarDirection = Float(sender.direction)
         selectedStarWish = sender.wish
+        selectedStarCreatedAt = sender.createdAt
         selectedStarUid = sender.uid
         selectedStarDocId = sender.docId
         performSegue(withIdentifier: "toDetailView", sender: nil)
@@ -280,7 +296,7 @@ extension ViewController {
     }
     
     // compassViewにStarを追加
-    func addStarToCompassView(direction: CGFloat, wish: String, uid: String, docId: String) {
+    func addStarToCompassView(direction: CGFloat, wish: String, createdAt: Date, uid: String, docId: String) {
         // 投稿がブロック済のユーザーであれば早期return
         if isBlockedUser(uid: uid) {
             return
@@ -334,6 +350,7 @@ extension ViewController {
         let starImageViewGesture = StarTapGestureRecognizer(target: self, action: #selector(self.starTapped(_:)))
         starImageViewGesture.direction = direction // directionを格納
         starImageViewGesture.wish = wish // wishを格納
+        starImageViewGesture.createdAt = createdAt // createdAtを格納
         starImageViewGesture.uid = uid // uidを格納
         starImageViewGesture.docId = docId // docIdを格納
         starImageView.addGestureRecognizer(starImageViewGesture) // starImageViewにgestureを追加
@@ -366,6 +383,7 @@ extension ViewController {
 //        let starLabelGesture = StarTapGestureRecognizer(target: self, action: #selector(self.tapped(_:))) // タップを認識
 //        starLabelGesture.direction = direction // directionを格納
 //        starLabelGesture.wish = wish // wishを格納
+//        starLabelGesture.createdAt = createdAt
 //        starLabelGesture.uid = uid // uidを格納
 //        starLabelGesture.docId = docId // docIdを格納
 //        starLabel.addGestureRecognizer(starLabelGesture) // starImageViewにgestureを追加

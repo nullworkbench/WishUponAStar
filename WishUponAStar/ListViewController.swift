@@ -69,6 +69,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
             detailView.docId = selectedPost?.docId
             detailView.wish = selectedPost?.wish
             detailView.direction = selectedPost?.direction
+            detailView.createdAt = selectedPost?.date
             detailView.uid = selectedPost?.uid
         }
     }
