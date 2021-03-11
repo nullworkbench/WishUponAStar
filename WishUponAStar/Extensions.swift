@@ -62,6 +62,20 @@ extension UIViewController {
         }
         return false
     }
+    
+    // 禁止ワード確認
+    func checkRestrictionWord(_ target: String) -> Bool {
+        // 禁止ワード
+        let restrictionWords = ["fuck", "nigger", "cunt", "死", "しね", "しぬ", "しにたい", "殺", "ころす", "ばか", "馬鹿", "バカ", "あほ", "アホ"]
+        
+        for word in restrictionWords {
+            // 小文字に変換して文字列を検索
+            if target.lowercased().contains(word) {
+                return true
+            }
+        }
+        return false
+    }
 }
 
 

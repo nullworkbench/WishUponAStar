@@ -65,9 +65,12 @@ class TutorialViewController: UIViewController {
     }
     
     @IBAction func nextButtonTapped() {
-        let viewController = self.presentingViewController?.presentingViewController as! ViewController // ２つ前のViewController
+        // 次回以降は初回起動でないことを保存
+        UserDefaults.standard.set(true, forKey: "isNotFirstLaunch")
+        
+        let viewController = self.presentingViewController?.presentingViewController?.presentingViewController as! ViewController // 3つ前のViewController
         viewController.isTutorialGoing = true // 値渡し（チュートリアルを続行）
-        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil) // 2つ前の画面にもどる
+        self.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil) // 3つ前の画面にもどる
     }
     
 

@@ -282,7 +282,70 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1z1-Qp-urW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="134" y="1556"/>
+            <point key="canvasLocation" x="135" y="2284"/>
+        </scene>
+        <!--Set Up Wish View Controller-->
+        <scene sceneID="c53-zm-UsB">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="8DX-uE-L24" customClass="SetUpWishViewController" customModule="WishUponAStar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SwD-TH-BMH">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="あなたの願いごとを教えて！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUb-l0-SuJ">
+                                <rect key="frame" x="59.333333333333343" y="194" width="271.66666666666663" height="21"/>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="21"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="いいことありますように" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i4q-8X-BMR">
+                                <rect key="frame" x="30" y="315" width="330" height="41.333333333333314"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.65128348209999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6iz-JU-CeA" customClass="DesignableButton" customModule="WishUponAStar" customModuleProvider="target">
+                                <rect key="frame" x="107.33333333333333" y="556.33333333333337" width="175.33333333333337" height="43.666666666666629"/>
+                                <color key="backgroundColor" red="0.88235294119999996" green="0.79607843140000001" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="15"/>
+                                <state key="normal" title="願いごとを設定">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isRoundedCorner" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="doneButton" destination="N4X-K3-f7i" eventType="touchUpInside" id="EkR-NP-b6o"/>
+                                    <action selector="saveWish" destination="8DX-uE-L24" eventType="touchUpInside" id="C57-kY-trp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hsD-lp-7GD"/>
+                        <color key="backgroundColor" red="0.1450980392" green="0.16078431369999999" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6iz-JU-CeA" firstAttribute="centerX" secondItem="SwD-TH-BMH" secondAttribute="centerX" id="DyX-RP-bdn"/>
+                            <constraint firstItem="6iz-JU-CeA" firstAttribute="width" secondItem="6iz-JU-CeA" secondAttribute="height" multiplier="4:1" id="SGV-CA-cSa"/>
+                            <constraint firstItem="6iz-JU-CeA" firstAttribute="top" secondItem="i4q-8X-BMR" secondAttribute="bottom" constant="200" id="VoC-RS-Biv"/>
+                            <constraint firstItem="i4q-8X-BMR" firstAttribute="width" secondItem="i4q-8X-BMR" secondAttribute="height" multiplier="8:1" id="a6J-hk-igC"/>
+                            <constraint firstItem="hsD-lp-7GD" firstAttribute="trailing" secondItem="i4q-8X-BMR" secondAttribute="trailing" constant="30" id="gVC-RE-8on"/>
+                            <constraint firstItem="6iz-JU-CeA" firstAttribute="width" secondItem="SwD-TH-BMH" secondAttribute="width" multiplier="0.45" id="h6d-cE-Cco"/>
+                            <constraint firstItem="i4q-8X-BMR" firstAttribute="leading" secondItem="hsD-lp-7GD" secondAttribute="leading" constant="30" id="lzf-5p-hry"/>
+                            <constraint firstItem="i4q-8X-BMR" firstAttribute="top" secondItem="rUb-l0-SuJ" secondAttribute="bottom" constant="100" id="o26-lD-dM3"/>
+                            <constraint firstItem="rUb-l0-SuJ" firstAttribute="top" secondItem="hsD-lp-7GD" secondAttribute="top" constant="150" id="szY-so-qdB"/>
+                            <constraint firstItem="rUb-l0-SuJ" firstAttribute="centerX" secondItem="SwD-TH-BMH" secondAttribute="centerX" id="tLx-Mo-yw0"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Qhq-XX-ceh"/>
+                    <connections>
+                        <outlet property="wishTextField" destination="i4q-8X-BMR" id="uzL-2E-RsC"/>
+                        <segue destination="MfJ-Eq-U25" kind="show" identifier="toTutorialView" id="vDE-Nv-X5h"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bM9-LY-ngr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="134" y="1566"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ntb-yC-cxe">
@@ -446,7 +509,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="K0x-Vz-lbh"/>
                     <connections>
-                        <segue destination="MfJ-Eq-U25" kind="show" identifier="toTutorialView" id="VMy-Ry-80e"/>
+                        <segue destination="8DX-uE-L24" kind="show" identifier="toSetUpWishView" id="ZJK-wO-1sn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a8E-X5-Dje" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1004,6 +1067,9 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="6iz-JU-CeA">
+            <size key="intrinsicContentSize" width="105" height="27"/>
+        </designable>
         <designable name="Hnl-TX-eIj">
             <size key="intrinsicContentSize" width="134" height="27"/>
         </designable>

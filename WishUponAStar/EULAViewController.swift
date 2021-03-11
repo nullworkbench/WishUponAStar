@@ -19,8 +19,7 @@ class EULAViewController: UIViewController {
         let alert = UIAlertController(title: "同意しますか？", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "同意しない", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "同意する", style: .default, handler: { action in
-            UserDefaults.standard.set(true, forKey: "isNotFirstLaunch") // 次回以降は初回起動でないことを保存
-            self.performSegue(withIdentifier: "toTutorialView", sender: nil)
+            self.performSegue(withIdentifier: "toSetUpWishView", sender: nil)
         }))
         present(alert, animated: true, completion: nil)
     }
