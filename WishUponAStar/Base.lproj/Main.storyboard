@@ -84,13 +84,20 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isRoundedCorner" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LlL-No-aqc">
-                                <rect key="frame" x="193.66666666666666" y="104" width="3" height="70"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LlL-No-aqc" customClass="DesignableView" customModule="WishUponAStar" customModuleProvider="target">
+                                <rect key="frame" x="193" y="129" width="4" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="3" id="IHg-Zo-DF1"/>
-                                    <constraint firstAttribute="height" constant="70" id="WFv-sa-bBC"/>
+                                    <constraint firstAttribute="width" constant="4" id="IHg-Zo-DF1"/>
+                                    <constraint firstAttribute="height" constant="45" id="WFv-sa-bBC"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isRoundedCorner" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xil-jK-Bnb" customClass="DesignableButton" customModule="WishUponAStar" customModuleProvider="target">
                                 <rect key="frame" x="146.33333333333334" y="672.66666666666663" width="97.333333333333343" height="97.333333333333371"/>
@@ -157,6 +164,14 @@
                                     <segue destination="9p2-Nu-5x7" kind="presentation" modalPresentationStyle="automatic" id="x8a-GY-WUF"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="triangle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="nnP-uF-5Sz">
+                                <rect key="frame" x="184.66666666666666" y="114.66666666666666" width="20.666666666666657" height="18.333333333333343"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="nnP-uF-5Sz" secondAttribute="height" multiplier="1:1" id="nUy-cs-iti"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.1450980392" green="0.16078431369999999" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -165,8 +180,9 @@
                             <constraint firstItem="Xil-jK-Bnb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="25A-rg-WRY"/>
                             <constraint firstItem="iBc-nW-9zQ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.18" id="4Ng-sd-Mzm"/>
                             <constraint firstItem="sr0-Vp-aJ5" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.18" id="57g-oo-Tdq"/>
-                            <constraint firstItem="LlL-No-aqc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="9Rq-dT-B4Z"/>
+                            <constraint firstItem="LlL-No-aqc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="85" id="9Rq-dT-B4Z"/>
                             <constraint firstItem="sr0-Vp-aJ5" firstAttribute="centerY" secondItem="Xil-jK-Bnb" secondAttribute="centerY" id="Bc9-tS-fE7"/>
+                            <constraint firstItem="LlL-No-aqc" firstAttribute="top" secondItem="nnP-uF-5Sz" secondAttribute="bottom" constant="-5" id="Cbw-Ts-3cr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="8XZ-cN-zJk" secondAttribute="leading" constant="-20" id="MD4-xi-3wo"/>
                             <constraint firstItem="iBc-nW-9zQ" firstAttribute="leading" secondItem="Xil-jK-Bnb" secondAttribute="trailing" constant="40" id="Rie-EL-Loi"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Xil-jK-Bnb" secondAttribute="bottom" constant="40" id="SIP-TD-wmB"/>
@@ -176,6 +192,7 @@
                             <constraint firstItem="8XZ-cN-zJk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="ltT-8M-0lt"/>
                             <constraint firstItem="Xil-jK-Bnb" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.25" id="mEz-Jk-UGA"/>
                             <constraint firstItem="dMr-hb-L6n" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="nMc-I3-iu1"/>
+                            <constraint firstItem="nnP-uF-5Sz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oLO-s6-lnX"/>
                             <constraint firstItem="8XZ-cN-zJk" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.1" id="tH1-L1-F8L"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dMr-hb-L6n" secondAttribute="trailing" constant="10" id="xVQ-Pu-3w3"/>
                         </constraints>
@@ -1016,6 +1033,7 @@
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="multiply" catalog="system" width="128" height="111"/>
         <image name="multiply.circle" catalog="system" width="128" height="121"/>
+        <image name="triangle.fill" catalog="system" width="128" height="112"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
