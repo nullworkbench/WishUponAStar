@@ -165,14 +165,18 @@ extension ViewController {
 // MARK: - setRealtimeListener
 extension ViewController {
     func setRealtimeListener() {
-        // 最新１件取得
-        db.collection("posts").order(by: "createdAt", descending: true).limit(to: 1).getDocuments() { (snapshot, err) in
+        // 最新５件取得
+        db.collection("posts").order(by: "createdAt", descending: true).limit(to: 5).getDocuments() { (snapshot, err) in
             // 最新１件が存在するか
-            if let recent = snapshot?.documents[0], recent.exists {
+            if let recents = snapshot?.documents, recents[0].exists {
                 // 最新一件をcompassViewに追加
-                self.addStarToCompassView(direction: recent.data()["direction"] as! CGFloat, wish: recent.data()["wish"] as! String, uid: recent.data()["uid"] as! String, docId: recent.documentID )
-                // 最新１件よりあと（アプリ起動より後）のpostを監視
-                self.appDelegate.listener = self.db.collection("posts").order(by: "createdAt").start(afterDocument: recent).addSnapshotListener { (snapshot, err) in
+                recents.forEach { recent in
+                    let data = recent.data()
+                    self.addStarToCompassView(direction: data["direction"] as! CGFloat, wish: data["wish"] as! String, uid: data["uid"] as! String, docId: recent.documentID )
+                }
+                
+                // 最新１〜５件よりあと（アプリ起動より後）のpostを監視
+                self.appDelegate.listener = self.db.collection("posts").order(by: "createdAt").start(afterDocument: recents[recents.endIndex - 1]).addSnapshotListener { (snapshot, err) in
                     guard let doc = snapshot else {
                         print("Error fetching documents: \(err!)")
                         return
@@ -181,7 +185,7 @@ extension ViewController {
                         // 更新が追加だった場合
                         if diff.type == .added {
                             let data = diff.document.data()
-                            self.addStarToCompassView(direction: data["direction"] as! CGFloat, wish: data["wish"] as! String, uid: data["uid"] as! String, docId: recent.documentID)
+                            self.addStarToCompassView(direction: data["direction"] as! CGFloat, wish: data["wish"] as! String, uid: data["uid"] as! String, docId: diff.document.documentID)
                         }
                     }
                 }
