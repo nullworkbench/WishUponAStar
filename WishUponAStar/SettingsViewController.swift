@@ -21,8 +21,8 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // ナビゲーションバーの色を変更（動作不良）
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 37, green: 41, blue: 73, alpha: 1)
+        // ナビゲーションバーの色を変更
+//        self.navigationController?.navigationBar.barTintColor = UIColor.WishUponAStar()
         
         table.delegate = self
         table.dataSource = self
